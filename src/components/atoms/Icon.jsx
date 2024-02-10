@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import IconArrowRightBlack20 from "@assets/icons/icon-arrow-right-black-20.svg";
 import IconBackward from "@assets/icons/icon-backward.svg";
 import IconHeartMono from "@assets/icons/icon-heart-mono.svg";
 import IconHeartOff from "@assets/icons/icon-heart-off.svg";
@@ -21,6 +22,7 @@ export const Icon = ({ src, width, height, onClick }) => {
 
   let icon;
   if (src === undefined) throw new Error("src prop is necessary.");
+  else if (src === "IconArrowRight") icon = IconArrowRightBlack20;
   else if (src === "IconBackward") icon = IconBackward;
   else if (src === "IconHeartMono") icon = IconHeartMono;
   else if (src === "IconHeartOff") icon = IconHeartOff;

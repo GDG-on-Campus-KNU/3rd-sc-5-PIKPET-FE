@@ -17,7 +17,7 @@ const HomeTemplate = () => {
       {/* <ButtonTag type="Default" title="#포메라니안"></ButtonTag> */}
       {/* <CTAContainer type="2ButtonUneven" title1="입력하기" title2="신청하기" /> */}
       {/* <Input placeholder="이름" /> */}
-      {/* <Container /> */}
+      {/* <Container title="내 검색 히스토리" /> */}
       <ContentLayout>
         <Footer />
         <NavBar />

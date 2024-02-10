@@ -1,8 +1,17 @@
+import ContainerTitle from "@components/atoms/ContainerTitle";
 import styled from "styled-components";
 import { COLORS } from "@assets/theme";
 
-const Container = ({ width, height, paddingX, paddingY }) => {
-  return <StyledContainer></StyledContainer>;
+const Container = ({ title, width, height, paddingX, paddingY }) => {
+  if (title) {
+    return (
+      <StyledContainer>
+        <ContainerTitle title={title} />
+      </StyledContainer>
+    );
+  } else {
+    <StyledContainer></StyledContainer>;
+  }
 };
 
 const StyledContainer = styled.div`
@@ -13,6 +22,9 @@ const StyledContainer = styled.div`
   border: 1px solid ${COLORS.lightGray};
   border-radius: 10px;
   background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 `;
 
 export default Container;
