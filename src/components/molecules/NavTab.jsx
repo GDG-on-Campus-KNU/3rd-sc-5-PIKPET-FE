@@ -3,38 +3,38 @@ import styled from "styled-components";
 import { Text } from "@styles/Text";
 import { COLORS } from "@assets/theme";
 
-const NavButton = ({ type, selected }) => {
+const NavTab = ({ type, selected }) => {
   return (
     <>
       {type === "home" && (
-        <StyledNavButton selected={selected}>
+        <StyledNavTab selected={selected}>
           <Icon src={selected ? "IconHomeSelected" : "IconHomeMono"} />
           <Text color={selected ? COLORS.primary : COLORS.gray} fontSize="12px">
             홈
           </Text>
-        </StyledNavButton>
+        </StyledNavTab>
       )}
       {type === "search" && (
-        <StyledNavButton selected={selected}>
+        <StyledNavTab selected={selected}>
           <Icon src={selected ? "IconSearchSelected" : "IconSearchMono"} />
           <Text color={selected ? COLORS.primary : COLORS.gray} fontSize="12px">
             검색
           </Text>
-        </StyledNavButton>
+        </StyledNavTab>
       )}
       {type === "user" && (
-        <StyledNavButton selected={selected}>
+        <StyledNavTab selected={selected}>
           <Icon src={selected ? "IconUserSelected" : "IconUserMono"} />
           <Text color={selected ? COLORS.primary : COLORS.gray} fontSize="12px">
             마이페이지
           </Text>
-        </StyledNavButton>
+        </StyledNavTab>
       )}
     </>
   );
 };
 
-const StyledNavButton = styled.div`
+const StyledNavTab = styled.div`
   width: calc(100% / 3);
   height: 72px;
   display: flex;
@@ -48,4 +48,4 @@ const StyledNavButton = styled.div`
   cursor: pointer;
 `;
 
-export default NavButton;
+export default NavTab;
