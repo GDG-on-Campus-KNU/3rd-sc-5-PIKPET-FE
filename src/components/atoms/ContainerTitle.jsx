@@ -15,6 +15,7 @@ const ContainerTitle = ({ title, color, fontSize }) => {
 const StyledContainerTitle = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   color: ${(props) => props.color || "black"};
   font-size: ${(props) => props.fontSize || "16px"};
