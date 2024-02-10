@@ -1,4 +1,5 @@
 import Header from "@components/organisms/Header";
+import Footer from "@components/organisms/Footer";
 import NavBar from "@components/organisms/NavBar";
 import styled from "styled-components";
 
@@ -7,6 +8,7 @@ const HomeTemplate = () => {
     <ResponsiveLayout>
       <Header type="default" />
       <ContentLayout>
+        <Footer />
         <NavBar />
       </ContentLayout>
     </ResponsiveLayout>
