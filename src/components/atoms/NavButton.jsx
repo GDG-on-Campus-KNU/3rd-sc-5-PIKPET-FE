@@ -44,55 +44,8 @@ const StyledNavButton = styled.div`
   margin: 0 auto;
   gap: 4px;
   border-top: ${(props) => (props.selected ? `2px solid ${COLORS.primary}` : "none")};
+  box-sizing: border-box;
+  cursor: pointer;
 `;
 
 export default NavButton;
-
-// import IconHomeMono from "@assets/icons/icon-home-mono.svg";
-// import IconHomeSelected from "@assets/icons/icon-home-selected.svg";
-// import IconSearchMono from "@assets/icons/icon-search-mono.svg";
-// import IconSearchSelected from "@assets/icons/icon-search-selected.svg";
-// import IconUserMono from "@assets/icons/icon-user-mono.svg";
-// import IconUserSelected from "@assets/icons/icon-user-selected.svg";
-
-//    {selected ? (
-//             <img
-//               src={IconHomeSelected}
-//               alt="IconHomeSelected"
-//               style={{ width: "24px", height: "24px" }}
-//             />
-//           ) : (
-//             <img
-//               src={IconHomeMono}
-//               alt="IconHomeMono"
-//               style={{ width: "24px", height: "24px" }}
-//             />
-//           )}
-
-// {selected ? (
-//     <img
-//       src={IconSearchSelected}
-//       alt="IconSearchSelected"
-//       style={{ width: "24px", height: "24px" }}
-//     />
-//   ) : (
-//     <img
-//       src={IconSearchMono}
-//       alt="IconSearchMono"
-//       style={{ width: "24px", height: "24px" }}
-//     />
-//   )}
-
-//   {selected ? (
-//     <img
-//       src={IconUserSelected}
-//       alt="IconUserSelected"
-//       style={{ width: "24px", height: "24px" }}
-//     />
-//   ) : (
-//     <img
-//       src={IconUserMono}
-//       alt="IconUserMono"
-//       style={{ width: "24px", height: "24px" }}
-//     />
-//   )}
