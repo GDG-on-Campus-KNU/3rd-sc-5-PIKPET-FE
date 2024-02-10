@@ -3,10 +3,10 @@ import Footer from "@components/organisms/Footer";
 import NavBar from "@components/organisms/NavBar";
 import styled from "styled-components";
 
-import ButtonCTA from "../atoms/ButtonCTA";
-import ButtonTag from "../atoms/ButtonTag";
-import CTAContainer from "../molecules/CTAContainer";
-import Input from "../atoms/Input";
+import ButtonCTA from "@components/atoms/ButtonCTA";
+import ButtonTag from "@components/atoms/ButtonTag";
+import CTAContainer from "@components/molecules/CTAContainer";
+import Input from "@components/atoms/Input";
 
 const HomeTemplate = () => {
   return (
@@ -14,8 +14,8 @@ const HomeTemplate = () => {
       <Header type="Default" />
       {/* <ButtonCTA type="SecondaryDisabled" title="입력하기" /> */}
       {/* <ButtonTag type="Default" title="#포메라니안"></ButtonTag> */}
-      <CTAContainer type="2ButtonUneven" title1="입력하기" title2="신청하기" />
-      <Input type="Default" placeholder="이름" />
+      {/* <CTAContainer type="2ButtonUneven" title1="입력하기" title2="신청하기" /> */}
+      {/* <Input placeholder="이름" /> */}
       <ContentLayout>
         <Footer />
         <NavBar />
