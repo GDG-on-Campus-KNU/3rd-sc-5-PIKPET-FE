@@ -57,10 +57,6 @@ const ButtonCTA = ({ type, title, width, paddingX, paddingY, fontSize, ...rest }
 };
 
 const StyledButtonCTA = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
   width: ${(props) => props.width || "100%"};
   padding: ${(props) => props.paddingY || "12px"} ${(props) => props.paddingX || "16px"};
   box-sizing: border-box;
