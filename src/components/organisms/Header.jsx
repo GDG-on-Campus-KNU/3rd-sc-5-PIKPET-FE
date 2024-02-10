@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Icon, IconGroup } from "@components/atoms/Icon";
 import styled from "styled-components";
-import { Text } from "@styles/text";
+import { Text } from "@styles/Text";
 import { COLORS } from "@assets/theme";
 
 const Header = ({ type, title }) => {
@@ -33,8 +33,8 @@ const Header = ({ type, title }) => {
     return (
       <StyledHeader>
         <Icon src="IconBackward" />
-        <p>{title}</p>
-        <div></div>
+        <Text fontWeight="700">{title}</Text>
+        <div style={{ width: "24px", height: "24px" }}></div>
       </StyledHeader>
     );
   } else if (type === "PetInfoDetail") {
@@ -65,7 +65,7 @@ const Header = ({ type, title }) => {
     return (
       <StyledHeader>
         <Icon src="IconBackward" />
-        <p>{title}</p>
+        <Text fontWeight="700">{title}</Text>
         <Icon src="IconSave" />
       </StyledHeader>
     );

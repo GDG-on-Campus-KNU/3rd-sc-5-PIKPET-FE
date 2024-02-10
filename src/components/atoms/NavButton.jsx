@@ -1,6 +1,6 @@
 import { Icon } from "@components/atoms/Icon";
 import styled from "styled-components";
-import { Text } from "@styles/text";
+import { Text } from "@styles/Text";
 import { COLORS } from "@assets/theme";
 
 const NavButton = ({ type, selected }) => {
