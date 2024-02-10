@@ -7,6 +7,7 @@ import ButtonCTA from "@components/atoms/ButtonCTA";
 import ButtonTag from "@components/atoms/ButtonTag";
 import CTAContainer from "@components/molecules/CTAContainer";
 import Input from "@components/atoms/Input";
+import Container from "@components/atoms/Container";
 
 const HomeTemplate = () => {
   return (
@@ -16,6 +17,7 @@ const HomeTemplate = () => {
       {/* <ButtonTag type="Default" title="#포메라니안"></ButtonTag> */}
       {/* <CTAContainer type="2ButtonUneven" title1="입력하기" title2="신청하기" /> */}
       {/* <Input placeholder="이름" /> */}
+      {/* <Container /> */}
       <ContentLayout>
         <Footer />
         <NavBar />
