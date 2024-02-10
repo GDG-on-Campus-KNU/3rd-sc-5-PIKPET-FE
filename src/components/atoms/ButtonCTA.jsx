@@ -68,11 +68,8 @@ const StyledButtonCTA = styled.button`
   font-size: ${(props) => props.fontSize || "16px"};
   font-weight: 600;
   // font-family: ${(props) => props.theme.fontBody};
-  text-decoration: none;
-  // transition: background-color 0.3s;
 
   &:hover {
-    cursor: pointer;
     opacity: 0.8;
   }
 `;
