@@ -3,10 +3,15 @@ import Footer from "@components/organisms/Footer";
 import NavBar from "@components/organisms/NavBar";
 import styled from "styled-components";
 
+import ButtonCTA from "../atoms/ButtonCTA";
+import CTAContainer from "../molecules/CTAContainer";
+
 const HomeTemplate = () => {
   return (
     <ResponsiveLayout>
       <Header type="default" />
+      {/* <ButtonCTA type="secondaryDisabled" title="입력하기" /> */}
+      {/* <CTAContainer type="2ButtonUneven" title1="입력하기" title2="신청하기" /> */}
       <ContentLayout>
         <Footer />
         <NavBar />
