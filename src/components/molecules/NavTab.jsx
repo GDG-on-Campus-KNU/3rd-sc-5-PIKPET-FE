@@ -6,7 +6,7 @@ import { COLORS } from "@assets/theme";
 const NavTab = ({ type, selected }) => {
   return (
     <>
-      {type === "home" && (
+      {type === "Home" && (
         <StyledNavTab selected={selected}>
           <Icon src={selected ? "IconHomeSelected" : "IconHomeMono"} />
           <Text color={selected ? COLORS.primary : COLORS.gray} fontSize="12px">
@@ -14,7 +14,7 @@ const NavTab = ({ type, selected }) => {
           </Text>
         </StyledNavTab>
       )}
-      {type === "search" && (
+      {type === "Search" && (
         <StyledNavTab selected={selected}>
           <Icon src={selected ? "IconSearchSelected" : "IconSearchMono"} />
           <Text color={selected ? COLORS.primary : COLORS.gray} fontSize="12px">
@@ -22,7 +22,7 @@ const NavTab = ({ type, selected }) => {
           </Text>
         </StyledNavTab>
       )}
-      {type === "user" && (
+      {type === "User" && (
         <StyledNavTab selected={selected}>
           <Icon src={selected ? "IconUserSelected" : "IconUserMono"} />
           <Text color={selected ? COLORS.primary : COLORS.gray} fontSize="12px">

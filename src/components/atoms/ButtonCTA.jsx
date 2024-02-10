@@ -5,9 +5,9 @@ import { COLORS } from "@assets/theme";
 const ButtonCTA = ({ type, title, width, paddingX, paddingY, fontSize, ...rest }) => {
   if (type === undefined) {
     throw new Error("type prop is necessary.");
-  } else if (type === "primary") {
+  } else if (type === "Primary") {
     return (
-      <Primary
+      <StyledPrimary
         width={width}
         paddingX={paddingX}
         paddingY={paddingY}
@@ -15,11 +15,11 @@ const ButtonCTA = ({ type, title, width, paddingX, paddingY, fontSize, ...rest }
         {...rest}
       >
         {title}
-      </Primary>
+      </StyledPrimary>
     );
-  } else if (type === "primaryDisabled") {
+  } else if (type === "PrimaryDisabled") {
     return (
-      <PrimaryDisabled
+      <StyledPrimaryDisabled
         width={width}
         paddingX={paddingX}
         paddingY={paddingY}
@@ -27,11 +27,11 @@ const ButtonCTA = ({ type, title, width, paddingX, paddingY, fontSize, ...rest }
         {...rest}
       >
         {title}
-      </PrimaryDisabled>
+      </StyledPrimaryDisabled>
     );
-  } else if (type === "secondary") {
+  } else if (type === "Secondary") {
     return (
-      <Secondary
+      <StyledSecondary
         width={width}
         paddingX={paddingX}
         paddingY={paddingY}
@@ -39,11 +39,11 @@ const ButtonCTA = ({ type, title, width, paddingX, paddingY, fontSize, ...rest }
         {...rest}
       >
         {title}
-      </Secondary>
+      </StyledSecondary>
     );
-  } else if (type === "secondaryDisabled") {
+  } else if (type === "SecondaryDisabled") {
     return (
-      <SecondaryDisabled
+      <StyledSecondaryDisabled
         width={width}
         paddingX={paddingX}
         paddingY={paddingY}
@@ -51,7 +51,7 @@ const ButtonCTA = ({ type, title, width, paddingX, paddingY, fontSize, ...rest }
         {...rest}
       >
         {title}
-      </SecondaryDisabled>
+      </StyledSecondaryDisabled>
     );
   } else throw new Error("Undefined type of ButtonCTA");
 };
@@ -77,25 +77,25 @@ const StyledButtonCTA = styled.button`
   }
 `;
 
-const Primary = styled(StyledButtonCTA)`
+const StyledPrimary = styled(StyledButtonCTA)`
   border: none;
   background-color: ${COLORS.primary};
   color: white;
 `;
 
-const PrimaryDisabled = styled(Primary)`
+const StyledPrimaryDisabled = styled(StyledPrimary)`
   opacity: 0.5;
   //   cursor: not-allowed;
   pointer-events: none;
 `;
 
-const Secondary = styled(StyledButtonCTA)`
+const StyledSecondary = styled(StyledButtonCTA)`
   border: 1px solid ${COLORS.primary};
   background-color: white;
   color: ${COLORS.primary};
 `;
 
-const SecondaryDisabled = styled(Secondary)`
+const StyledSecondaryDisabled = styled(StyledSecondary)`
   border-color: ${COLORS.gray};
   color: ${COLORS.gray};
 

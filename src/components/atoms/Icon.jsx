@@ -20,7 +20,7 @@ export const Icon = ({ src, width, height, onClick }) => {
   };
 
   let icon;
-  if (src === "undefined") throw new Error("src prop is necessary.");
+  if (src === undefined) throw new Error("src prop is necessary.");
   else if (src === "IconBackward") icon = IconBackward;
   else if (src === "IconHeartMono") icon = IconHeartMono;
   else if (src === "IconHeartOff") icon = IconHeartOff;
@@ -32,7 +32,7 @@ export const Icon = ({ src, width, height, onClick }) => {
   else if (src === "IconSearchSelected") icon = IconSearchSelected;
   else if (src === "IconUserMono") icon = IconUserMono;
   else if (src === "IconUserSelected") icon = IconUserSelected;
-  else throw new Error("undefined src");
+  else throw new Error("Undefined src of Icon");
 
   return (
     <StyledIcon src={icon} alt="icon" width={width} height={height} onClick={handleClick} />

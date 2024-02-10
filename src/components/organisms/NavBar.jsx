@@ -5,9 +5,9 @@ import styled from "styled-components";
 const NavBar = () => {
   return (
     <StyledNavBar>
-      <NavTab type="home" selected={true} />
-      <NavTab type="search" selected={false} />
-      <NavTab type="user" selected={false} />
+      <NavTab type="Home" selected={true} />
+      <NavTab type="Search" selected={false} />
+      <NavTab type="User" selected={false} />
     </StyledNavBar>
   );
 };

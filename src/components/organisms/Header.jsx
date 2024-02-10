@@ -19,9 +19,9 @@ const Header = ({ type, title }) => {
     navigate("/interest");
   };
 
-  if (type === "undefined") {
+  if (type === undefined) {
     throw new Error("type prop is necessary.");
-  } else if (type === "default") {
+  } else if (type === "Default") {
     return (
       <StyledHeader backgroundColor="transparent">
         <Text color={COLORS.primary} fontSize="24px" fontWeight="700">
@@ -29,7 +29,7 @@ const Header = ({ type, title }) => {
         </Text>
       </StyledHeader>
     );
-  } else if (type === "widget") {
+  } else if (type === "Widget") {
     return (
       <StyledHeader>
         <Icon src="IconBackward" />

@@ -9,28 +9,28 @@ const CTAContainer = ({ type, title1, title2 }) => {
   } else if (type === "1Button") {
     return (
       <StyledCTAContainer>
-        <ButtonCTA type="primary" title={title1} />
+        <ButtonCTA type="Primary" title={title1} />
       </StyledCTAContainer>
     );
   } else if (type === "2ButtonEven") {
     return (
       <StyledCTAContainer>
-        <ButtonCTA type="secondary" title={title1} />
-        <ButtonCTA type="primary" title={title2} />
+        <ButtonCTA type="Secondary" title={title1} />
+        <ButtonCTA type="Primary" title={title2} />
       </StyledCTAContainer>
     );
   } else if (type === "2ButtonUneven") {
     return (
       <StyledCTAContainer>
-        <ButtonCTA type="secondary" title={title1} width="calc(100% / 3)" />
-        <ButtonCTA type="primary" title={title2} width="calc(100% * 2/3)" />
+        <ButtonCTA type="Secondary" title={title1} width="calc(100% / 3)" />
+        <ButtonCTA type="Primary" title={title2} width="calc(100% * 2/3)" />
       </StyledCTAContainer>
     );
-  } else if (type === "searchFilter") {
+  } else if (type === "SearchFilter") {
     return (
       <StyledCTAContainer>
         <Icon src="IconRefreshMono" />
-        <ButtonCTA type="primary" title="검색하기" />
+        <ButtonCTA type="Primary" title="검색하기" />
       </StyledCTAContainer>
     );
   } else throw new Error("Undefined type of CTAContainer");

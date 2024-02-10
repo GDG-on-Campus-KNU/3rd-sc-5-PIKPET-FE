@@ -9,8 +9,8 @@ import CTAContainer from "../molecules/CTAContainer";
 const HomeTemplate = () => {
   return (
     <ResponsiveLayout>
-      <Header type="default" />
-      {/* <ButtonCTA type="secondaryDisabled" title="입력하기" /> */}
+      <Header type="Default" />
+      {/* <ButtonCTA type="SecondaryDisabled" title="입력하기" /> */}
       {/* <CTAContainer type="2ButtonUneven" title1="입력하기" title2="신청하기" /> */}
       <ContentLayout>
         <Footer />
