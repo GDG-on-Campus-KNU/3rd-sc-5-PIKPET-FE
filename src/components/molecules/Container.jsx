@@ -2,16 +2,13 @@ import ContainerTitle from "@components/atoms/ContainerTitle";
 import styled from "styled-components";
 import { COLORS } from "@assets/theme";
 
-const Container = ({ title, width, height, paddingX, paddingY }) => {
-  if (title) {
-    return (
-      <StyledContainer>
-        <ContainerTitle title={title} />
-      </StyledContainer>
-    );
-  } else {
-    <StyledContainer></StyledContainer>;
-  }
+const Container = ({ title, children, width, height, paddingX, paddingY }) => {
+  return (
+    <StyledContainer>
+      {title && <ContainerTitle title={title} />}
+      {children}
+    </StyledContainer>
+  );
 };
 
 const StyledContainer = styled.div`
