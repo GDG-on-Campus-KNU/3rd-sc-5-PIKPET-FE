@@ -22,7 +22,7 @@ const Header = ({ type, title }) => {
     throw new Error("type prop is necessary.");
   } else if (type === "Default") {
     return (
-      <StyledHeader backgroundColor="transparent">
+      <StyledHeader backgroundColor={(props) => props.theme.colors.background}>
         <Text color={(props) => props.theme.colors.primary} fontSize="24px" fontWeight="700">
           PIKPET
         </Text>
@@ -80,6 +80,9 @@ const StyledHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   background-color: ${(props) => props.backgroundColor || "white"};
+
+  position: sticky;
+  top: 0%;
 `;
 
 export default Header;

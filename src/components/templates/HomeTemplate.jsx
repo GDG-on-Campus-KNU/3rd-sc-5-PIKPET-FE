@@ -17,6 +17,7 @@ const HomeTemplate = () => {
   return (
     <ResponsiveLayout>
       <Header type="Default" />
+
       <ContentLayout paddingX>
         {/* <ButtonCTA type="SecondaryDisabled" title="입력하기" /> */}
         {/* <ButtonTag type="Default" title="#포메라니안"></ButtonTag> */}
@@ -45,6 +46,7 @@ const HomeTemplate = () => {
         <Img src={poster} width="100%" />
         <Footer />
       </ContentLayout>
+
       <NavBar />
     </ResponsiveLayout>
   );
@@ -53,6 +55,8 @@ const HomeTemplate = () => {
 const ResponsiveLayout = styled.div`
   width: 100vw;
   height: 100vh;
+  // overflow-y: auto;
+
   position: fixed;
   top: 0;
   // 중앙 정렬
@@ -65,6 +69,9 @@ const ResponsiveLayout = styled.div`
 `;
 
 const ContentLayout = styled.div`
+  height: calc(100vh - 54px - 72px - 12px); // - Header - NavBar - padding-bottom
+  overflow-y: auto;
+
   display: flex;
   flex-direction: column;
   align-items: center;

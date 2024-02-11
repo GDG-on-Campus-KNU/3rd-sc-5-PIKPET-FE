@@ -23,7 +23,7 @@ const Footer = () => {
 
 const StyledFooter = styled.div`
   width: 100%;
-  height: auto;
+  height: 84px;
   padding: 12px 16px;
   box-sizing: border-box;
   display: flex;

@@ -17,8 +17,9 @@ const StyledNavBar = styled.div`
   height: auto;
   display: flex;
 
-  position: fixed;
+  position: sticky;
   bottom: 0;
+  z-index: 1000;
 `;
 
 export default NavBar;
