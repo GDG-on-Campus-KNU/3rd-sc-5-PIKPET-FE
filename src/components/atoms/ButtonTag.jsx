@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { COLORS } from "@assets/theme";
 
 // type 필수
 
@@ -38,18 +37,18 @@ const StyledButtonTag = styled.button`
 `;
 
 const StyledDefault = styled(StyledButtonTag)`
-  border: 1px solid ${COLORS.lightGray};
+  border: 1px solid ${(props) => props.theme.colors.lightGray};
   color: black;
 `;
 
 const StyledSelected = styled(StyledDefault)`
-  border: 1px solid ${COLORS.primary};
-  color: ${COLORS.primary};
+  border: 1px solid ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.primary};
 `;
 
 const StyledMiniCTA = styled(StyledButtonTag)`
   border: none;
   color: white;
-  background-color: ${COLORS.primary};
+  background-color: ${(props) => props.theme.colors.primary};
 `;
 export default ButtonTag;

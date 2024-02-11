@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { COLORS } from "@assets/theme";
 
 const Input = ({ placeholder, width, paddingX, paddingY, fontSize, ...rest }) => {
   return (
@@ -19,12 +18,12 @@ const StyledInput = styled.input`
   box-sizing: border-box;
   font-size: ${(props) => props.fontSize || "14px"};
   border-radius: 10px;
-  border: 1px solid ${COLORS.lightGray};
+  border: 1px solid ${(props) => props.theme.colors.lightGray};
   background-color: white;
   outline: none;
 
   &:focus {
-    border-color: ${COLORS.primary};
+    border-color: ${(props) => props.theme.colors.primary};
   }
 `;
 

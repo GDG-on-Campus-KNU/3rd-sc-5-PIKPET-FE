@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { COLORS } from "@assets/theme";
 
 // type: 버튼 모양 (필수), title: 글자, ...
 const ButtonCTA = ({ type, title, width, paddingX, paddingY, fontSize, ...rest }) => {
@@ -72,7 +71,7 @@ const StyledButtonCTA = styled.button`
 
 const StyledPrimary = styled(StyledButtonCTA)`
   border: none;
-  background-color: ${COLORS.primary};
+  background-color: ${(props) => props.theme.colors.primary};
   color: white;
 `;
 
@@ -83,14 +82,14 @@ const StyledPrimaryDisabled = styled(StyledPrimary)`
 `;
 
 const StyledSecondary = styled(StyledButtonCTA)`
-  border: 1px solid ${COLORS.primary};
+  border: 1px solid ${(props) => props.theme.colors.primary};
   background-color: white;
-  color: ${COLORS.primary};
+  color: ${(props) => props.theme.colors.primary};
 `;
 
 const StyledSecondaryDisabled = styled(StyledSecondary)`
-  border-color: ${COLORS.gray};
-  color: ${COLORS.gray};
+  border-color: ${(props) => props.theme.colors.gray};
+  color: ${(props) => props.theme.colors.gray};
 
   opacity: 0.5;
   //   cursor: not-allowed;

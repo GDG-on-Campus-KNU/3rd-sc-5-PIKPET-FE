@@ -11,7 +11,6 @@ import IconSearchMono from "@assets/icons/icon-search-mono.svg";
 import IconSearchSelected from "@assets/icons/icon-search-selected.svg";
 import IconUserMono from "@assets/icons/icon-user-mono.svg";
 import IconUserSelected from "@assets/icons/icon-user-selected.svg";
-import { COLORS } from "../../assets/theme";
 
 export const Icon = ({ src, width, height, onClick }) => {
   const handleClick = () => {
@@ -47,7 +46,7 @@ const StyledIcon = styled.img`
   cursor: pointer;
 
   // &:hover {
-  //   background-color: ${COLORS.extraLightGray};
+  //   background-color: ${(props) => props.theme.colors.extraLightGray};
   //   border-radius: 5px;
   // }
 `;

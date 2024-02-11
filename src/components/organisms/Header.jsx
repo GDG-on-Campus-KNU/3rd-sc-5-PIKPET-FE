@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import { Icon, IconGroup } from "@components/atoms/Icon";
 import styled from "styled-components";
 import { Text } from "@styles/Text";
-import { COLORS } from "@assets/theme";
 
 const Header = ({ type, title }) => {
   const navigate = useNavigate();
@@ -24,7 +23,7 @@ const Header = ({ type, title }) => {
   } else if (type === "Default") {
     return (
       <StyledHeader backgroundColor="transparent">
-        <Text color={COLORS.primary} fontSize="24px" fontWeight="700">
+        <Text color={(props) => props.theme.colors.primary} fontSize="24px" fontWeight="700">
           PIKPET
         </Text>
       </StyledHeader>

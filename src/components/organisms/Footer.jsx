@@ -1,7 +1,6 @@
 import { SiGithub, SiNotion } from "react-icons/si";
 import { Text } from "@styles/text";
 import styled from "styled-components";
-import { COLORS } from "@assets/theme";
 
 const Footer = () => {
   return (
@@ -33,7 +32,7 @@ const StyledFooter = styled.div`
   align-items: flex-start;
   gap: 10px;
 
-  background-color: ${COLORS.background};
+  background-color: ${(props) => props.theme.colors.background};
 `;
 
 const StyledIconGroup = styled.div`

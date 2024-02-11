@@ -12,7 +12,6 @@ import { Img, ImgGroup } from "@components/atoms/Img";
 import samplePicture from "@assets/sample-picture.png";
 import poster from "@assets/poster.png";
 import WidgetArea from "../organisms/WidgetArea";
-import { COLORS } from "../../assets/theme";
 
 const HomeTemplate = () => {
   return (
