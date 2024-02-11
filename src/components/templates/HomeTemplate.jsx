@@ -60,8 +60,6 @@ const ResponsiveLayout = styled.div`
   left: 50%;
   transform: translateX(-50%);
 
-  background-color: ${COLORS.background};
-
   @media (min-width: 768px) {
     width: 480px;
   }
