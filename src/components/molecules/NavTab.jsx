@@ -1,7 +1,6 @@
 import { Icon } from "@components/atoms/Icon";
 import styled from "styled-components";
 import { Text } from "@styles/Text";
-import { COLORS } from "@assets/theme";
 
 const NavTab = ({ type, selected }) => {
   return (
@@ -9,7 +8,12 @@ const NavTab = ({ type, selected }) => {
       {type === "Home" && (
         <StyledNavTab selected={selected}>
           <Icon src={selected ? "IconHomeSelected" : "IconHomeMono"} />
-          <Text color={selected ? COLORS.primary : COLORS.gray} fontSize="12px">
+          <Text
+            color={(props) =>
+              selected ? props.theme.colors.primary : props.theme.colors.gray
+            }
+            fontSize="12px"
+          >
             홈
           </Text>
         </StyledNavTab>
@@ -17,7 +21,12 @@ const NavTab = ({ type, selected }) => {
       {type === "Search" && (
         <StyledNavTab selected={selected}>
           <Icon src={selected ? "IconSearchSelected" : "IconSearchMono"} />
-          <Text color={selected ? COLORS.primary : COLORS.gray} fontSize="12px">
+          <Text
+            color={(props) =>
+              selected ? props.theme.colors.primary : props.theme.colors.gray
+            }
+            fontSize="12px"
+          >
             검색
           </Text>
         </StyledNavTab>
@@ -25,7 +34,12 @@ const NavTab = ({ type, selected }) => {
       {type === "User" && (
         <StyledNavTab selected={selected}>
           <Icon src={selected ? "IconUserSelected" : "IconUserMono"} />
-          <Text color={selected ? COLORS.primary : COLORS.gray} fontSize="12px">
+          <Text
+            color={(props) =>
+              selected ? props.theme.colors.primary : props.theme.colors.gray
+            }
+            fontSize="12px"
+          >
             마이페이지
           </Text>
         </StyledNavTab>
@@ -43,8 +57,10 @@ const StyledNavTab = styled.div`
   align-items: center;
   margin: 0 auto;
   gap: 4px;
-  border-top: ${(props) => (props.selected ? `2px solid ${COLORS.primary}` : "none")};
+  border-top: ${(props) =>
+    props.selected ? `2px solid ${props.theme.colors.primary}` : "none"};
   box-sizing: border-box;
+  background-color: white;
   cursor: pointer;
 `;
 

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { COLORS } from "../../assets/theme";
 
 const WidgetArea = styled.div`
   width: 100%;

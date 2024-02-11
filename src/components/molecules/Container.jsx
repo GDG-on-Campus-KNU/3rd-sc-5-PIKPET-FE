@@ -1,6 +1,5 @@
 import ContainerTitle from "@components/atoms/ContainerTitle";
 import styled from "styled-components";
-import { COLORS } from "@assets/theme";
 
 const Container = ({ title, children, width, height, paddingX, paddingY }) => {
   return (
@@ -16,7 +15,7 @@ const StyledContainer = styled.div`
   height: ${(props) => props.height || "100%"};
   padding: ${(props) => props.paddingY || "12px"} ${(props) => props.paddingX || "16px"};
   box-sizing: border-box;
-  border: 1px solid ${COLORS.lightGray};
+  border: 1px solid ${(props) => props.theme.colors.lightGray};
   border-radius: 10px;
   background-color: white;
   display: flex;

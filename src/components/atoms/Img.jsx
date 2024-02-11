@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { COLORS } from "@assets/theme";
 
 // src 필수
 // size: Small / Middle / Big
@@ -79,7 +78,8 @@ const StyledImg = styled.img`
   border-radius: ${(props) => props.borderRadius || "10px"};
   margin: ${(props) => props.margin || "0"};
   box-shadow: ${(props) => props.boxShadow || "none"};
-  background-color: ${(props) => props.backgroundColor || `${COLORS.extraLightGray}`};
+  background-color: ${(props) =>
+    props.backgroundColor || `${(props) => props.theme.colors.extraLightGray}`};
 `;
 
 export const ImgGroup = ({ children }) => {
