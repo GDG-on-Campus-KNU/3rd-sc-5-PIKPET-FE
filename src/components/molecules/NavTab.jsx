@@ -45,6 +45,7 @@ const StyledNavTab = styled.div`
   gap: 4px;
   border-top: ${(props) => (props.selected ? `2px solid ${COLORS.primary}` : "none")};
   box-sizing: border-box;
+  background-color: white;
   cursor: pointer;
 `;
 
