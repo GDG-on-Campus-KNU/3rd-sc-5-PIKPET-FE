@@ -1,17 +1,17 @@
+import styled from "styled-components";
+
 import Header from "@components/organisms/Header";
 import Footer from "@components/organisms/Footer";
 import NavBar from "@components/organisms/NavBar";
-import styled from "styled-components";
-
 import ButtonCTA from "@components/atoms/ButtonCTA";
 import ButtonTag from "@components/atoms/ButtonTag";
 import CTAContainer from "@components/molecules/CTAContainer";
 import Input from "@components/atoms/Input";
 import Container from "@components/molecules/Container";
+import WidgetArea from "@components/organisms/WidgetArea";
 import { Img, ImgGroup } from "@components/atoms/Img";
 import samplePicture from "@assets/sample-picture.png";
 import poster from "@assets/poster.png";
-import WidgetArea from "../organisms/WidgetArea";
 
 const HomeTemplate = () => {
   return (
