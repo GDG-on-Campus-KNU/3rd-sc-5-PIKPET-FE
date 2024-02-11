@@ -1,9 +1,17 @@
 import styled from "styled-components";
 
-export const ResponsiveLayout = styled.div`
+const Layout = ({ backgroundColor, children }) => {
+  return <StyledLayout backgroundColor={backgroundColor}>{children}</StyledLayout>;
+};
+
+export default Layout;
+
+const StyledLayout = styled.div`
   width: 100vw;
   height: 100vh;
-  // overflow-y: auto;
+  overflow-y: auto;
+
+  background-color: ${(props) => props.backgroundColor};
 
   position: fixed;
   top: 0;
@@ -16,15 +24,22 @@ export const ResponsiveLayout = styled.div`
   }
 `;
 
-export const ContentLayout = styled.div`
-  height: calc(100vh - 54px - 72px - 12px); // - Header - NavBar - padding-bottom
-  overflow-y: auto;
-
+export const Main = styled.div`
+  height: calc(100vh - 54px); // - Header
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-left: ${(props) => (props.paddingX ? 0 : "16px")};
-  padding-right: ${(props) => (props.paddingX ? 0 : "16px")};
+`;
+
+export const Contents = styled.div`
+  width: 100%;
+  //   height: calc(100vh - 54px - 72px); // - Header - NavBar
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   padding-bottom: 12px;
+  padding-left: ${(props) => (props.noPadding ? 0 : "16px")};
+  padding-right: ${(props) => (props.noPadding ? 0 : "16px")};
   gap: 12px;
 `;

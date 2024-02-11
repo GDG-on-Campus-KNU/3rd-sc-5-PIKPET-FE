@@ -1,18 +1,22 @@
 import SearchBar from "@components/organisms/SearchBar";
-import ButtonTag from "@components/atoms/ButtonTag";
-import Input from "@components/atoms/Input";
-import ButtonCTA from "@components/atoms/ButtonCTA";
+import SearchFilter from "@components/organisms/SearchFilter";
 import CTAContainer from "@components/molecules/CTAContainer";
 
 import styled from "styled-components";
-import { ResponsiveLayout, ContentLayout } from "@styles/layout";
+import Layout, { Main, Contents } from "@styles/layout";
 
 const SearchTemplate = () => {
   return (
-    <ResponsiveLayout>
+    <Layout backgroundColor="white">
       <SearchBar />
-      Search
-    </ResponsiveLayout>
+
+      <Main padding0>
+        <Contents>
+          <SearchFilter />
+        </Contents>
+        <CTAContainer type="SearchFilter" />
+      </Main>
+    </Layout>
   );
 };
 
