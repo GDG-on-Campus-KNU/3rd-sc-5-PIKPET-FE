@@ -1,11 +1,7 @@
-import IconBackward from "@assets/icons/icon-backward.svg";
-import IconHomeMono from "@assets/icons/icon-home-mono.svg";
-import IconSearchMono from "@assets/icons/icon-search-mono.svg";
-import IconHeartMono from "@assets/icons/icon-heart-mono.svg";
-import IconSave from "@assets/icons/icon-save.svg";
 import { useNavigate } from "react-router-dom";
+import { Icon, IconGroup } from "@components/atoms/Icon";
 import styled from "styled-components";
-import { Text } from "@styles/text";
+import { Text } from "@styles/Text";
 import { COLORS } from "@assets/theme";
 
 const Header = ({ type, title }) => {
@@ -19,9 +15,13 @@ const Header = ({ type, title }) => {
     navigate("/search");
   };
 
-  if (type === "undefined") {
+  const handleClickHeart = () => {
+    navigate("/interest");
+  };
+
+  if (type === undefined) {
     throw new Error("type prop is necessary.");
-  } else if (type === "default") {
+  } else if (type === "Default") {
     return (
       <StyledHeader backgroundColor="transparent">
         <Text color={COLORS.primary} fontSize="24px" fontWeight="700">
@@ -29,45 +29,44 @@ const Header = ({ type, title }) => {
         </Text>
       </StyledHeader>
     );
-  } else if (type === "widget") {
+  } else if (type === "Widget") {
     return (
       <StyledHeader>
-        <img src={IconBackward} alt="iconBackward" />
-        <p>{title}</p>
-        <div></div>
+        <Icon src="IconBackward" />
+        <Text fontWeight="700">{title}</Text>
+        <div style={{ width: "24px", height: "24px" }}></div>
       </StyledHeader>
     );
   } else if (type === "PetInfoDetail") {
     return (
       <StyledHeader>
-        <img src={IconBackward} alt="iconBackward" />
-        <StyledIconGroup>
-          <img src={IconHomeMono} alt="iconHomeMono" onClick={handleClickHome} />
-          <img src={IconSearchMono} alt="iconSearchMono" onClick={handleClickSearch} />
-          <img src={IconHeartMono} alt="iconHeartMono" />
-        </StyledIconGroup>
+        <Icon src="IconBackward" />
+        <IconGroup
+          srcs={["IconHomeMono", "IconSearchMono", "IconHeartMono"]}
+          onClicks={[handleClickHome, handleClickSearch, handleClickHeart]}
+        />
       </StyledHeader>
     );
   } else if (type === "Mypage") {
     return (
       <StyledHeader>
-        <img src={IconBackward} alt="iconBackward" />
-        <img src={IconHeartMono} alt="iconHeartMono" />
+        <Icon src="IconBackward" />
+        <Icon src="IconHeartMono" />
       </StyledHeader>
     );
   } else if (type === "Login") {
     return (
       <StyledHeader>
-        <img src={IconBackward} alt="iconBackward" />
-        <img src={IconHomeMono} alt="iconHomeMono" onClick={handleClickHome} />
+        <Icon src="IconBackward" />
+        <Icon src="IconHomeMono" onClick={handleClickHome} />
       </StyledHeader>
     );
   } else if (type === "Application") {
     return (
       <StyledHeader>
-        <img src={IconBackward} alt="iconBackward" />
-        <p>{title}</p>
-        <img src={IconSave} alt="iconSave" />
+        <Icon src="IconBackward" />
+        <Text fontWeight="700">{title}</Text>
+        <Icon src="IconSave" />
       </StyledHeader>
     );
   } else throw new Error("undefined type");
@@ -82,11 +81,6 @@ const StyledHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   background-color: ${(props) => props.backgroundColor || "white"};
-`;
-
-const StyledIconGroup = styled.div`
-  display: flex;
-  gap: 16px;
 `;
 
 export default Header;

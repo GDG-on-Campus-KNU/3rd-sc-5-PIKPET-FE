@@ -9,7 +9,7 @@ export const Text = styled.span`
   line-height: ${(props) => props.lineHeight || "normal"};
   margin: ${(props) => props.margin || "0"};
   padding: ${(props) => props.padding || "0"};
-  text-align: ${(props) => props.textAlign || "center"};
+  text-align: ${(props) => props.textAlign || "left"};
   justify-content: ${(props) => props.justifyContent || "left"};
   cursor: ${(props) => props.cursor};
 `;

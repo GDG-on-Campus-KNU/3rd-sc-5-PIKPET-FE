@@ -1,13 +1,13 @@
-import NavButton from "@components/atoms/NavButton";
+import NavTab from "@components/molecules/NavTab";
 import styled from "styled-components";
 
 // currentPage 연결하고 selected=true / false 넣기
 const NavBar = () => {
   return (
     <StyledNavBar>
-      <NavButton type="home" selected={true} />
-      <NavButton type="search" selected={false} />
-      <NavButton type="user" selected={false} />
+      <NavTab type="Home" selected={true} />
+      <NavTab type="Search" selected={false} />
+      <NavTab type="User" selected={false} />
     </StyledNavBar>
   );
 };
