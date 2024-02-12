@@ -1,7 +1,7 @@
 import InputItem from "@components/molecules/InputItem";
 
 import styled from "styled-components";
-import { Text } from "@styles/text";
+import Text from "@styles/Text";
 
 const SearchFilter = () => {
   return (

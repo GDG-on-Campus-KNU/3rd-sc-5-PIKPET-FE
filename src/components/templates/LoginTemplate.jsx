@@ -4,7 +4,7 @@ import ButtonCTA from "@components/atoms/Input";
 
 import styled from "styled-components";
 import Layout, { Main, Contents } from "@styles/layout";
-import { Text } from "@styles/text";
+import Text from "@styles/Text";
 
 import React from "react";
 

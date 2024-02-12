@@ -1,6 +1,6 @@
-import { Text } from "@styles/Text";
 import { Icon } from "@components/atoms/Icon";
 import styled from "styled-components";
+import Text from "@styles/Text";
 
 const ContainerTitle = ({ title, color, fontSize }) => {
   return (

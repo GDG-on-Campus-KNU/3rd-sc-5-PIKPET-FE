@@ -1,7 +1,8 @@
+import { useState, useEffect } from "react";
 import { Icon } from "@components/atoms/Icon";
 import Input from "@components/atoms/Input";
+
 import styled from "styled-components";
-import { useState, useEffect } from "react";
 
 // 나중에 추상화
 // const SearchBar = ({ keyword }) => {

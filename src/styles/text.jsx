@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Text = styled.span`
+const Text = styled.span`
   color: ${(props) => props.color || "black"};
   // font-family:
   font-size: ${(props) => props.fontSize || "16px"};
@@ -13,3 +13,5 @@ export const Text = styled.span`
   justify-content: ${(props) => props.justifyContent || "left"};
   cursor: ${(props) => props.cursor};
 `;
+
+export default Text;
