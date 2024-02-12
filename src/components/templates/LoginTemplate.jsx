@@ -22,7 +22,9 @@ const LoginTemplate = () => {
 
       <Main>
         <Contents alignItems="center" gap="32px">
-          <Text fontColor="${props.theme.colors.primary}">PIKPET</Text>
+          <Text fontSize="32px" fontWeight="700" color={(props) => props.theme.colors.primary}>
+            PIKPET
+          </Text>
           <Text>로그인 후 픽펫을 편리하게 이용하세요.</Text>
           <LoginInput />
         </Contents>
