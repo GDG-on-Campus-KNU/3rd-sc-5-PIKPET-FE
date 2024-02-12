@@ -3,7 +3,7 @@ import Input from "@components/atoms/Input";
 import Toggle from "@components/atoms/Toggle";
 
 import styled from "styled-components";
-import { Text } from "@styles/text";
+import Text from "@styles/Text";
 
 // type (아이템 타입(ButtonTag, Input, Toggle, ...)) 필수
 const InputItem = ({ type, title, items }) => {

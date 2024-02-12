@@ -1,6 +1,6 @@
 import { SiGithub, SiNotion } from "react-icons/si";
-import { Text } from "@styles/text";
 import styled from "styled-components";
+import Text from "@styles/Text";
 
 const Footer = () => {
   return (

@@ -14,7 +14,7 @@ import IconUserMono from "@assets/icons/icon-user-mono.svg";
 import IconUserSelected from "@assets/icons/icon-user-selected.svg";
 import IconXCircle from "@assets/icons/icon-x-circle.svg";
 
-export const Icon = ({ src, width, height, onClick }) => {
+const Icon = ({ src, width, height, onClick }) => {
   const handleClick = () => {
     if (onClick) {
       onClick();
@@ -69,3 +69,5 @@ const StyledIconGroup = styled.div`
   display: flex;
   gap: 16px;
 `;
+
+export default Icon;

@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { Icon, IconGroup } from "@components/atoms/Icon";
+import Icon, { IconGroup } from "@components/atoms/Icon";
+
 import styled from "styled-components";
-import { Text } from "@styles/Text";
+import Text from "@styles/Text";
 
 const Header = ({ type, title }) => {
   const navigate = useNavigate();

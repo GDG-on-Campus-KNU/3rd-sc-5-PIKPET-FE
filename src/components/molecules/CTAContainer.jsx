@@ -1,5 +1,5 @@
-import ButtonCTA from "../atoms/ButtonCTA";
-import { Icon } from "../atoms/Icon";
+import ButtonCTA from "@components/atoms/ButtonCTA";
+import Icon from "@components/atoms/Icon";
 import styled from "styled-components";
 
 // type: 필수

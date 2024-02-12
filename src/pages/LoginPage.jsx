@@ -1,5 +1,7 @@
+import LoginTemplate from "@components/templates/LoginTemplate";
+
 const LoginPage = () => {
-  return <div>Login</div>;
+  return <LoginTemplate />;
 };
 
 export default LoginPage;
