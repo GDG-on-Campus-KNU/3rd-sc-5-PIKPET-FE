@@ -5,12 +5,12 @@ import Toggle from "@components/atoms/Toggle";
 import styled from "styled-components";
 import { Text } from "@styles/text";
 
-// type (아이템 타입(ButtonTag, Input, ...)) 필수
+// type (아이템 타입(ButtonTag, Input, Toggle, ...)) 필수
 const InputItem = ({ type, title, items }) => {
   if (type === undefined) throw new Error("Undefined type of InputItem.");
 
   return (
-    <StyledInputItem>
+    <StyledInputItem type={type}>
       <Text fontSize="14px" fontWeight="700">
         {title}
       </Text>
@@ -22,9 +22,10 @@ const InputItem = ({ type, title, items }) => {
           ))}
         </ButtonTagGroup>
       )}
-      {type === "Input" && (
-        <div>
-          <Input />~<Input />세
+      {type === "Input" && title === "나이" && (
+        <div style={{ width: "100%", display: "flex", alignItems: "center", gap: "4px" }}>
+          <Input type="number" width="94px" fontSize="12px" />~
+          <Input type="number" width="94px" fontSize="12px" />세
         </div>
       )}
       {type === "Toggle" && <Toggle />}
@@ -32,11 +33,11 @@ const InputItem = ({ type, title, items }) => {
   );
 };
 
-//  <ButtonTag type="Default" title="고양이" />
-
 const StyledInputItem = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: ${(props) => (props.type === "Toggle" ? "row" : "column")};
+  justify-content: ${(props) => (props.type === "Toggle" ? "space-between" : "none")};
+  align-items: ${(props) => (props.type === "Toggle" ? "center" : "flex-start")};
   gap: 12px;
 `;
 
