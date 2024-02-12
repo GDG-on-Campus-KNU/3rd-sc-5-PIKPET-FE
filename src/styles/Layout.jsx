@@ -37,9 +37,9 @@ export const Contents = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: ${(props) => props.alignItems || "flex-start"};
   padding-bottom: 12px;
   padding-left: ${(props) => (props.noPadding ? 0 : "16px")};
   padding-right: ${(props) => (props.noPadding ? 0 : "16px")};
-  gap: 12px;
+  gap: ${(props) => props.gap || "12px"};
 `;
