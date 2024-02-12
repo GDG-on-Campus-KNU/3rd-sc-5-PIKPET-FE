@@ -1,21 +1,28 @@
+import { useState } from "react";
 import styled from "styled-components";
 
 // type 필수
-
 const ButtonTag = ({ type, item, paddingX, paddingY, fontSize, ...rest }) => {
+  const [selected, setSelected] = useState(false);
+
+  const handleClickButtonTag = () => {
+    setSelected(!selected);
+  };
+
   if (type === undefined) {
     throw new Error("type prop is necessary.");
   } else if (type === "Default") {
     return (
-      <StyledDefault paddingX={paddingX} paddingY={paddingY} fontSize={fontSize} {...rest}>
+      <StyledButtonTag
+        paddingX={paddingX}
+        paddingY={paddingY}
+        fontSize={fontSize}
+        selected={selected}
+        onClick={handleClickButtonTag}
+        {...rest}
+      >
         {item}
-      </StyledDefault>
-    );
-  } else if (type === "Selected") {
-    return (
-      <StyledSelected paddingX={paddingX} paddingY={paddingY} fontSize={fontSize} {...rest}>
-        {item}
-      </StyledSelected>
+      </StyledButtonTag>
     );
   } else if (type === "MiniCTA") {
     return (
@@ -34,16 +41,10 @@ const StyledButtonTag = styled.button`
   font-size: ${(props) => props.fontSize || "12px"};
   font-weight: 400;
   // font-family: ${(props) => props.theme.fontBody};
-`;
 
-const StyledDefault = styled(StyledButtonTag)`
-  border: 1px solid ${(props) => props.theme.colors.lightGray};
-  color: black;
-`;
-
-const StyledSelected = styled(StyledDefault)`
-  border: 1px solid ${(props) => props.theme.colors.primary};
-  color: ${(props) => props.theme.colors.primary};
+  border: 1px solid
+    ${(props) => (props.selected ? props.theme.colors.primary : props.theme.colors.lightGray)};
+  color: ${(props) => (props.selected ? props.theme.colors.primary : "black")};
 `;
 
 const StyledMiniCTA = styled(StyledButtonTag)`
