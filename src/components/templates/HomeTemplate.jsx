@@ -3,8 +3,8 @@ import Footer from "@components/organisms/Footer";
 import NavBar from "@components/organisms/NavBar";
 import Container from "@components/molecules/Container";
 import WidgetArea from "@components/organisms/WidgetArea";
-import ButtonTag, { ButtonTagGroup } from "../atoms/ButtonTag";
-import { Img, ImgGroup } from "@components/atoms/Img";
+import ButtonTag, { ButtonTagGroup } from "@components/atoms/ButtonTag";
+import Img, { ImgGroup } from "@components/atoms/Img";
 import samplePicture from "@assets/sample-picture.png";
 import poster from "@assets/poster.png";
 

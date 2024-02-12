@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 // src 필수
 // size: Small / Middle / Big
-export const Img = ({
+const Img = ({
   src,
   size,
   width,
@@ -93,3 +93,5 @@ const StyledImgGroup = styled.div`
   gap: 12px;
   overflow-x: scroll;
 `;
+
+export default Img;
