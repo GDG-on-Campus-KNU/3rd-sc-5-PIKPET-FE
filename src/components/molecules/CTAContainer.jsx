@@ -45,7 +45,7 @@ const StyledCTAContainer = styled.div`
   gap: 12px;
   background-color: white;
 
-  position: fixed;
+  position: sticky;
   bottom: 0;
 `;
 
