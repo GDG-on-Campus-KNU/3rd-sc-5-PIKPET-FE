@@ -3,6 +3,7 @@ import styled from "styled-components";
 const Input = ({
   type,
   placeholder,
+  value,
   width,
   paddingX,
   paddingY,
@@ -16,6 +17,7 @@ const Input = ({
     <StyledInput
       type={type}
       placeholder={placeholder}
+      value={value}
       width={width}
       paddingX={paddingX}
       paddingY={paddingY}
