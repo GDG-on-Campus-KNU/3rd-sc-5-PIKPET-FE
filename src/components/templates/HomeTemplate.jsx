@@ -1,12 +1,9 @@
 import Header from "@components/organisms/Header";
 import Footer from "@components/organisms/Footer";
 import NavBar from "@components/organisms/NavBar";
-import ButtonCTA from "@components/atoms/ButtonCTA";
-import ButtonTag from "@components/atoms/ButtonTag";
-import CTAContainer from "@components/molecules/CTAContainer";
-import Input from "@components/atoms/Input";
 import Container from "@components/molecules/Container";
 import WidgetArea from "@components/organisms/WidgetArea";
+import ButtonTag, { ButtonTagGroup } from "../atoms/ButtonTag";
 import { Img, ImgGroup } from "@components/atoms/Img";
 import samplePicture from "@assets/sample-picture.png";
 import poster from "@assets/poster.png";
@@ -27,6 +24,10 @@ const HomeTemplate = () => {
         <Contents noPadding>
           <WidgetArea>
             <Container title="내 검색 히스토리">
+              <ButtonTagGroup>
+                <ButtonTag item="흰색 푸들" />
+                {/* 동적으로 검색 키워드 기록 넣기 */}
+              </ButtonTagGroup>
               <ImgGroup>
                 <Img src={samplePicture} size="Small" />
                 <Img src={samplePicture} size="Small" />
