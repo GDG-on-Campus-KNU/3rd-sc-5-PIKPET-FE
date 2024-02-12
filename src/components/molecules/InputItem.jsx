@@ -18,7 +18,7 @@ const InputItem = ({ type, title, items }) => {
       {type === "ButtonTag" && items && (
         <ButtonTagGroup>
           {items.map((item, index) => (
-            <ButtonTag key={index} type="Default" item={item} />
+            <ButtonTag key={index} item={item} />
           ))}
         </ButtonTagGroup>
       )}
