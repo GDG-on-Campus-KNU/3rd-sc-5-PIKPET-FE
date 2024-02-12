@@ -7,6 +7,7 @@ const Input = ({
   paddingX,
   paddingY,
   fontSize,
+  border,
   borderRadius,
   // backgroundColor,
   ...rest
@@ -19,6 +20,7 @@ const Input = ({
       paddingX={paddingX}
       paddingY={paddingY}
       fontSize={fontSize}
+      border={border || `1px solid ${(props) => props.theme.colors.lightGray}`}
       borderRadius={borderRadius}
       // backgroundColor={backgroundColor}
       {...rest}
@@ -31,8 +33,8 @@ const StyledInput = styled.input`
   padding: ${(props) => props.paddingY || "12px"} ${(props) => props.paddingX || "16px"};
   box-sizing: border-box;
   font-size: ${(props) => props.fontSize || "14px"};
+  border: ${(props) => props.border};
   border-radius: ${(props) => props.borderRadius || "10px"};
-  border: ${(props) => props.border || `1px solid ${(props) => props.theme.colors.lightGray}`};
   // background-color: ${(props) => props.backgroundColor || "white"};
   outline: none;
 
