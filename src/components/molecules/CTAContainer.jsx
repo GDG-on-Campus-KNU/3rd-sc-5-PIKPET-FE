@@ -44,6 +44,9 @@ const StyledCTAContainer = styled.div`
   box-sizing: border-box;
   gap: 12px;
   background-color: white;
+
+  position: sticky;
+  bottom: 0;
 `;
 
 export default CTAContainer;
