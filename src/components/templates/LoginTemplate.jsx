@@ -1,5 +1,5 @@
 import Header from "@components/organisms/Header";
-import LoginInputContainer from "@components/organisms/LoginInputContainer";
+import LoginForm from "@components/organisms/LoginForm";
 
 import Layout, { Main, Contents } from "@styles/layout";
 import Text from "@styles/Text";
@@ -15,7 +15,7 @@ const LoginTemplate = () => {
             PIKPET
           </Text>
           <Text>로그인 후 픽펫을 편리하게 이용하세요.</Text>
-          <LoginInputContainer />
+          <LoginForm />
         </Contents>
       </Main>
     </Layout>

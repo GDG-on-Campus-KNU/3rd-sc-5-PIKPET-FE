@@ -52,7 +52,7 @@ const StyledEyeIcon = styled(({ showPassword, ...rest }) =>
   right: 16px;
 `;
 
-const LoginInputContainer = () => {
+const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -74,4 +74,4 @@ const StyledLoginInputContainer = styled.div`
   gap: 12px;
 `;
 
-export default LoginInputContainer;
+export default LoginForm;
