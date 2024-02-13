@@ -1,13 +1,12 @@
 import NavTab from "@components/molecules/NavTab";
 import styled from "styled-components";
 
-// currentPage 연결하고 selected=true / false 넣기
 const NavBar = () => {
   return (
     <StyledNavBar>
-      <NavTab type="Home" selected={true} />
-      <NavTab type="Search" selected={false} />
-      <NavTab type="User" selected={false} />
+      <NavTab type="Home" selected={currentPage === "/" ? true : false} />
+      <NavTab type="Search" selected={currentPage === "/search" ? true : false} />
+      <NavTab type="User" selected={currentPage === "/mypage" ? true : false} />
     </StyledNavBar>
   );
 };
