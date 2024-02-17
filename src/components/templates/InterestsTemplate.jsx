@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useCurrentPageStore } from "@store";
+import axios from "axios";
 
 import Header from "@components/organisms/Header";
 import SearchFilterDropdown from "@components/organisms/SearchFilterDropdown";
@@ -20,6 +21,26 @@ const SearchResultTemplate = () => {
   }, []);
 
   const NUM_OF_INTERESTED_PETS = 10;
+
+  // 관심 동물 리스트 조회
+  //   useEffect(() => {
+  //     let paramsToSend = {};
+
+  //     axios
+  //       .get(`${BASE_URL}/userInfo/likeAnimal`, paramsToSend, {
+  //         headers: {
+  //           Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+  //         },
+  //       })
+  //       .then((response) => {
+  //         console.log(`The data has brought successfully.`);
+  //         // response.data 배열에 담기 (상태관리로)
+  //         // {petId, 이름, 사진, 나이, 성별, 종, 관심 여부, 보호소 이름}
+  //       })
+  //       .catch((error) => {
+  //         console.error(`An error occurred while fetching the data.`, error);
+  //       });
+  //   }, []);
 
   return (
     <Layout backgroundColor="white">
