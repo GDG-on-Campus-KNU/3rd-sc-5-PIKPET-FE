@@ -20,7 +20,7 @@ const Header = ({ type, title }) => {
   };
 
   const handleClickHeart = () => {
-    navigate("/interest");
+    navigate("/interests");
   };
 
   if (type === undefined) {
