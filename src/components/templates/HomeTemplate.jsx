@@ -50,7 +50,9 @@ const HomeTemplate = () => {
               </ImgGroup>
             </Container>
             <Container>
-              <ContainerTitle title="내 관심 동물" />
+              <a href="/interests">
+                <ContainerTitle title="내 관심 동물" />
+              </a>
               <ImgGroup>
                 <Img src={samplePicture} size="Small" />
                 <Img src={samplePicture} size="Small" />
