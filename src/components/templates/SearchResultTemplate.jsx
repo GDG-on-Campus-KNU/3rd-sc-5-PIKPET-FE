@@ -26,7 +26,7 @@ const SearchResultTemplate = () => {
       <SearchBar />
 
       <Main>
-        <Contents noPadding>
+        <Contents>
           <div>
             <SearchFilterDropdown />
             <Text fontSize="12px">

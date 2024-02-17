@@ -1,16 +1,6 @@
-import ContainerTitle from "@components/atoms/ContainerTitle";
 import styled from "styled-components";
 
-const Container = ({ title, children, width, height, paddingX, paddingY }) => {
-  return (
-    <StyledContainer>
-      {title && <ContainerTitle title={title} />}
-      {children}
-    </StyledContainer>
-  );
-};
-
-const StyledContainer = styled.div`
+const Container = styled.div`
   width: ${(props) => props.width || "100%"};
   height: ${(props) => props.height || "auto"};
   padding: ${(props) => props.paddingY || "12px"} ${(props) => props.paddingX || "16px"};
