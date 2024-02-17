@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useCurrentPageStore } from "@store";
+import { useCurrentPageStore, useKeywordsStore } from "@store";
 
 import SearchBar from "@components/organisms/SearchBar";
 import SearchFilter from "@components/organisms/SearchFilter";
@@ -10,6 +10,7 @@ import Layout, { Main, Contents } from "@styles/layout";
 
 const SearchTemplate = () => {
   const { currentPage, setCurrentPage } = useCurrentPageStore();
+  const { keywordsList, setKeywordsList } = useKeywordsStore();
 
   // 최초 마운트시에(만) setCurrentPage
   useEffect(() => {
