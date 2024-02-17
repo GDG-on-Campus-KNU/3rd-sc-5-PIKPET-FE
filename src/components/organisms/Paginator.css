@@ -1,0 +1,61 @@
+.pagination {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul.pagination li {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+}
+
+/* ul.pagination li:first-child {
+  border-radius: 5px 0 0 5px;
+}
+
+ul.pagination li:last-child {
+  border-radius: 0 5px 5px 0;
+} */
+
+ul.pagination li a {
+  text-decoration: none;
+  color: #909090;
+  font-size: 14px;
+}
+
+ul.pagination li.active a {
+  /* 1 페이지 */
+  color: black;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+ul.pagination li.active {
+  /* background-color: #337ab7; */
+}
+
+ul.pagination li a:hover,
+ul.pagination li a.active {
+  color: black;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.page-selection {
+  width: 48px;
+  height: 30px;
+  color: #337ab7;
+}

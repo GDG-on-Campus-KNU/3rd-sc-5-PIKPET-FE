@@ -4,7 +4,7 @@ import { useCurrentPageStore } from "@store";
 import Header from "@components/organisms/Header";
 import Footer from "@components/organisms/Footer";
 import NavBar from "@components/organisms/NavBar";
-import Container from "@components/molecules/Container";
+import ContainerTitle from "@components/atoms/ContainerTitle";
 import WidgetArea from "@components/organisms/WidgetArea";
 import ButtonTag, { ButtonTagGroup } from "@components/atoms/ButtonTag";
 import Img, { ImgGroup } from "@components/atoms/Img";
@@ -13,6 +13,7 @@ import poster from "@assets/poster.png";
 
 import styled from "styled-components";
 import Layout, { Main, Contents } from "@styles/Layout";
+import Container from "@styles/Container";
 
 const HomeTemplate = () => {
   const { currentPage, setCurrentPage } = useCurrentPageStore();
@@ -34,7 +35,8 @@ const HomeTemplate = () => {
         {/* <Input placeholder="이름" /> */}
         <Contents noPadding>
           <WidgetArea>
-            <Container title="내 검색 히스토리">
+            <Container>
+              <ContainerTitle title="내 검색 히스토리" />
               <ButtonTagGroup>
                 <ButtonTag item="흰색 푸들" />
                 {/* 동적으로 검색 키워드 기록 넣기 */}
@@ -47,7 +49,10 @@ const HomeTemplate = () => {
                 <Img src={samplePicture} size="Small" />
               </ImgGroup>
             </Container>
-            <Container title="내 관심 동물">
+            <Container>
+              <a href="/interests">
+                <ContainerTitle title="내 관심 동물" />
+              </a>
               <ImgGroup>
                 <Img src={samplePicture} size="Small" />
                 <Img src={samplePicture} size="Small" />

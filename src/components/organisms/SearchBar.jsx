@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 import Icon from "@components/atoms/Icon";
 import Input from "@components/atoms/Input";
 
@@ -7,6 +8,7 @@ import styled from "styled-components";
 // 나중에 추상화
 // const SearchBar = ({ keyword }) => {
 const SearchBar = () => {
+  const navigate = useNavigate();
   const [keyword, setKeyword] = useState("");
 
   const handleChangeKeyworld = (e) => {
@@ -18,13 +20,17 @@ const SearchBar = () => {
   //     console.log(`keyword: ${keyword}`);
   //   }, [keyword]);
 
+  const goBackward = () => {
+    navigate(-1);
+  };
+
   const handleClickX = () => {
     setKeyword("");
   };
 
   return (
     <StyledSearchBar>
-      <Icon src="IconBackward" />
+      <Icon src="IconBackward" onClick={goBackward} />
       <StyledSearchInput>
         <Icon src="IconSearchMono" />
         <Input
