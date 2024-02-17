@@ -30,7 +30,7 @@ const CTAContainer = ({ type, title1, title2 }) => {
     return (
       <StyledCTAContainer>
         <Icon src="IconRefreshMono" />
-        <ButtonCTA type="Primary" title="검색하기" />
+        <ButtonCTA type="Primary" title="Go" />
       </StyledCTAContainer>
     );
   } else throw new Error("Undefined type of CTAContainer");

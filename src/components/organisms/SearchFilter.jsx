@@ -6,52 +6,52 @@ import Text from "@styles/Text";
 const SearchFilter = () => {
   return (
     <StyledSearchFilter>
-      <Text fontWeight="700">검색 필터</Text>
-      <InputItem type="ButtonTag" title="종" items={["강아지", "고양이"]} />
+      <Text fontWeight="700">Filters</Text>
+      <InputItem type="ButtonTag" title="Species" items={["Dog", "Cat"]} />
       <InputItem
         type="ButtonTag"
-        title="품종"
+        title="Breed"
         items={[
-          "골든 리트리버",
-          "닥스훈트",
-          "래브라도 리트리버",
-          "말티즈",
-          "보더 콜리",
-          "보스턴 테리어",
-          "비글",
-          "비숑 프리제",
-          "사모예드",
-          "슈나우저",
-          "시바 이누",
-          "시베리안 허스키",
-          "시츄",
-          "요크셔 테리어",
-          "웰시 코기",
-          "제페니스 스피츠",
-          "진돗개",
-          "치와와",
-          "코카 스파니엘",
-          "파피용",
-          "퍼그",
-          "포메라니안",
-          "푸들",
-          "풍산개",
-          "프렌치 불독",
+          "Golden Retriever",
+          "Dachshund",
+          "Labrador Retriever",
+          "Maltese",
+          "Beagle",
+          "Bichon Frise",
+          "Border Collie",
+          "Boston Terrier",
+          "Bulldog",
+          "Samoyed",
+          "Schnauzer",
+          "Shiba Inu",
+          "Siberian Husky",
+          "Shitzu",
+          "Yorkshire Terrier",
+          "Welsh Corgi",
+          "Japanese Spitz",
+          "Jindo",
+          "Chihuahua",
+          "Cocker Spaniel",
+          "Papillon",
+          "Pug",
+          "Pomeranian",
+          "Poodle",
+          "Poongsan",
         ]}
       />
-      <InputItem type="Input" title="나이" />
-      <InputItem type="ButtonTag" title="성별" items={["남", "여"]} />
+      <InputItem type="Input" title="Age" />
+      <InputItem type="ButtonTag" title="Gender" items={["Male", "Female"]} />
       <InputItem
         type="ButtonTag"
-        title="크기"
-        items={["초소형", "소형", "중형", "대형", "초대형"]}
+        title="Size"
+        items={["Miniature", "Small", "Medium", "Large", "Extra large"]}
       />
       <InputItem
         type="ButtonTag"
-        title="털 색상"
-        items={["흰색", "검정", "갈색", "골드", "회색"]}
+        title="Fur Color"
+        items={["White", "Black", "Brown", "Gold", "Gray", "Charcoal"]}
       />
-      <InputItem type="Toggle" title="중성화 여부" />
+      <InputItem type="Toggle" title="Neutralized" />
     </StyledSearchFilter>
   );
 };

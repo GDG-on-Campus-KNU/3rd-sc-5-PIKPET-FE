@@ -8,11 +8,7 @@ const Footer = () => {
       <Text fontSize="8px" fontWeight="600">
         ©️ 2024. PIKPET All rights reserved.
       </Text>
-      <Text fontSize="8px">
-        더 자세한 정보를 확인하려면 아래 웹사이트를 방문하십시오.
-        <br />
-        Visit our websites below for more information.
-      </Text>
+      <Text fontSize="8px">Visit our websites below for more information.</Text>
       <StyledIconGroup gap="narrow">
         <SiGithub />
         <SiNotion />

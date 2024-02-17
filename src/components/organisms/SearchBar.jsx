@@ -31,7 +31,7 @@ const SearchBar = () => {
           value={keyword}
           onChange={handleChangeKeyworld}
           type="text"
-          placeholder="검색어 입력 또는 이미지 업로드"
+          placeholder="Enter a keyword or upload an image"
           paddingX="0"
           paddingY="0"
           border="none"
