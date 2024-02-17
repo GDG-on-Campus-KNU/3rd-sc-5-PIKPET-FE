@@ -3,7 +3,7 @@ import Icon from "@components/atoms/Icon";
 import styled from "styled-components";
 
 // type: 필수
-const CTAContainer = ({ type, title1, title2 }) => {
+const CTAContainer = ({ type, title1, title2, onClick }) => {
   if (type === undefined) {
     throw new Error("type prop is necessary.");
   } else if (type === "1Button") {
@@ -30,7 +30,7 @@ const CTAContainer = ({ type, title1, title2 }) => {
     return (
       <StyledCTAContainer>
         <Icon src="IconRefreshMono" />
-        <ButtonCTA type="Primary" title="검색하기" />
+        <ButtonCTA type="Primary" title="검색하기" onClick={onClick} />
       </StyledCTAContainer>
     );
   } else throw new Error("Undefined type of CTAContainer");
