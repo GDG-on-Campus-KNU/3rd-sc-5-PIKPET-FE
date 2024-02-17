@@ -4,7 +4,7 @@ import { useCurrentPageStore } from "@store";
 import Header from "@components/organisms/Header";
 import SearchFilterDropdown from "@components/organisms/SearchFilterDropdown";
 import PetInfoList from "@components/organisms/PetInfoList";
-import Pagination from "@components/organisms/Pagination";
+import Paginator from "@components/organisms/Paginator";
 
 import styled from "styled-components";
 import Text from "@styles/Text";
@@ -34,7 +34,7 @@ const SearchResultTemplate = () => {
             </Text>
           </div>
           <PetInfoList />
-          <Pagination />
+          <Paginator />
         </Contents>
       </Main>
     </Layout>
