@@ -29,7 +29,7 @@ const SearchResultTemplate = () => {
       <Main>
         <Contents>
           <div>
-            <SearchFilterDropdown />
+            {/* <SearchFilterDropdown /> */}
             <Text fontSize="12px">
               검색 결과 <b>{NUM_OF_PETS}</b>건
             </Text>

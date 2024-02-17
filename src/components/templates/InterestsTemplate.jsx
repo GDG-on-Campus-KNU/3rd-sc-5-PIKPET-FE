@@ -28,7 +28,7 @@ const SearchResultTemplate = () => {
       <Main>
         <Contents>
           <div>
-            <SearchFilterDropdown />
+            {/* <SearchFilterDropdown /> */}
             <Text fontSize="12px">
               전체 <b>{NUM_OF_INTERESTED_PETS}</b>건
             </Text>
