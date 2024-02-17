@@ -20,10 +20,10 @@ const SearchBar = () => {
   };
 
   // 확인용
-  useEffect(() => {
-    console.log(`keywords: ${keywords}`);
-    console.log(`keywordsList: ${keywordsList}`);
-  }, [keywords]);
+  // useEffect(() => {
+  //   console.log(`keywords: ${keywords}`);
+  //   console.log(`keywordsList: ${keywordsList}`);
+  // }, [keywords]);
 
   const goBackward = () => {
     navigate(-1);
