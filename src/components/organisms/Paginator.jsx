@@ -22,7 +22,7 @@ const Paginator = () => {
   );
 };
 
-const StyledPagination = styled.Pagination`
+const StyledPagination = styled(Pagination)`
   display: flex;
   justify-content: center;
   margin-top: 15px;
