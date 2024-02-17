@@ -1,31 +1,37 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
+import { useKeywordsStore } from "@store";
+
 import Icon from "@components/atoms/Icon";
 import Input from "@components/atoms/Input";
 
 import styled from "styled-components";
 
-// 나중에 추상화
-// const SearchBar = ({ keyword }) => {
 const SearchBar = () => {
   const navigate = useNavigate();
-  const [keyword, setKeyword] = useState("");
+  const { keywords, setKeywords, keywordsList, setKeywordsList, removeKeywordsList } =
+    useKeywordsStore();
+  // const [keywords, setKeywords] = useState("");
+  // const [keywordsList, setKeywordsList] = useState([]);
 
-  const handleChangeKeyworld = (e) => {
-    setKeyword(e.target.value);
+  const handleInput = (value) => {
+    setKeywords(value);
+    setKeywordsList(value);
   };
 
-  //   // 확인용
-  //   useEffect(() => {
-  //     console.log(`keyword: ${keyword}`);
-  //   }, [keyword]);
+  // 확인용
+  useEffect(() => {
+    console.log(`keywords: ${keywords}`);
+    console.log(`keywordsList: ${keywordsList}`);
+  }, [keywords]);
 
   const goBackward = () => {
     navigate(-1);
   };
 
-  const handleClickX = () => {
-    setKeyword("");
+  const removeAll = () => {
+    setKeywords("");
+    removeKeywordsList();
   };
 
   return (
@@ -34,8 +40,8 @@ const SearchBar = () => {
       <StyledSearchInput>
         <Icon src="IconSearchMono" />
         <Input
-          value={keyword}
-          onChange={handleChangeKeyworld}
+          value={keywords}
+          onChange={(e) => handleInput(e.target.value)}
           type="text"
           placeholder="검색어 입력 또는 이미지 업로드"
           paddingX="0"
@@ -44,11 +50,7 @@ const SearchBar = () => {
           borderRadius="0"
           backgroundColor={(props) => props.theme.colors.background}
         />
-        {keyword ? (
-          <Icon src="IconXCircle" width="16px" height="16px" onClick={handleClickX} />
-        ) : (
-          <></>
-        )}
+        {keywords && <Icon src="IconXCircle" width="16px" height="16px" onClick={removeAll} />}
       </StyledSearchInput>
       <Icon src="IconPicture" />
     </StyledSearchBar>

@@ -8,3 +8,19 @@ export const useCurrentPageStore = create(
   })),
   "useCurrentPageStore"
 );
+
+// 검색어 관리
+export const useKeywordsStore = create(
+  devtools((set) => ({
+    keywords: "",
+    setKeywords: (value) => set({ keywords: value }),
+
+    keywordsList: [],
+    setKeywordsList: (value) => {
+      const keywords = value.split(" "); // 입력된 문자열을 공백으로 분리하여 키워드 배열 생성
+      set({ keywordsList: keywords.filter(Boolean) }); // 빈 문자열 제외하고 키워드 목록 업데이트
+    },
+    removeKeywordsList: () => set({ keywordsList: [] }),
+  })),
+  "useKeyworsStore"
+);
