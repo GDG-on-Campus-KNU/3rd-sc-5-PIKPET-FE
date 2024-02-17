@@ -1,8 +1,15 @@
+import Dropdown, { DropdownGroup } from "@components/atoms/Dropdown";
+
 import styled from "styled-components";
 import Text from "@styles/Text";
 
 const SearchFilterDropdown = () => {
-  return <div>SearchFilterDropdown</div>;
+  return (
+    <DropdownGroup>
+      <Dropdown title="종" />
+      <Dropdown title="품종" />
+    </DropdownGroup>
+  );
 };
 
 export default SearchFilterDropdown;
