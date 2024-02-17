@@ -15,12 +15,6 @@ import IconUserSelected from "@assets/icons/icon-user-selected.svg";
 import IconXCircle from "@assets/icons/icon-x-circle.svg";
 
 const Icon = ({ src, width, height, onClick }) => {
-  const handleClick = () => {
-    if (onClick) {
-      onClick();
-    }
-  };
-
   let icon;
   if (src === undefined) throw new Error("src prop is necessary.");
   else if (src === "IconArrowRight") icon = IconArrowRightBlack20;
@@ -39,9 +33,7 @@ const Icon = ({ src, width, height, onClick }) => {
   else if (src === "IconXCircle") icon = IconXCircle;
   else throw new Error("Undefined src of Icon");
 
-  return (
-    <StyledIcon src={icon} alt="icon" width={width} height={height} onClick={handleClick} />
-  );
+  return <StyledIcon src={icon} alt="icon" width={width} height={height} onClick={onClick} />;
 };
 
 const StyledIcon = styled.img`
