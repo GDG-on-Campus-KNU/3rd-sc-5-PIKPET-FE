@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useCurrentPageStore } from "@store";
 import axios from "axios";
 
+import { BASE_URL } from "@utils";
 import Header from "@components/organisms/Header";
 import SearchFilterDropdown from "@components/organisms/SearchFilterDropdown";
 import PetInfoList from "@components/organisms/PetInfoList";

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 import { useCurrentPageStore, useKeywordsStore } from "@store";
 import axios from "axios";
 
+import { BASE_URL } from "@utils";
 import SearchBar from "@components/organisms/SearchBar";
 import SearchFilter from "@components/organisms/SearchFilter";
 import CTAContainer from "@components/molecules/CTAContainer";
