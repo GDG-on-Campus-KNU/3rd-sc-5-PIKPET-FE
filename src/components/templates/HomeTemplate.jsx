@@ -1,4 +1,6 @@
 import { useEffect } from "react";
+import { useCurrentPageStore } from "@store";
+
 import Header from "@components/organisms/Header";
 import Footer from "@components/organisms/Footer";
 import NavBar from "@components/organisms/NavBar";
@@ -13,16 +15,13 @@ import styled from "styled-components";
 import Layout, { Main, Contents } from "@styles/Layout";
 
 const HomeTemplate = () => {
-  // currentPage(로그인 후 돌아올 페이지)를 설정하는 코드
-  // 최초 마운트시에(만) setCurrentPage를 디스패치
-  // useEffect(() => {
-  //   dispatch(setCurrentPage("/"));
-  // }, [dispatch]);
+  const { currentPage, setCurrentPage } = useCurrentPageStore();
 
-  // // 로컬스토리지에 currentPage 값을 저장 (앱 리렌더링 시에도 값 보존 위해서)
-  // useEffect(() => {
-  //   localStorage.setItem("currentPage", JSON.stringify(currentPage));
-  // }, [currentPage]);
+  // 최초 마운트시에(만) setCurrentPage
+  useEffect(() => {
+    setCurrentPage("/");
+    localStorage.setItem("currentPage", JSON.stringify(currentPage)); // 로컬스토리지에 저장 (앱 리렌더링 시에도 값 보존 위해서)
+  }, []);
 
   return (
     <Layout>
