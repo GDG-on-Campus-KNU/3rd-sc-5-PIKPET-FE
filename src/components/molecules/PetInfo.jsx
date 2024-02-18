@@ -2,13 +2,12 @@ import { useNavigate } from "react-router";
 
 import Icon from "@components/atoms/Icon";
 import Img from "@components/atoms/Img";
-import samplePicture from "@assets/sample-picture.png";
 
 import styled from "styled-components";
 import Text from "@styles/Text";
 import Container from "@styles/Container";
 
-const PetInfo = ({ petId, name, interested, breed, age, gender, shelter }) => {
+const PetInfo = ({ petId, img, name, interested, breed, age, gender, shelter }) => {
   const navigate = useNavigate();
 
   const goPetInfoDetail = (pedId) => {
@@ -17,7 +16,7 @@ const PetInfo = ({ petId, name, interested, breed, age, gender, shelter }) => {
 
   return (
     <StyledPetInfo onClick={(petId) => goPetInfoDetail(petId)}>
-      <Img src={samplePicture} size="Middle" />
+      <Img src={img} size="Middle" />
       <StyledPetInfo_1>
         <StyledPetInfo_1_1>
           <StyledNameAndIcon>

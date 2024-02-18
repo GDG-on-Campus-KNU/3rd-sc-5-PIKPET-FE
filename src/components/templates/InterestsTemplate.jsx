@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useCurrentPageStore } from "@store";
+import { useCurrentPageStore, usePetInfoStore, usePetInfoStore } from "@store";
 import axios from "axios";
 
 import { BASE_URL } from "@utils";
@@ -14,6 +14,7 @@ import Layout, { Main, Contents } from "@styles/layout";
 
 const SearchResultTemplate = () => {
   const { currentPage, setCurrentPage } = useCurrentPageStore();
+  const { petInfoList, setPetInfoList } = usePetInfoStore();
 
   // 최초 마운트시에(만) setCurrentPage
   useEffect(() => {
@@ -34,9 +35,20 @@ const SearchResultTemplate = () => {
   //         },
   //       })
   //       .then((response) => {
-  //         console.log(`The data has brought successfully.`);
-  //         // response.data 배열에 담기 (상태관리로)
-  //         // {petId, 이름, 사진, 나이, 성별, 종, 관심 여부, 보호소 이름}
+  //         console.log(`The interested pets data has been brought successfully.`);
+  //         // 새로운 동물 정보 추가
+  // response.data.map((pet, index)=>
+  // usePetInfoStore.getState().addPetInfo({
+  //     petId: 0,
+  //     img: "",
+  //     name: "멍멍이",
+  //     interested: false,
+  //     breed: "푸들",
+  //     age: 3,
+  //     gender: "female",
+  //     shelter: "동물 보호소",
+  //   });
+  // )
   //       })
   //       .catch((error) => {
   //         console.error(`An error occurred while fetching the data.`, error);

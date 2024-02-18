@@ -1,13 +1,18 @@
+import { usePetInfoStore } from "@store";
+
 import PetInfo from "@components/molecules/PetInfo";
 
 import styled from "styled-components";
 
-const PetInfoList = () => {
+const PetInfoList = ({ data }) => {
+  const { petInfoList } = usePetInfoStore();
+
   return (
     <StyledPetInfoList>
-      {/* data.map((pet, index)=>(<PetInfo petId={} name={pet.name} ... />)) */}
+      {/* petInfoList.map((pet, index)=>(<PetInfo petId={} name={pet.name} ... />)) */}
       <PetInfo
         petId={0}
+        img={null}
         name="솜솜이"
         interested={false}
         breed="말티즈"

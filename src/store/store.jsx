@@ -24,3 +24,14 @@ export const useKeywordsStore = create(
   })),
   "useKeyworsStore"
 );
+
+// 동물 정보 담은 리스트
+export const usePetInfoStore = create(
+  devtools((set) => ({
+    petInfoList: [],
+    addPetInfo: (petInfo) => {
+      set((state) => ({ petInfoList: [...state.petInfoList, petInfo] }));
+    },
+  })),
+  "usePetInfoStore"
+);
