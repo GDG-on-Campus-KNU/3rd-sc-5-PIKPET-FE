@@ -17,7 +17,7 @@ const NavBar = () => {
       />
       <NavTab
         type="Search"
-        selected={currentPage === "/search" ? true : false}
+        selected={currentPage === "/search" || currentPage === "/search/result" ? true : false}
         // onClick={navigate("/search")}
       />
       <NavTab

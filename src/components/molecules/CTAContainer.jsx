@@ -3,7 +3,7 @@ import Icon from "@components/atoms/Icon";
 import styled from "styled-components";
 
 // type: 필수
-const CTAContainer = ({ type, title1, title2 }) => {
+const CTAContainer = ({ type, title1, title2, onClick }) => {
   if (type === undefined) {
     throw new Error("type prop is necessary.");
   } else if (type === "1Button") {

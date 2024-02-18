@@ -6,7 +6,7 @@ const NavTab = ({ type, selected }) => {
   return (
     <>
       {type === "Home" && (
-        <StyledNavTab selected={selected}>
+        <StyledNavTab selected={selected} href="/">
           <Icon src={selected ? "IconHomeSelected" : "IconHomeMono"} />
           <Text
             color={(props) =>
@@ -19,7 +19,7 @@ const NavTab = ({ type, selected }) => {
         </StyledNavTab>
       )}
       {type === "Search" && (
-        <StyledNavTab selected={selected}>
+        <StyledNavTab selected={selected} href="/search">
           <Icon src={selected ? "IconSearchSelected" : "IconSearchMono"} />
           <Text
             color={(props) =>
@@ -32,7 +32,7 @@ const NavTab = ({ type, selected }) => {
         </StyledNavTab>
       )}
       {type === "User" && (
-        <StyledNavTab selected={selected}>
+        <StyledNavTab selected={selected} href="/mypage">
           <Icon src={selected ? "IconUserSelected" : "IconUserMono"} />
           <Text
             color={(props) =>
@@ -48,7 +48,7 @@ const NavTab = ({ type, selected }) => {
   );
 };
 
-const StyledNavTab = styled.div`
+const StyledNavTab = styled.a`
   width: calc(100% / 3);
   height: 72px;
   display: flex;
