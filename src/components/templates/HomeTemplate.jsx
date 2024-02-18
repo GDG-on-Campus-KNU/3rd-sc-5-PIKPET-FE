@@ -36,9 +36,9 @@ const HomeTemplate = () => {
         <Contents noPadding>
           <WidgetArea>
             <Container>
-              <ContainerTitle title="내 검색 히스토리" />
+              <ContainerTitle title="My search history" />
               <ButtonTagGroup>
-                <ButtonTag item="흰색 푸들" />
+                <ButtonTag item="white poodle" />
                 {/* 동적으로 검색 키워드 기록 넣기 */}
               </ButtonTagGroup>
               <ImgGroup>
@@ -51,7 +51,7 @@ const HomeTemplate = () => {
             </Container>
             <Container>
               <a href="/interests">
-                <ContainerTitle title="내 관심 동물" />
+                <ContainerTitle title="My Interests" />
               </a>
               <ImgGroup>
                 <Img src={samplePicture} size="Small" />

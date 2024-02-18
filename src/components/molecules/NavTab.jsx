@@ -14,7 +14,7 @@ const NavTab = ({ type, selected }) => {
             }
             fontSize="12px"
           >
-            홈
+            Home
           </Text>
         </StyledNavTab>
       )}
@@ -27,7 +27,7 @@ const NavTab = ({ type, selected }) => {
             }
             fontSize="12px"
           >
-            검색
+            Search
           </Text>
         </StyledNavTab>
       )}
@@ -40,7 +40,7 @@ const NavTab = ({ type, selected }) => {
             }
             fontSize="12px"
           >
-            마이페이지
+            My page
           </Text>
         </StyledNavTab>
       )}

@@ -43,7 +43,7 @@ const SearchBar = () => {
           value={keywords}
           onChange={(e) => handleInput(e.target.value)}
           type="text"
-          placeholder="검색어 입력 또는 이미지 업로드"
+          placeholder="Enter a keyword or upload an image"
           paddingX="0"
           paddingY="0"
           border="none"
