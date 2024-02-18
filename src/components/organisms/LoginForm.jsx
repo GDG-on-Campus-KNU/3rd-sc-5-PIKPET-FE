@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
+
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import Input from "@components/atoms/Input";
 import ButtonCTA from "@components/atoms/ButtonCTA";
@@ -54,8 +56,10 @@ const StyledEyeIcon = styled(({ showPassword, ...rest }) =>
 `;
 
 const LoginForm = () => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [userInfo, setUserInfo] = useState(null);
 
   const handleLogin = () => {
     let formData = new FormData();
@@ -65,8 +69,33 @@ const LoginForm = () => {
     axios
       .post(`${BASE_URL}/login`, formData)
       .then((response) => {
-        console.log(`Login succeed!`);
         // 유저 정보 저장
+        const data = response.data;
+        const {
+          email,
+          password,
+          phoneNumber,
+          gender,
+          age,
+          address,
+          job,
+          userRole,
+          authorities,
+        } = data;
+        setUserInfo({
+          email,
+          password,
+          phoneNumber,
+          gender,
+          age,
+          address,
+          job,
+          userRole,
+          authorities,
+        });
+
+        console.log(`Login succeed!`);
+        navigate("/");
       })
       .catch((error) => {
         console.error(`An error occurred during login.`, error);
