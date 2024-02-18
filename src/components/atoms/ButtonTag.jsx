@@ -1,11 +1,9 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-const ButtonTag = ({ item, paddingX, paddingY, fontSize, ...rest }) => {
-  const [selected, setSelected] = useState(false);
-
+const ButtonTag = ({ item, isSelected, onClick, paddingX, paddingY, fontSize, ...rest }) => {
   const handleClickButtonTag = () => {
-    setSelected(!selected);
+    onClick(item); // 전달된 onClick 함수 호출
   };
 
   return (
@@ -13,7 +11,7 @@ const ButtonTag = ({ item, paddingX, paddingY, fontSize, ...rest }) => {
       paddingX={paddingX}
       paddingY={paddingY}
       fontSize={fontSize}
-      selected={selected}
+      isSelected={isSelected}
       onClick={handleClickButtonTag}
       {...rest}
     >

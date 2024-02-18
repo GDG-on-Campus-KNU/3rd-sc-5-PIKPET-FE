@@ -30,42 +30,67 @@ export const useTagsStore = create(
   devtools((set) => ({
     speciesTagsList: [],
     addSpeciesTag: (value) => {
-      set({ speciesTagsList: [...speciesTagsList, value] }); // 클릭한 태그를 키워드 배열에 추가
+      set((state) => ({ speciesTagsList: [...state.speciesTagsList, value] })); // 클릭한 태그를 추가하여 배열 업데이트
+    },
+    removeSpeciesTag: (value) => {
+      set((state) => ({
+        speciesTagsList: state.speciesTagsList.filter((tag) => tag !== value),
+      })); // 일치하는 value를 찾아 빼고 업데이트
     },
 
     breedTagsList: [],
     addBreedTag: (value) => {
-      set({ breedTagsList: [...breedTagsList, value] });
+      set((state) => ({ breedTagsList: [...state.breedTagsList, value] }));
+    },
+    removeBreedTag: (value) => {
+      set((state) => ({
+        breedTagsList: state.breedTagsList.filter((tag) => tag !== value),
+      })); // 일치하는 value를 찾아 빼고 업데이트
     },
 
-    minAge: 0,
+    minAge: null,
     setMinAge: (value) => {
       set({ minAge: value });
     },
 
-    maxAge: 0,
+    maxAge: null,
     setMaxAge: (value) => {
       set({ maxAge: value });
     },
 
     genderTagsList: [],
     addGenderTag: (value) => {
-      set({ genderTagsList: [...genderTagsList, value] });
+      set((state) => ({ genderTagsList: [...state.genderTagsList, value] }));
+    },
+    removeGenderTag: (value) => {
+      set((state) => ({
+        genderTagsList: state.genderTagsList.filter((tag) => tag !== value),
+      })); // 일치하는 value를 찾아 빼고 업데이트
     },
 
     sizeTagsList: [],
     addSizeTag: (value) => {
-      set({ sizeTagsList: [...sizeTagsList, value] });
+      set((state) => ({ sizeTagsList: [...state.sizeTagsList, value] }));
+    },
+    removeSizeTag: (value) => {
+      set((state) => ({
+        sizeTagsList: state.sizeTagsList.filter((tag) => tag !== value),
+      })); // 일치하는 value를 찾아 빼고 업데이트
     },
 
     colorTagsList: [],
     addColorTag: (value) => {
-      set({ colorTagsList: [...colorTagsList, value] });
+      set((state) => ({ colorTagsList: [...state.colorTagsList, value] }));
+    },
+    removeColorTag: (value) => {
+      set((state) => ({
+        genderColorList: state.genderColorList.filter((tag) => tag !== value),
+      })); // 일치하는 value를 찾아 빼고 업데이트
     },
 
     neutralized: true,
-    setNeutralized: (value) => {
-      set({ neutralized: value });
+    setNeutralized: () => {
+      set((state) => ({ neutralized: !state.neutralized }));
     },
   })),
   "useTagsStore"
