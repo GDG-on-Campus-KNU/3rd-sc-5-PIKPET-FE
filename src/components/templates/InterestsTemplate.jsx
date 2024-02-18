@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useCurrentPageStore, usePetInfoStore, usePetInfoStore } from "@store";
+import { useCurrentPageStore, usePetInfoStore } from "@store";
 import axios from "axios";
 
 import { BASE_URL } from "@utils";
