@@ -7,36 +7,36 @@ const SearchFilter = () => {
   return (
     <StyledSearchFilter>
       <Text fontWeight="700">Filters</Text>
-      <InputItem type="ButtonTag" title="Species" items={["Dog", "Cat"]} />
+      <InputItem type="ButtonTag" title="Species" items={["Dog"]} />
       <InputItem
         type="ButtonTag"
         title="Breed"
         items={[
-          "Golden Retriever",
-          "Dachshund",
-          "Labrador Retriever",
-          "Maltese",
           "Beagle",
           "Bichon Frise",
           "Border Collie",
           "Boston Terrier",
           "Bulldog",
-          "Samoyed",
-          "Schnauzer",
-          "Shiba Inu",
-          "Siberian Husky",
-          "Shitzu",
-          "Yorkshire Terrier",
-          "Welsh Corgi",
-          "Japanese Spitz",
-          "Jindo",
           "Chihuahua",
           "Cocker Spaniel",
+          "Dachshund",
+          "Golden Retriever",
+          "Japanese Spitz",
+          "Jindo",
+          "Labrador Retriever",
+          "Maltese",
           "Papillon",
-          "Pug",
           "Pomeranian",
           "Poodle",
           "Poongsan",
+          "Pug",
+          "Samoyed",
+          "Schnauzer",
+          "Shiba Inu",
+          "Shitzu",
+          "Siberian Husky",
+          "Welsh Corgi",
+          "Yorkshire Terrier",
         ]}
       />
       <InputItem type="Input" title="Age" />

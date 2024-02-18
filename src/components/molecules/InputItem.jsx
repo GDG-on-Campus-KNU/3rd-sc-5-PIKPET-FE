@@ -22,10 +22,10 @@ const InputItem = ({ type, title, items }) => {
           ))}
         </ButtonTagGroup>
       )}
-      {type === "Input" && (title === "나이" || title === "Age") && (
+      {type === "Input" && title === "Age" && (
         <div style={{ width: "100%", display: "flex", alignItems: "center", gap: "4px" }}>
           <Input type="number" width="94px" fontSize="12px" />~
-          <Input type="number" width="94px" fontSize="12px" />세
+          <Input type="number" width="94px" fontSize="12px" />
         </div>
       )}
       {type === "Toggle" && <Toggle />}

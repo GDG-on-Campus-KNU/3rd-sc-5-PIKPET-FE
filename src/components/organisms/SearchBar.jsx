@@ -43,7 +43,7 @@ const SearchBar = () => {
           value={keywords}
           onChange={(e) => handleInput(e.target.value)}
           type="text"
-          placeholder="Enter a keyword or upload an image"
+          placeholder="Put keywords or upload an image"
           paddingX="0"
           paddingY="0"
           border="none"
@@ -65,7 +65,7 @@ const StyledSearchBar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   background-color: white;
 
   position: sticky;
@@ -79,7 +79,7 @@ const StyledSearchInput = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   background-color: ${(props) => props.theme.colors.background};
   border: none;
   border-radius: 10px;
