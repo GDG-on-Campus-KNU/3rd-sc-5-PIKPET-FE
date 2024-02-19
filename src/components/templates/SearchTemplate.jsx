@@ -23,20 +23,20 @@ const SearchTemplate = () => {
   }, []);
 
   // 키워드 보내기 (axios 통신)
-  // const handleClickSearch = () => {
-  //   axios
-  //     .get(`${BASE_URL}/search?`)
-  //     .then((response) => {
-  //       // console.log(`The request has been sent successfully.`);
-  //       // setIsSent(true);
-  //       // response.data 배열에 담기 (상태관리로)
-  //       // {petId, 이름, 사진, 나이, 성별, 종, 관심 여부, 보호소 이름}
-  //       navigate("/search/result");
-  //     })
-  //     .catch((error) => {
-  //       console.error(`An error occurred while searching.`, error);
-  //     });
-  // };
+  const handleClickSearch = () => {
+    axios
+      .get(`${BASE_URL}/search?`)
+      .then((response) => {
+        // console.log(`The request has been sent successfully.`);
+        // setIsSent(true);
+        // response.data 배열에 담기 (상태관리로)
+        // {petId, 이름, 사진, 나이, 성별, 종, 관심 여부, 보호소 이름}
+        navigate("/search/result");
+      })
+      .catch((error) => {
+        console.error(`An error occurred while searching.`, error);
+      });
+  };
 
   return (
     <Layout backgroundColor="white">

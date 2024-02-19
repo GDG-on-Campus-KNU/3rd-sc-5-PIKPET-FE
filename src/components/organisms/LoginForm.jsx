@@ -70,7 +70,7 @@ const LoginForm = () => {
     formData.append("password", password);
 
     axios
-      .post(`${BASE_URL}/login`, formData)
+      .post(`${BASE_URL}/loginPage/login`, formData, { withCredentials: true })
       .then((response) => {
         // 유저 정보 저장
         // const data = response.data;
@@ -96,10 +96,12 @@ const LoginForm = () => {
         //   userRole,
         //   authorities,
         // });
-        setIsLoggedin(true); // 로그인 상태를 true로 저장
 
-        navigate("/");
-        console.log(`Login succeed!`);
+        console.log(`Set-Cookie: ${response.headers["set-cookie"]}`); // 쿠키 값 확인
+        if (response.headers["set-cookie"]) setIsLoggedin(true); // 로그인 상태를 true로 저장
+
+        console.log(`Login succeed: ${isLoggedin}`);
+        if (isLoggedin === true) navigate("/");
       })
       .catch((error) => {
         console.error(`An error occurred during login.`, error);
