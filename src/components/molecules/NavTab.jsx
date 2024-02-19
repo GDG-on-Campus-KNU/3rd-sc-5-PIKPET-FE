@@ -1,8 +1,11 @@
 import Icon from "@components/atoms/Icon";
 import styled from "styled-components";
 import Text from "@styles/Text";
+import { useLoggedinStore } from "@store";
 
 const NavTab = ({ type, selected }) => {
+  const { isLoggedin } = useLoggedinStore;
+
   return (
     <>
       {type === "Home" && (
@@ -32,7 +35,7 @@ const NavTab = ({ type, selected }) => {
         </StyledNavTab>
       )}
       {type === "User" && (
-        <StyledNavTab selected={selected} href="/mypage">
+        <StyledNavTab selected={selected} href={isLoggedin ? "/mypage" : "/login"}>
           <Icon src={selected ? "IconUserSelected" : "IconUserMono"} />
           <Text
             color={(props) =>
@@ -40,7 +43,7 @@ const NavTab = ({ type, selected }) => {
             }
             fontSize="12px"
           >
-            My page
+            {isLoggedin ? "My page" : "Log in"}
           </Text>
         </StyledNavTab>
       )}
