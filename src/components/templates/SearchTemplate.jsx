@@ -15,17 +15,53 @@ const SearchTemplate = () => {
   const navigate = useNavigate;
   const { currentPage, setCurrentPage } = useCurrentPageStore();
   const { keywordsList, setKeywordsList } = useKeywordsStore();
+  const {
+    speciesTagsList,
+    breedTagsList,
+    minAge,
+    maxAge,
+    genderTagsList,
+    sizeTagsList,
+    colorTagsList,
+    neutralized,
+  } = useTagsStore();
+
+  // each tags list로부터 쿼리 파라미터 생성하기
+  const queryParams = new URLSearchParams();
+
+  if (speciesTagsList.length !== 0) {
+    const formattedSpeciesTagsList = speciesTagsList.map((species) => species.toLowerCase());
+    queryParams.append("species", formattedSpeciesTagsList);
+  }
+  if (breedTagsList.length !== 0) {
+    const formattedBreedTagsList = breedTagsList.map((species) => species.toLowerCase());
+    queryParams.append("breed", formattedBreedTagsList);
+  }
+  if (minAge) queryParams.append("min_age", minAge); // 0이면 추가가 안 됨
+  if (maxAge) queryParams.append("max_age", maxAge);
+  if (genderTagsList.length !== 0) {
+    const formattedGenderTagsList = genderTagsList.map((species) => species.toLowerCase());
+    queryParams.append("gender", formattedGenderTagsList);
+  }
+  if (colorTagsList.length !== 0) {
+    const formattedColorTagsList = colorTagsList.map((species) => species.toLowerCase());
+    queryParams.append("color", formattedColorTagsList);
+  }
+  if (neutralized === true) queryParams.append("neutralized", neutralized);
+
+  const queryString = queryParams.toString();
+  console.log(`queryString: ${queryString}`); // "name=John&age=30"
 
   // 최초 마운트시에(만) setCurrentPage
   useEffect(() => {
-    setCurrentPage("/search");
+    setCurrentPage(`/search?${queryString}}`);
     localStorage.setItem("currentPage", JSON.stringify(currentPage)); // 로컬스토리지에 저장 (앱 리렌더링 시에도 값 보존 위해서)
   }, []);
 
   // 키워드 보내기 (axios 통신)
   const handleClickSearch = () => {
     axios
-      .get(`${BASE_URL}/search?`)
+      .get(`${BASE_URL}/search?${queryString}`)
       .then((response) => {
         // console.log(`The request has been sent successfully.`);
         // setIsSent(true);
