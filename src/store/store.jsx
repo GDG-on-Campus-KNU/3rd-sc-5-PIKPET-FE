@@ -45,17 +45,17 @@ export const useTagsStore = create(
     removeBreedTag: (value) => {
       set((state) => ({
         breedTagsList: state.breedTagsList.filter((tag) => tag !== value),
-      })); // 일치하는 value를 찾아 빼고 업데이트
+      }));
     },
 
     minAge: null,
     setMinAge: (value) => {
-      set({ minAge: value });
+      set({ minAge: parseInt(value) }); // set as an int
     },
 
     maxAge: null,
     setMaxAge: (value) => {
-      set({ maxAge: value });
+      set({ maxAge: parseInt(value) }); // set as an int
     },
 
     genderTagsList: [],
@@ -65,7 +65,7 @@ export const useTagsStore = create(
     removeGenderTag: (value) => {
       set((state) => ({
         genderTagsList: state.genderTagsList.filter((tag) => tag !== value),
-      })); // 일치하는 value를 찾아 빼고 업데이트
+      }));
     },
 
     sizeTagsList: [],
@@ -75,7 +75,7 @@ export const useTagsStore = create(
     removeSizeTag: (value) => {
       set((state) => ({
         sizeTagsList: state.sizeTagsList.filter((tag) => tag !== value),
-      })); // 일치하는 value를 찾아 빼고 업데이트
+      }));
     },
 
     colorTagsList: [],
@@ -84,11 +84,11 @@ export const useTagsStore = create(
     },
     removeColorTag: (value) => {
       set((state) => ({
-        genderColorList: state.genderColorList.filter((tag) => tag !== value),
-      })); // 일치하는 value를 찾아 빼고 업데이트
+        colorTagsList: state.colorTagsList.filter((tag) => tag !== value),
+      }));
     },
 
-    neutralized: true,
+    neutralized: false,
     setNeutralized: () => {
       set((state) => ({ neutralized: !state.neutralized }));
     },

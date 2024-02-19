@@ -1,9 +1,69 @@
 import { useState } from "react";
+import { useTagsStore } from "@store";
+
 import styled from "styled-components";
 
-const ButtonTag = ({ item, isSelected, onClick, paddingX, paddingY, fontSize, ...rest }) => {
+const ButtonTag = ({ item, category, paddingX, paddingY, fontSize, ...rest }) => {
+  if (item === null) throw new Error("item & category prop is neccessary.");
+
+  const [isSelected, setIsSelected] = useState(false);
+  const {
+    speciesTagsList,
+    addSpeciesTag,
+    removeSpeciesTag,
+    breedTagsList,
+    addBreedTag,
+    removeBreedTag,
+    genderTagsList,
+    addGenderTag,
+    removeGenderTag,
+    sizeTagsList,
+    addSizeTag,
+    removeSizeTag,
+    colorTagsList,
+    addColorTag,
+    removeColorTag,
+  } = useTagsStore();
+
   const handleClickButtonTag = () => {
-    onClick(item); // 전달된 onClick 함수 호출
+    if (category === "Species") {
+      if (isSelected === false) {
+        addSpeciesTag(item);
+      } else {
+        removeSpeciesTag(item);
+      }
+      // console.log(`speciesTagsList: ${speciesTagsList}`); // test용
+    } else if (category === "Breed") {
+      if (isSelected === false) {
+        addBreedTag(item);
+      } else {
+        removeBreedTag(item);
+      }
+      // console.log(`breedTagsList: ${breedTagsList}`); // test용
+    } else if (category === "Gender") {
+      if (isSelected === false) {
+        addGenderTag(item);
+      } else {
+        removeGenderTag(item);
+      }
+      // console.log(`genderTagsList: ${genderTagsList}`); // test용
+    } else if (category === "Size") {
+      if (isSelected === false) {
+        addSizeTag(item);
+      } else {
+        removeSizeTag(item);
+      }
+      // console.log(`sizeTagsList: ${sizeTagsList}`); // test용
+    } else if (category === "Color") {
+      if (isSelected === false) {
+        addColorTag(item);
+      } else {
+        removeColorTag(item);
+      }
+      // console.log(`colorTagsList: ${colorTagsList}`); // test용
+    } else throw new Error("Undefined type of category");
+
+    setIsSelected(!isSelected); // isSelected 값을 반대로 바꾸기
   };
 
   return (
@@ -11,7 +71,7 @@ const ButtonTag = ({ item, isSelected, onClick, paddingX, paddingY, fontSize, ..
       paddingX={paddingX}
       paddingY={paddingY}
       fontSize={fontSize}
-      isSelected={isSelected}
+      selected={isSelected}
       onClick={handleClickButtonTag}
       {...rest}
     >
@@ -34,7 +94,7 @@ export const StyledButtonTag = styled.button`
   color: ${(props) => (props.selected ? props.theme.colors.primary : "black")};
 `;
 
-export const ButtonTagGroup = ({ children }) => {
+const ButtonTagGroup = ({ children }) => {
   return <StyledButtonTagGroup>{children}</StyledButtonTagGroup>;
 };
 
@@ -46,3 +106,4 @@ const StyledButtonTagGroup = styled.div`
 `;
 
 export default ButtonTag;
+export { ButtonTagGroup };
