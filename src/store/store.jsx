@@ -102,6 +102,18 @@ export const useTagsStore = create(
     setNeutralized: () => {
       set((state) => ({ neutralized: !state.neutralized }));
     },
+
+    clearAllTags: () =>
+      set((state) => ({
+        speciesTagsList: [],
+        breedTagsList: [],
+        minAge: null,
+        maxAge: null,
+        genderTagsList: [],
+        sizeTagsList: [],
+        colorTagsList: [],
+        neutralized: false,
+      })),
   })),
   "useTagsStore"
 );

@@ -1,10 +1,19 @@
 import ButtonCTA from "@components/atoms/ButtonCTA";
 import Icon from "@components/atoms/Icon";
 import styled from "styled-components";
+import { useTagsStore } from "@store";
 
 // type: 필수
 const CTAContainer = ({ type, title1, title2, onClick }) => {
-  const handleClickCTA = () => {
+  const { clearAllTags } = useTagsStore();
+
+  // 각 리스트에 담긴 tag 값들 모두 삭제
+  const handleClearAllTags = () => {
+    clearAllTags();
+  };
+
+  // 검색(Go)
+  const handleSearchButton = () => {
     onClick();
   };
 
@@ -33,8 +42,8 @@ const CTAContainer = ({ type, title1, title2, onClick }) => {
   } else if (type === "SearchFilter") {
     return (
       <StyledCTAContainer>
-        <Icon src="IconRefreshMono" />
-        <ButtonCTA type="Primary" title="Go" onClick={handleClickCTA} />
+        <Icon src="IconRefreshMono" onClick={handleClearAllTags} />
+        <ButtonCTA type="Primary" title="Go" onClick={handleSearchButton} />
       </StyledCTAContainer>
     );
   } else throw new Error("Undefined type of CTAContainer");

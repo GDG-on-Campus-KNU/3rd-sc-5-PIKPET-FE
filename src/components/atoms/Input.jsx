@@ -62,7 +62,7 @@ const AgeInput = () => {
     <StyledAgeInput>
       <Input
         type="number"
-        value={minAge}
+        value={minAge !== null ? minAge : ""}
         onChange={(e) => handleSetMinAge(e.target.value)} // value prop의 값을 파라미터로 넘기기
         width="94px"
         fontSize="12px"
@@ -70,7 +70,7 @@ const AgeInput = () => {
       ~
       <Input
         type="number"
-        value={maxAge}
+        value={maxAge !== null ? maxAge : ""}
         onChange={(e) => handleSetMaxAge(e.target.value)} // value prop의 값을 파라미터로 넘기기
         width="94px"
         fontSize="12px"

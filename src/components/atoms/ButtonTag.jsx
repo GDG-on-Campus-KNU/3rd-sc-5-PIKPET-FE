@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTagsStore } from "@store";
 
 import styled from "styled-components";
@@ -65,6 +65,25 @@ const ButtonTag = ({ item, category, paddingX, paddingY, fontSize, ...rest }) =>
 
     setIsSelected(!isSelected); // isSelected 값을 반대로 바꾸기
   };
+
+  // 모든 태그 삭제(refresh)했을 때 태그의 선택 상태를 false로
+  useEffect(() => {
+    const tagLists = {
+      Species: speciesTagsList,
+      Breed: breedTagsList,
+      Gender: genderTagsList,
+      Size: sizeTagsList,
+      Color: colorTagsList,
+    };
+
+    // 카테고리에 해당하는 태그 리스트를 가져옴
+    const selectedTagList = tagLists[category];
+
+    // 선택된 항목이 리스트에 포함되지 않으면 선택 상태를 false로 설정
+    if (!selectedTagList.includes(item)) {
+      setIsSelected(false);
+    }
+  }, [speciesTagsList, breedTagsList, genderTagsList, sizeTagsList, colorTagsList]);
 
   return (
     <StyledButtonTag
