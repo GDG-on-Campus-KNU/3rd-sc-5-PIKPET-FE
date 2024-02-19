@@ -9,6 +9,16 @@ export const useCurrentPageStore = create(
   "useCurrentPageStore"
 );
 
+// 로그인 상태 관리
+export const useLoggedinStore = create(
+  devtools((set) => ({
+    isLoggedin: false,
+    setIsLoggedin: (loggedIn) => {
+      set({ isLoggedin: loggedIn });
+    },
+  }))
+);
+
 // SearchBar에서 입력된 검색어들 관리
 export const useKeywordsStore = create(
   devtools((set) => ({
