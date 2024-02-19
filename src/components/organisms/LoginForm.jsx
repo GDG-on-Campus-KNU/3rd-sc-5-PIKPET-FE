@@ -15,7 +15,7 @@ const UsernameInput = ({ username, setUsername }) => {
   return (
     <Input
       type="text"
-      placeholder="이메일"
+      placeholder="E-mail"
       value={username}
       onChange={(e) => setUsername(e.target.value)}
     />
@@ -33,7 +33,7 @@ const PasswordInput = ({ password, setPassword }) => {
     <StyledPasswordInput>
       <Input
         type={showPassword ? "text" : "password"}
-        placeholder="비밀번호"
+        placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
@@ -110,7 +110,7 @@ const LoginForm = () => {
       </StyledLoginInput>
       <ButtonCTA
         type={username && password ? "Primary" : "PrimaryDisabled"}
-        title="로그인"
+        title="Log in"
         onClick={handleLogin}
       />
     </StyledLoginForm>
