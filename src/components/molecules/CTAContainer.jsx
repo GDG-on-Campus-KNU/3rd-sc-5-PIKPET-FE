@@ -4,6 +4,10 @@ import styled from "styled-components";
 
 // type: 필수
 const CTAContainer = ({ type, title1, title2, onClick }) => {
+  const handleClickCTA = () => {
+    onClick();
+  };
+
   if (type === undefined) {
     throw new Error("type prop is necessary.");
   } else if (type === "1Button") {
@@ -30,7 +34,7 @@ const CTAContainer = ({ type, title1, title2, onClick }) => {
     return (
       <StyledCTAContainer>
         <Icon src="IconRefreshMono" />
-        <ButtonCTA type="Primary" title="Go" />
+        <ButtonCTA type="Primary" title="Go" onClick={handleClickCTA} />
       </StyledCTAContainer>
     );
   } else throw new Error("Undefined type of CTAContainer");
