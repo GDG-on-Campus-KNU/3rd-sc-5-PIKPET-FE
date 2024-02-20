@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { useTagsStore } from "@store";
 
 // type: 필수
-const CTAContainer = ({ type, title1, title2, onClick }) => {
+const CTAContainer = ({ type, title1, title2, onClick, onClick1, onClick2 }) => {
   const { clearAllTags } = useTagsStore();
 
   // 각 리스트에 담긴 tag 값들 모두 삭제
@@ -28,8 +28,8 @@ const CTAContainer = ({ type, title1, title2, onClick }) => {
   } else if (type === "2ButtonEven") {
     return (
       <StyledCTAContainer>
-        <ButtonCTA type="Secondary" title={title1} />
-        <ButtonCTA type="Primary" title={title2} />
+        <ButtonCTA type="Secondary" title={title1} onClick={onClick1} />
+        <ButtonCTA type="Primary" title={title2} onClick={onClick2} />
       </StyledCTAContainer>
     );
   } else if (type === "2ButtonUneven") {
