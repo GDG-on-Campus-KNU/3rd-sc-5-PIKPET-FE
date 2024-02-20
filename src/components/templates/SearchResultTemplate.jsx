@@ -2,12 +2,12 @@ import { useEffect } from "react";
 import { useCurrentPageStore } from "@store";
 
 import SearchBar from "@components/organisms/SearchBar";
-import SearchFilterDropdown from "@components/organisms/SearchFilterDropdown";
+// import SearchFilterDropdown from "@components/organisms/SearchFilterDropdown";
 import PetInfoList from "@components/organisms/PetInfoList";
 import Paginator from "@components/organisms/Paginator";
 import NavBar from "@components/organisms/NavBar";
 
-import styled from "styled-components";
+// import styled from "styled-components";
 import Text from "@styles/Text";
 import Layout, { Main, Contents } from "@styles/layout";
 
