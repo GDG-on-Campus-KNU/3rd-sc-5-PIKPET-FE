@@ -71,12 +71,10 @@ const LoginForm = () => {
   const handleLogin = () => {
     // test: 쿠키 포함 요청 전송되는지 ----------
     // axios
-    //   .get(`${BASE_URL}/userInfo`, {
-    //     withCredentials: true,
-    //   })
+    //   .get(`api/userInfo`)
     //   .then((response) => {
     //     const data = response.data;
-    //     console.log(`data: ${data}`); // 바디 확인
+    //     console.log(`data:`, data); // 바디 확인
     //     console.log("---");
     //   })
     //   .catch((error) => {
@@ -89,41 +87,18 @@ const LoginForm = () => {
     formData.append("password", password);
 
     axios
-      .post(`${BASE_URL}/login`, formData, { withCredentials: true })
+      .post(`/api/login`, formData, { withCredentials: true })
       .then((response) => {
         const data = response.data;
-        console.log(`data: ${data}`); // 바디 확인
-        // const headers = response.headers;
-        // console.log(`headers: ${headers}`); // 헤더 전체 확인
+        // console.log(`data:`, data); // data 확인
 
-        const sessionId = cookies.JSESSIONID; // 쿠키의 JSESSIONID를 sessionId에 저장
-        console.log(`sessionId: ${sessionId}`);
+        const headers = response.headers;
+        // console.log(`headers:`, headers); // 헤더 전체 확인
 
-        // 유저 정보 저장
-        // const {
-        //   email,
-        //   password,
-        //   phoneNumber,
-        //   gender,
-        //   age,
-        //   address,
-        //   job,
-        //   userRole,
-        //   authorities,
-        // } = data;
-        // setUserInfo({
-        //   email,
-        //   password,
-        //   phoneNumber,
-        //   gender,
-        //   age,
-        //   address,
-        //   job,
-        //   userRole,
-        //   authorities,
-        // });
+        // const sessionId = cookies.JSESSIONID; // 쿠키의 JSESSIONID를 sessionId에 저장
+        // console.log(`sessionId: ${sessionId}`);
 
-        if (response.data && sessionId) {
+        if (response.data && response.headers) {
           setIsLoggedin(true);
         }
         console.log(`Login succeed: ${isLoggedin}`); // test

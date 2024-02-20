@@ -34,5 +34,6 @@
     "eslint-plugin-react-refresh": "^0.4.3",
     "prettier": "^3.2.5",
     "vite": "^4.4.5"
-  }
+  },
+  "proxy": "http://34.64.68.9:8080"
 }
