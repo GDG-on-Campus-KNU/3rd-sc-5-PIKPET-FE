@@ -43,6 +43,10 @@ const SearchTemplate = () => {
     const formattedGenderTagsList = genderTagsList.map((species) => species.toLowerCase());
     queryParams.append("gender", formattedGenderTagsList);
   }
+  if (sizeTagsList.length !== 0) {
+    const formattedSizeTagsList = sizeTagsList.map((size) => size.toLowerCase());
+    queryParams.append("size", formattedSizeTagsList);
+  }
   if (colorTagsList.length !== 0) {
     const formattedColorTagsList = colorTagsList.map((species) => species.toLowerCase());
     queryParams.append("color", formattedColorTagsList);
