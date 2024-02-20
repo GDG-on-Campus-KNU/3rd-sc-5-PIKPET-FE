@@ -15,13 +15,13 @@ export default defineConfig({
       { find: "@utils", replacement: "/src/utils/utils" },
     ],
   },
-  server: {
-    proxy: {
-      "/api": {
-        target: "http://34.64.68.9:8080",
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ""),
-      },
-    },
-  },
+  // server: {
+  //   proxy: {
+  //     "/api": {
+  //       target: "http://34.64.68.9:8080",
+  //       changeOrigin: true,
+  //       rewrite: (path) => path.replace(/^\/api/, ""),
+  //     },
+  //   },
+  // },
 });

@@ -61,7 +61,7 @@ const LoginForm = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  // const [userInfo, setUserInfo] = useState(null);
+  const [userInfo, setUserInfo] = useState(null);
   const { isLoggedin, setIsLoggedin } = useLoggedinStore();
 
   const handleLogin = () => {
@@ -70,37 +70,39 @@ const LoginForm = () => {
     formData.append("password", password);
 
     axios
-      .post(`${BASE_URL}/loginPage/login`, formData, { withCredentials: true })
+      .post(`${BASE_URL}/login`, formData, { withCredentials: true })
       .then((response) => {
         // 유저 정보 저장
-        // const data = response.data;
-        // const {
-        //   email,
-        //   password,
-        //   phoneNumber,
-        //   gender,
-        //   age,
-        //   address,
-        //   job,
-        //   userRole,
-        //   authorities,
-        // } = data;
-        // setUserInfo({
-        //   email,
-        //   password,
-        //   phoneNumber,
-        //   gender,
-        //   age,
-        //   address,
-        //   job,
-        //   userRole,
-        //   authorities,
-        // });
+        const data = response.data;
+        console.log(`data: ${data}`);
+        const {
+          email,
+          password,
+          phoneNumber,
+          gender,
+          age,
+          address,
+          job,
+          userRole,
+          authorities,
+        } = data;
+        setUserInfo({
+          email,
+          password,
+          phoneNumber,
+          gender,
+          age,
+          address,
+          job,
+          userRole,
+          authorities,
+        });
 
-        console.log(`Set-Cookie: ${response.headers["set-cookie"]}`); // 쿠키 값 확인
-        if (response.headers["set-cookie"]) setIsLoggedin(true); // 로그인 상태를 true로 저장
-
-        console.log(`Login succeed: ${isLoggedin}`);
+        // console.log(`Set-Cookie: ${response.headers["set-cookie"]}`); // 쿠키 값 확인
+        if (response.data) {
+          setIsLoggedin(true);
+        }
+        console.log(`Login succeed: ${isLoggedin}`); // test
         if (isLoggedin === true) navigate("/");
       })
       .catch((error) => {
