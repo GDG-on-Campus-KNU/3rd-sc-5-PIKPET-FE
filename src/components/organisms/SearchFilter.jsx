@@ -9,29 +9,29 @@ import styled from "styled-components";
 import Text from "@styles/Text";
 
 const SearchFilter = () => {
-  // const {
-  //   speciesTagsList,
-  //   addSpeciesTag,
-  //   removeSpeciesTag,
-  //   breedTagsList,
-  //   addBreedTag,
-  //   removeBreedTag,
-  //   minAge,
-  //   setMinAge,
-  //   maxAge,
-  //   setMaxAge,
-  //   genderTagsList,
-  //   addGenderTag,
-  //   removeGenderTag,
-  //   sizeTagsList,
-  //   addSizeTag,
-  //   removeSizeTag,
-  //   colorTagsList,
-  //   addColorTag,
-  //   removeColorTag,
-  //   neutralized,
-  //   setNeutralized,
-  // } = useTagsStore();
+  const {
+    //   speciesTagsList,
+    //   addSpeciesTag,
+    //   removeSpeciesTag,
+    //   breedTagsList,
+    //   addBreedTag,
+    //   removeBreedTag,
+    //   minAge,
+    //   setMinAge,
+    //   maxAge,
+    //   setMaxAge,
+    //   genderTagsList,
+    //   addGenderTag,
+    //   removeGenderTag,
+    //   sizeTagsList,
+    //   addSizeTag,
+    //   removeSizeTag,
+    //   colorTagsList,
+    //   addColorTag,
+    //   removeColorTag,
+    neutralized,
+    setNeutralized,
+  } = useTagsStore();
 
   return (
     <StyledSearchFilter>

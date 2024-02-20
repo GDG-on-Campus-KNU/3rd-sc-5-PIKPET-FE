@@ -8,7 +8,7 @@ import SearchBar from "@components/organisms/SearchBar";
 import SearchFilter from "@components/organisms/SearchFilter";
 import CTAContainer from "@components/molecules/CTAContainer";
 
-import styled from "styled-components";
+// import styled from "styled-components";
 import Layout, { Main, Contents } from "@styles/layout";
 
 const SearchTemplate = () => {
@@ -54,7 +54,7 @@ const SearchTemplate = () => {
   if (neutralized === true) queryParams.append("neutralized", neutralized);
 
   const queryString = queryParams.toString();
-  console.log(`queryString: ${queryString}`); // "name=John&age=30"
+  // console.log(`queryString: ${queryString}`); // test
 
   // 최초 마운트시에(만) setCurrentPage
   useEffect(() => {
