@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
-import { useCookies } from "react-cookie";
-
+// import { useCookies } from "react-cookie";
 import { useLoggedinStore } from "@store";
 
 import { FiEye, FiEyeOff } from "react-icons/fi";
@@ -64,8 +63,7 @@ const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [userInfo, setUserInfo] = useState(null);
-  const [cookies, setCookie, removeCookie] = useCookies(["JSESSIONID"]);
-
+  // const [cookies, setCookie, removeCookie] = useCookies(["JSESSIONID"]);
   const { isLoggedin, setIsLoggedin } = useLoggedinStore();
 
   const handleLogin = () => {
