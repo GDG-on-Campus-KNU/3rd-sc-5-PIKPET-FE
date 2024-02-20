@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
+import { useCookies } from "react-cookie";
+
 import { useLoggedinStore } from "@store";
 
 import { FiEye, FiEyeOff } from "react-icons/fi";
@@ -62,9 +64,26 @@ const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [userInfo, setUserInfo] = useState(null);
+  const [cookies, setCookie, removeCookie] = useCookies(["JSESSIONID"]);
+
   const { isLoggedin, setIsLoggedin } = useLoggedinStore();
 
   const handleLogin = () => {
+    // test: 쿠키 포함 요청 전송되는지 ----------
+    // axios
+    //   .get(`${BASE_URL}/userInfo`, {
+    //     withCredentials: true,
+    //   })
+    //   .then((response) => {
+    //     const data = response.data;
+    //     console.log(`data: ${data}`); // 바디 확인
+    //     console.log("---");
+    //   })
+    //   .catch((error) => {
+    //     console.error(`An error occurred during login.`, error);
+    //   });
+
+    // login 요청 보내기 ----------
     let formData = new FormData();
     formData.append("username", username);
     formData.append("password", password);
@@ -73,35 +92,38 @@ const LoginForm = () => {
       .post(`${BASE_URL}/login`, formData, { withCredentials: true })
       .then((response) => {
         const data = response.data;
-        console.log(`data: ${data}`);
+        console.log(`data: ${data}`); // 바디 확인
+        // const headers = response.headers;
+        // console.log(`headers: ${headers}`); // 헤더 전체 확인
+
+        const sessionId = cookies.JSESSIONID; // 쿠키의 JSESSIONID를 sessionId에 저장
+        console.log(`sessionId: ${sessionId}`);
 
         // 유저 정보 저장
-        const {
-          email,
-          password,
-          phoneNumber,
-          gender,
-          age,
-          address,
-          job,
-          userRole,
-          authorities,
-        } = data;
-        setUserInfo({
-          email,
-          password,
-          phoneNumber,
-          gender,
-          age,
-          address,
-          job,
-          userRole,
-          authorities,
-        });
+        // const {
+        //   email,
+        //   password,
+        //   phoneNumber,
+        //   gender,
+        //   age,
+        //   address,
+        //   job,
+        //   userRole,
+        //   authorities,
+        // } = data;
+        // setUserInfo({
+        //   email,
+        //   password,
+        //   phoneNumber,
+        //   gender,
+        //   age,
+        //   address,
+        //   job,
+        //   userRole,
+        //   authorities,
+        // });
 
-        // console.log(`headers: ${response.headers}`); // 헤더 전체 확인
-        console.log(`Set-Cookie: ${response.headers["Set-Cookie"]}`); // 쿠키 값 확인
-        if (response.data && response.headers["Set-Cookie"]) {
+        if (response.data && sessionId) {
           setIsLoggedin(true);
         }
         console.log(`Login succeed: ${isLoggedin}`); // test

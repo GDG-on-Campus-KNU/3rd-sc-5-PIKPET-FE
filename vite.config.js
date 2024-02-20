@@ -17,10 +17,10 @@ export default defineConfig({
   },
   // server: {
   //   proxy: {
-  //     "/api": {
+  //     "/login": {
   //       target: "http://34.64.68.9:8080",
   //       changeOrigin: true,
-  //       rewrite: (path) => path.replace(/^\/api/, ""),
+  //       rewrite: (path) => path.replace(/^\/login/, ""),
   //     },
   //   },
   // },
