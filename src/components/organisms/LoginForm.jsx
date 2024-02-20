@@ -72,9 +72,10 @@ const LoginForm = () => {
     axios
       .post(`${BASE_URL}/login`, formData, { withCredentials: true })
       .then((response) => {
-        // 유저 정보 저장
         const data = response.data;
         console.log(`data: ${data}`);
+
+        // 유저 정보 저장
         const {
           email,
           password,
@@ -98,8 +99,9 @@ const LoginForm = () => {
           authorities,
         });
 
-        // console.log(`Set-Cookie: ${response.headers["set-cookie"]}`); // 쿠키 값 확인
-        if (response.data) {
+        // console.log(`headers: ${response.headers}`); // 헤더 전체 확인
+        console.log(`Set-Cookie: ${response.headers["Set-Cookie"]}`); // 쿠키 값 확인
+        if (response.data && response.headers["Set-Cookie"]) {
           setIsLoggedin(true);
         }
         console.log(`Login succeed: ${isLoggedin}`); // test
