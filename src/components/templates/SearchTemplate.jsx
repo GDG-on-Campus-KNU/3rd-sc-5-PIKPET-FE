@@ -12,7 +12,7 @@ import styled from "styled-components";
 import Layout, { Main, Contents } from "@styles/layout";
 
 const SearchTemplate = () => {
-  const navigate = useNavigate;
+  const navigate = useNavigate();
   const { currentPage, setCurrentPage } = useCurrentPageStore();
   const { keywordsList, setKeywordsList } = useKeywordsStore();
   const {
