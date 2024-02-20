@@ -2,7 +2,7 @@ import { useTagsStore } from "@store";
 
 import FilterItem from "@components/molecules/FilterItem";
 import Input, { AgeInput } from "@components/atoms/Input";
-import ButtonTag, { ButtonTagGroup } from "@components/atoms/ButtonTag";
+import { ButtonFilterTag, ButtonTagGroup } from "@components/atoms/ButtonTag";
 import Toggle from "@components/atoms/Toggle";
 
 import styled from "styled-components";
@@ -39,40 +39,40 @@ const SearchFilter = () => {
 
       <FilterItem type="ButtonTag" title="Species">
         <ButtonTagGroup>
-          <ButtonTag item={"Dog"} category="Species" />
+          <ButtonFilterTag item={"Dog"} category="Species" />
         </ButtonTagGroup>
       </FilterItem>
 
       <FilterItem type="ButtonTag" title="Breed">
         <ButtonTagGroup>
-          <ButtonTag item={"Beagle"} category="Breed" />
-          <ButtonTag item={"Bichon Frise"} category="Breed" />
-          <ButtonTag item={"Border Collie"} category="Breed" />
-          <ButtonTag item={"Boston Terrier"} category="Breed" />
-          <ButtonTag item={"Bulldog"} category="Breed" />
-          <ButtonTag item={"Chihuahua"} category="Breed" />
-          <ButtonTag item={"Cocker Spaniel"} category="Breed" />
-          <ButtonTag item={"Dachshund"} category="Breed" />
-          <ButtonTag item={"Dalmatian"} category="Breed" />
-          <ButtonTag item={"German Shepherd"} category="Breed" />
-          <ButtonTag item={"Golden Retriever"} category="Breed" />
-          <ButtonTag item={"Japanese Spitz"} category="Breed" />
-          <ButtonTag item={"Jindo"} category="Breed" />
-          <ButtonTag item={"Labrador Retriever"} category="Breed" />
-          <ButtonTag item={"Maltese"} category="Breed" />
-          <ButtonTag item={"Papillon"} category="Breed" />
-          <ButtonTag item={"Pomeranian"} category="Breed" />
-          <ButtonTag item={"Poodle"} category="Breed" />
-          <ButtonTag item={"Poongsan"} category="Breed" />
-          <ButtonTag item={"Pug"} category="Breed" />
-          <ButtonTag item={"Rottweiler"} category="Breed" />
-          <ButtonTag item={"Samoyed"} category="Breed" />
-          <ButtonTag item={"Schnauzer"} category="Breed" />
-          <ButtonTag item={"Shiba Inu"} category="Breed" />
-          <ButtonTag item={"Shitzu"} category="Breed" />
-          <ButtonTag item={"Siberian Husky"} category="Breed" />
-          <ButtonTag item={"Welsh Corgi"} category="Breed" />
-          <ButtonTag item={"Yorkshire Terrier"} category="Breed" />
+          <ButtonFilterTag item={"Beagle"} category="Breed" />
+          <ButtonFilterTag item={"Bichon Frise"} category="Breed" />
+          <ButtonFilterTag item={"Border Collie"} category="Breed" />
+          <ButtonFilterTag item={"Boston Terrier"} category="Breed" />
+          <ButtonFilterTag item={"Bulldog"} category="Breed" />
+          <ButtonFilterTag item={"Chihuahua"} category="Breed" />
+          <ButtonFilterTag item={"Cocker Spaniel"} category="Breed" />
+          <ButtonFilterTag item={"Dachshund"} category="Breed" />
+          <ButtonFilterTag item={"Dalmatian"} category="Breed" />
+          <ButtonFilterTag item={"German Shepherd"} category="Breed" />
+          <ButtonFilterTag item={"Golden Retriever"} category="Breed" />
+          <ButtonFilterTag item={"Japanese Spitz"} category="Breed" />
+          <ButtonFilterTag item={"Jindo"} category="Breed" />
+          <ButtonFilterTag item={"Labrador Retriever"} category="Breed" />
+          <ButtonFilterTag item={"Maltese"} category="Breed" />
+          <ButtonFilterTag item={"Papillon"} category="Breed" />
+          <ButtonFilterTag item={"Pomeranian"} category="Breed" />
+          <ButtonFilterTag item={"Poodle"} category="Breed" />
+          <ButtonFilterTag item={"Poongsan"} category="Breed" />
+          <ButtonFilterTag item={"Pug"} category="Breed" />
+          <ButtonFilterTag item={"Rottweiler"} category="Breed" />
+          <ButtonFilterTag item={"Samoyed"} category="Breed" />
+          <ButtonFilterTag item={"Schnauzer"} category="Breed" />
+          <ButtonFilterTag item={"Shiba Inu"} category="Breed" />
+          <ButtonFilterTag item={"Shitzu"} category="Breed" />
+          <ButtonFilterTag item={"Siberian Husky"} category="Breed" />
+          <ButtonFilterTag item={"Welsh Corgi"} category="Breed" />
+          <ButtonFilterTag item={"Yorkshire Terrier"} category="Breed" />
         </ButtonTagGroup>
       </FilterItem>
 
@@ -82,29 +82,29 @@ const SearchFilter = () => {
 
       <FilterItem type="ButtonTag" title="Gender">
         <ButtonTagGroup>
-          <ButtonTag item={"Male"} category="Gender" />
-          <ButtonTag item={"Female"} category="Gender" />
+          <ButtonFilterTag item={"Male"} category="Gender" />
+          <ButtonFilterTag item={"Female"} category="Gender" />
         </ButtonTagGroup>
       </FilterItem>
 
       <FilterItem type="ButtonTag" title="Size">
         <ButtonTagGroup>
-          <ButtonTag item={"Miniature"} category="Size" />
-          <ButtonTag item={"Small"} category="Size" />
-          <ButtonTag item={"Medium"} category="Size" />
-          <ButtonTag item={"Large"} category="Size" />
-          <ButtonTag item={"Extra Large"} category="Size" />
+          <ButtonFilterTag item={"Miniature"} category="Size" />
+          <ButtonFilterTag item={"Small"} category="Size" />
+          <ButtonFilterTag item={"Medium"} category="Size" />
+          <ButtonFilterTag item={"Large"} category="Size" />
+          <ButtonFilterTag item={"Extra Large"} category="Size" />
         </ButtonTagGroup>
       </FilterItem>
 
       <FilterItem type="ButtonTag" title="Color">
         <ButtonTagGroup>
-          <ButtonTag item={"White"} category="Color" />
-          <ButtonTag item={"Black"} category="Color" />
-          <ButtonTag item={"Brown"} category="Color" />
-          <ButtonTag item={"Gold"} category="Color" />
-          <ButtonTag item={"Gray"} category="Color" />
-          <ButtonTag item={"Charcoal"} category="Color" />
+          <ButtonFilterTag item={"White"} category="Color" />
+          <ButtonFilterTag item={"Black"} category="Color" />
+          <ButtonFilterTag item={"Brown"} category="Color" />
+          <ButtonFilterTag item={"Gold"} category="Color" />
+          <ButtonFilterTag item={"Gray"} category="Color" />
+          <ButtonFilterTag item={"Charcoal"} category="Color" />
         </ButtonTagGroup>
       </FilterItem>
 

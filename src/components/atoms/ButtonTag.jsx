@@ -3,8 +3,29 @@ import { useTagsStore } from "@store";
 
 import styled from "styled-components";
 
-const ButtonTag = ({ item, category, paddingX, paddingY, fontSize, ...rest }) => {
-  if (item === null) throw new Error("item & category prop is neccessary.");
+const ButtonTag = ({ item, paddingX, paddingY, fontSize, ...rest }) => {
+  if (item === null) throw new Error("item prop is neccessary.");
+
+  const [isSelected, setIsSelected] = useState(false);
+  const handleClickButtonTag = () => {};
+
+  return (
+    <StyledButtonTag
+      paddingX={paddingX}
+      paddingY={paddingY}
+      fontSize={fontSize}
+      selected={isSelected}
+      onClick={handleClickButtonTag}
+      {...rest}
+    >
+      {item}
+    </StyledButtonTag>
+  );
+};
+
+const ButtonFilterTag = ({ item, category, paddingX, paddingY, fontSize, ...rest }) => {
+  if (item === null) throw new Error("item prop is neccessary.");
+  if (category === null) throw new Error("category prop is neccessary.");
 
   const [isSelected, setIsSelected] = useState(false);
   const {
@@ -99,7 +120,7 @@ const ButtonTag = ({ item, category, paddingX, paddingY, fontSize, ...rest }) =>
   );
 };
 
-export const StyledButtonTag = styled.button`
+const StyledButtonTag = styled.button`
   padding: ${(props) => props.paddingY || "4px"} ${(props) => props.paddingX || "12px"};
   box-sizing: border-box;
   border-radius: 50px;
@@ -125,4 +146,4 @@ const StyledButtonTagGroup = styled.div`
 `;
 
 export default ButtonTag;
-export { ButtonTagGroup };
+export { ButtonFilterTag, ButtonTagGroup };
