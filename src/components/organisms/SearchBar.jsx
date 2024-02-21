@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router";
-import { useKeywordsStore } from "@store";
+import { useKeywordsStore, useSearchImgStore } from "@store";
 
 import Icon from "@components/atoms/Icon";
 import Input from "@components/atoms/Input";
@@ -13,6 +13,7 @@ const SearchBar = () => {
     useKeywordsStore();
   // const [keywords, setKeywords] = useState("");
   // const [keywordsList, setKeywordsList] = useState([]);
+  const { searchImg, setSearchImg } = useSearchImgStore();
 
   const handleInput = (value) => {
     setKeywords(value);
@@ -34,6 +35,43 @@ const SearchBar = () => {
     removeKeywordsList();
   };
 
+  // 사진 업로드 ----------
+  const imgInputRef = useRef(null);
+
+  const handleUploadImg = () => {
+    imgInputRef.current.click();
+  };
+
+  const onFileChange = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+
+    reader.onload = () => {
+      let uploadedImage = reader.result || null;
+      setSearchImg(uploadedImage); // 임시 저장
+
+      // Base64 문자열을 디코딩하여 ArrayBuffer를 생성
+
+      uploadedImage = uploadedImage.substring(uploadedImage.indexOf(",") + 1);
+      const binaryString = atob(uploadedImage);
+      const bytes = new Uint8Array(binaryString.length);
+      for (let i = 0; i < binaryString.length; i++) {
+        bytes[i] = binaryString.charCodeAt(i);
+      }
+      const arrayBuffer = bytes.buffer;
+
+      // ArrayBuffer를 Blob 객체로 변환
+      const blob = new Blob([arrayBuffer], { type: "image/jpeg" });
+
+      // Blob 객체를 URL로 변환
+      const uploadedImageUrl = URL.createObjectURL(blob).substring(5);
+
+      console.log(`image url to send: ${uploadedImageUrl}`); // test용
+      // dispatch(userAction.setProfileImg(uploadedImageUrl)); // test용
+    };
+  };
+
   return (
     <StyledSearchBar>
       <Icon src="IconBackward" onClick={goBackward} />
@@ -52,7 +90,15 @@ const SearchBar = () => {
         />
         {keywords && <Icon src="IconXCircle" width="16px" height="16px" onClick={removeAll} />}
       </StyledSearchInput>
-      <Icon src="IconPicture" />
+      {/* 파일 업로드 입력 요소 */}
+      <input
+        type="file"
+        accept="image/*"
+        ref={imgInputRef} // 버튼과 연결
+        style={{ display: "none" }} // 화면에는 보이지 않음
+        onChange={onFileChange} // 파일이 선택되면 실행
+      />
+      <Icon src="IconPictureMono" onClick={handleUploadImg} />
     </StyledSearchBar>
   );
 };

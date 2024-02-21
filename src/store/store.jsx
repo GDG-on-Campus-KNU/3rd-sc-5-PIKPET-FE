@@ -118,6 +118,17 @@ export const useTagsStore = create(
   "useTagsStore"
 );
 
+// 검색 이미지
+export const useSearchImgStore = create(
+  devtools((set) => ({
+    searchImg: [],
+    setSearchImg: (img) => {
+      set({ searchImg: img });
+    },
+  })),
+  "useSearchImgStore"
+);
+
 // 동물 정보 담은 리스트
 export const usePetInfoStore = create(
   devtools((set) => ({
