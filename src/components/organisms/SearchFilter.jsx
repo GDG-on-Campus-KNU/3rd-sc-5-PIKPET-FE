@@ -108,6 +108,14 @@ const SearchFilter = () => {
             <ButtonFilterTag item={"Gold"} category="Color" />
             <ButtonFilterTag item={"Gray"} category="Color" />
             <ButtonFilterTag item={"Charcoal"} category="Color" />
+            <ButtonFilterTag item={"Silver"} category="Color" />
+            <ButtonFilterTag item={"Yellow"} category="Color" />
+            <ButtonFilterTag item={"Orange"} category="Color" />
+            <ButtonFilterTag item={"Red"} category="Color" />
+            <ButtonFilterTag item={"Blue"} category="Color" />
+            <ButtonFilterTag item={"Green"} category="Color" />
+            <ButtonFilterTag item={"Purple"} category="Color" />
+            <ButtonFilterTag item={"Pink"} category="Color" />
           </ButtonTagGroup>
         </FilterItem>
 
