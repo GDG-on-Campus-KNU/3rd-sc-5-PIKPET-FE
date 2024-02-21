@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router";
 import { useCurrentPageStore } from "@store";
 
 import Header from "@components/organisms/Header";
+import Map from "@components/organisms/Map";
 
 import Layout, { Main, Contents } from "@styles/layout";
 
@@ -29,7 +30,9 @@ const ShelterLocationTemplate = () => {
     <Layout backgroundColor="white">
       <Header type="PetInfoDetail" />
 
-      <Main></Main>
+      <Main>
+        <Map lat={lat} lng={lng} />
+      </Main>
     </Layout>
   );
 };
