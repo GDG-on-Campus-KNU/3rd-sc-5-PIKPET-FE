@@ -122,6 +122,7 @@ const StyledSearchBar = styled.div`
 
   position: sticky;
   top: 0;
+  z-index: 100; /* 다른 요소 위에 올라가도록 설정 */
 `;
 
 const StyledSearchBar_1 = styled.div`
@@ -161,13 +162,16 @@ const StyledSearchInput = styled.div`
 
 const ContainerImgSendButton = styled.div`
   width: 100%;
-  padding: 4px 16px;
+  height: 38px;
+  padding: 0px 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
   background-color: white;
   gap: 8px;
+
+  position: static;
 `;
 
 const ImgSendButton = styled.button`
