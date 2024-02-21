@@ -4,8 +4,12 @@ import Icon from "@components/atoms/Icon";
 import Img from "@components/atoms/Img";
 
 import styled from "styled-components";
+import {
+  ContainerIncludingImg,
+  InnerContainerIncludingImg,
+  ContainerNameAndIcon,
+} from "@styles/Container";
 import Text from "@styles/Text";
-import Container from "@styles/Container";
 
 const PetInfo = ({ petId, img, name, interested, breed, age, gender, shelter }) => {
   const navigate = useNavigate();
@@ -15,14 +19,14 @@ const PetInfo = ({ petId, img, name, interested, breed, age, gender, shelter }) 
   };
 
   return (
-    <StyledPetInfo onClick={(petId) => goPetInfoDetail(petId)}>
+    <ContainerIncludingImg flexDirection="row" onClick={(petId) => goPetInfoDetail(petId)}>
       <Img src={img} size="Middle" />
-      <StyledPetInfo_1>
+      <InnerContainerIncludingImg justifyContent="space-between">
         <StyledPetInfo_1_1>
-          <StyledNameAndIcon>
+          <ContainerNameAndIcon>
             <Text fontWeight="700">{name}</Text>
             <Icon src={interested ? "IconHeartSelected" : "IconHeartOff"} />
-          </StyledNameAndIcon>
+          </ContainerNameAndIcon>
           <Text fontSize="14px">{breed}</Text>
           <Text fontSize="14px">
             {age}, {gender}
@@ -34,36 +38,15 @@ const PetInfo = ({ petId, img, name, interested, breed, age, gender, shelter }) 
             {shelter}
           </Text>
         </StyledShelter>
-      </StyledPetInfo_1>
-    </StyledPetInfo>
+      </InnerContainerIncludingImg>
+    </ContainerIncludingImg>
   );
 };
-
-const StyledPetInfo = styled(Container)`
-  padding: 0;
-  gap: 0;
-  flex-direction: row;
-  cursor: pointer;
-`;
-
-const StyledPetInfo_1 = styled.div`
-  width: 100%;
-  padding: 12px 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`;
 
 const StyledPetInfo_1_1 = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
-`;
-
-const StyledNameAndIcon = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 `;
 
 const StyledShelter = styled.div`
