@@ -31,7 +31,7 @@ const SearchTemplate = () => {
   // 최초 마운트시에(만) 실행
   useEffect(() => {
     // 현재 페이지 경로 저장
-    setCurrentPage(`/search?${queryString}`);
+    setCurrentPage(`/search`);
     // console.log("currentPage: ", currentPage); // test
     localStorage.setItem("currentPage", JSON.stringify(currentPage)); // 로컬스토리지에 저장
   }, [currentPage]);
@@ -80,7 +80,7 @@ const SearchTemplate = () => {
   // 키워드 보내기 (axios 통신) -----------
   const handleClickSearch = () => {
     axios
-      .get(`/api/search?${queryString}`)
+      .get(`/api/animal?${queryString}`)
       .then((response) => {
         // setIsSent(true);
         // response.data 배열에 담기 (상태관리로)
