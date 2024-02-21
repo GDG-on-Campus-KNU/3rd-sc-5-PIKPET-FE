@@ -121,7 +121,7 @@ export const useTagsStore = create(
 // 검색 이미지
 export const useSearchImgStore = create(
   devtools((set) => ({
-    searchImg: [],
+    searchImg: [], // formData type
     setSearchImg: (img) => {
       set({ searchImg: img });
     },
