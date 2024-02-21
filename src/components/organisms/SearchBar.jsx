@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router";
-import { useKeywordsStore, useSearchImgStore } from "@store";
+import { useSearchKeywordsStore, useSearchImgStore } from "@store";
 
 import Icon from "@components/atoms/Icon";
 import Input from "@components/atoms/Input";
@@ -11,7 +11,7 @@ import Text from "@styles/Text";
 const SearchBar = ({ onClick }) => {
   const navigate = useNavigate();
   const { keywords, setKeywords, keywordsList, setKeywordsList, removeKeywordsList } =
-    useKeywordsStore();
+    useSearchKeywordsStore();
   // const [keywords, setKeywords] = useState("");
   // const [keywordsList, setKeywordsList] = useState([]);
   const { searchImg, setSearchImg } = useSearchImgStore();

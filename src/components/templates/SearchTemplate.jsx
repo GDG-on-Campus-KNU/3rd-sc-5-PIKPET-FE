@@ -3,8 +3,8 @@ import { useNavigate } from "react-router";
 import {
   useCurrentPageStore,
   useLoggedinStore,
-  useKeywordsStore,
-  useTagsStore,
+  useSearchKeywordsStore,
+  useSearchTagsStore,
   useSearchImgStore,
 } from "@store";
 import axios from "axios";
@@ -21,7 +21,7 @@ const SearchTemplate = () => {
   const navigate = useNavigate();
   const { currentPage, setCurrentPage } = useCurrentPageStore();
   const { isLoggedin, setIsLoggedin } = useLoggedinStore();
-  const { keywordsList, setKeywordsList } = useKeywordsStore();
+  const { keywordsList, setKeywordsList } = useSearchKeywordsStore();
   const {
     speciesTagsList,
     breedTagsList,
@@ -31,7 +31,7 @@ const SearchTemplate = () => {
     sizeTagsList,
     colorTagsList,
     neutralized,
-  } = useTagsStore();
+  } = useSearchTagsStore();
   const { searchImg } = useSearchImgStore();
 
   // 로컬 스토리지 값 관리: 앱 리렌더링 시에도 값 보존 위함 ----------

@@ -20,7 +20,7 @@ export const useLoggedinStore = create(
 );
 
 // SearchBar에서 입력된 검색어들 관리
-export const useKeywordsStore = create(
+export const useSearchKeywordsStore = create(
   devtools((set) => ({
     keywords: "",
     setKeywords: (value) => set({ keywords: value }),
@@ -36,7 +36,7 @@ export const useKeywordsStore = create(
 );
 
 // SearchFilter에서 클릭된 태그들 관리
-export const useTagsStore = create(
+export const useSearchTagsStore = create(
   devtools((set) => ({
     speciesTagsList: [],
     addSpeciesTag: (value) => {
@@ -115,7 +115,7 @@ export const useTagsStore = create(
         neutralized: false,
       })),
   })),
-  "useTagsStore"
+  "useSearchTagsStore"
 );
 
 // 검색 이미지

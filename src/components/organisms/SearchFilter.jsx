@@ -1,4 +1,4 @@
-import { useTagsStore } from "@store";
+import { useSearchTagsStore } from "@store";
 
 import FilterItem from "@components/molecules/FilterItem";
 import { AgeInput } from "@components/atoms/Input";
@@ -31,7 +31,7 @@ const SearchFilter = () => {
     //   removeColorTag,
     neutralized,
     setNeutralized,
-  } = useTagsStore();
+  } = useSearchTagsStore();
 
   return (
     <StyledSearchFilter>
