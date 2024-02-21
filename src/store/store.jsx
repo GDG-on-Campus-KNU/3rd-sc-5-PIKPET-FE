@@ -3,7 +3,7 @@ import { devtools } from "zustand/middleware";
 
 export const useCurrentPageStore = create(
   devtools((set) => ({
-    currentPage: "/",
+    currentPage: "",
     setCurrentPage: (page) => set({ currentPage: page }),
   })),
   "useCurrentPageStore"

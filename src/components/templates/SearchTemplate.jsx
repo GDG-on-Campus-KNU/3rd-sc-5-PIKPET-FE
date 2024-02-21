@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
-import { useCurrentPageStore, useKeywordsStore, useTagsStore } from "@store";
+import { useCurrentPageStore, useLoggedinStore, useKeywordsStore, useTagsStore } from "@store";
 import axios from "axios";
 
 import { BASE_URL } from "@utils";
@@ -14,6 +14,7 @@ import Layout, { Main, Contents } from "@styles/layout";
 const SearchTemplate = () => {
   const navigate = useNavigate();
   const { currentPage, setCurrentPage } = useCurrentPageStore();
+  const { isLoggedin, setIsLoggedin } = useLoggedinStore();
   const { keywordsList, setKeywordsList } = useKeywordsStore();
   const {
     speciesTagsList,
@@ -26,7 +27,16 @@ const SearchTemplate = () => {
     neutralized,
   } = useTagsStore();
 
-  // each tags list로부터 쿼리 파라미터 생성하기
+  // 로컬 스토리지 값 관리: 앱 리렌더링 시에도 값 보존 위함 ----------
+  // 최초 마운트시에(만) 실행
+  useEffect(() => {
+    // 현재 페이지 경로 저장
+    setCurrentPage(`/search?${queryString}`);
+    // console.log("currentPage: ", currentPage); // test
+    localStorage.setItem("currentPage", JSON.stringify(currentPage)); // 로컬스토리지에 저장
+  }, [currentPage]);
+
+  // 각 tags list로부터 쿼리 파라미터 생성하기 ----------
   const queryParams = new URLSearchParams();
 
   if (speciesTagsList.length !== 0) {
@@ -56,16 +66,10 @@ const SearchTemplate = () => {
   const queryString = queryParams.toString();
   // console.log(`queryString: ${queryString}`); // test
 
-  // 최초 마운트시에(만) setCurrentPage
-  useEffect(() => {
-    setCurrentPage(`/search?${queryString}}`);
-    localStorage.setItem("currentPage", JSON.stringify(currentPage)); // 로컬스토리지에 저장 (앱 리렌더링 시에도 값 보존 위해서)
-  }, []);
-
   // 키워드 보내기 (axios 통신)
   const handleClickSearch = () => {
     axios
-      .get(`${BASE_URL}/search?${queryString}`)
+      .get(`/api/search?${queryString}`)
       .then((response) => {
         // console.log(`The request has been sent successfully.`);
         // setIsSent(true);

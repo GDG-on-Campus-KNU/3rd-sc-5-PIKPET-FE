@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useCurrentPageStore } from "@store";
+import { useCurrentPageStore, useLoggedinStore } from "@store";
 
 import Header from "@components/organisms/Header";
 import Footer from "@components/organisms/Footer";
@@ -17,12 +17,22 @@ import Container from "@styles/Container";
 
 const HomeTemplate = () => {
   const { currentPage, setCurrentPage } = useCurrentPageStore();
+  const { isLoggedin, setIsLoggedin } = useLoggedinStore();
 
-  // 최초 마운트시에(만) setCurrentPage
+  // 로컬 스토리지 값 관리: 앱 리렌더링 시에도 값 보존 위함 ----------
+  // 최초 마운트시에(만) 실행
   useEffect(() => {
+    // 현재 페이지 경로 저장
     setCurrentPage("/");
-    localStorage.setItem("currentPage", JSON.stringify(currentPage)); // 로컬스토리지에 저장 (앱 리렌더링 시에도 값 보존 위해서)
-  }, []);
+    // console.log("currentPage: ", currentPage); // test
+    localStorage.setItem("currentPage", JSON.stringify(currentPage)); // 로컬스토리지에 저장
+
+    // 로그인 상태 확인: 로컬 스토리지에서 꺼내와 상태 값으로 재저장
+    const localIsLoggedin = localStorage.getItem("localIsLoggedin") === "true";
+    // console.log(localIsLoggedin); // test
+    setIsLoggedin(localIsLoggedin);
+    // console.log(isLoggedin); // test
+  }, [currentPage]);
 
   return (
     <Layout>

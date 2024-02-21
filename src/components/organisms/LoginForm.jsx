@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
 // import { useCookies } from "react-cookie";
@@ -96,16 +96,22 @@ const LoginForm = () => {
         // const sessionId = cookies.JSESSIONID; // 쿠키의 JSESSIONID를 sessionId에 저장
         // console.log(`sessionId: ${sessionId}`);
 
-        if (response.data && response.headers) {
-          setIsLoggedin(true);
-        }
-        console.log(`Login succeed: ${isLoggedin}`); // test
-        if (isLoggedin === true) navigate("/");
+        setIsLoggedin(true);
+        localStorage.setItem("localIsLoggedin", "true"); // 로컬스토리지에 저장 (앱 리렌더링 시에도 값 보존 위해서)
       })
       .catch((error) => {
         console.error(`An error occurred during login.`, error);
       });
   };
+
+  useEffect(() => {
+    const localIsLoggedin = localStorage.getItem("localIsLoggedin");
+
+    if (localIsLoggedin === "true") {
+      navigate("/");
+      // console.log("Login succeed: ", localIsLoggedin); // test
+    }
+  }, [isLoggedin, navigate]);
 
   return (
     <StyledLoginForm>
