@@ -100,7 +100,10 @@ const SearchTemplate = () => {
       .get(`/api/animal?${queryString}`)
       .then((response) => {
         const data = response.data;
-        console.log(data); // for test
+        const { animals, page } = data; // 키로 데이터 추출
+        console.log(animals, page); // for test
+        // animals: 배열, page: 정수 아마도?
+        setPetInfo(animals);
 
         // navigate(`/search?${queryString}`);
       })
