@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router";
 import { useCurrentPageStore, useLoggedinStore, useKeywordsStore, useTagsStore } from "@store";
 import axios from "axios";
+import useGeolocation from "react-hook-geolocation";
 
-import { BASE_URL } from "@utils";
 import SearchBar from "@components/organisms/SearchBar";
 import SearchFilter from "@components/organisms/SearchFilter";
 import CTAContainer from "@components/molecules/CTAContainer";
@@ -35,6 +35,12 @@ const SearchTemplate = () => {
     // console.log("currentPage: ", currentPage); // test
     localStorage.setItem("currentPage", JSON.stringify(currentPage)); // 로컬스토리지에 저장
   }, [currentPage]);
+
+  // 위치 get ----------
+  const { latitude, longitude, error } = useGeolocation();
+  const currentLatitude = latitude;
+  const currentLongitude = longitude;
+  console.log(currentLatitude, currentLongitude); // for test
 
   // 각 tags list로부터 쿼리 파라미터 생성하기 ----------
   // queryParams에 담은 후에 queryString으로 문자열화할 것임
@@ -73,6 +79,8 @@ const SearchTemplate = () => {
     queryParams.append("colors", formattedColorTagsList);
   }
   if (neutralized === true) queryParams.append("neutralized", neutralized);
+  if (currentLatitude) queryParams.append("lat", currentLatitude);
+  if (currentLongitude) queryParams.append("lat", currentLongitude);
 
   const queryString = queryParams.toString();
   console.log(`queryString: ${queryString}`); // test
