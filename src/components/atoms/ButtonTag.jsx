@@ -3,11 +3,11 @@ import { useTagsStore } from "@store";
 
 import styled from "styled-components";
 
-const ButtonTag = ({ item, paddingX, paddingY, fontSize, ...rest }) => {
+const ButtonTag = ({ item, isSelected, paddingX, paddingY, fontSize, ...rest }) => {
   if (item === null) throw new Error("item prop is neccessary.");
 
-  const [isSelected, setIsSelected] = useState(false);
-  const handleClickButtonTag = () => {};
+  // const [isSelected, setIsSelected] = useState(false);
+  // const handleClickButtonTag = () => {};
 
   return (
     <StyledButtonTag
@@ -15,7 +15,7 @@ const ButtonTag = ({ item, paddingX, paddingY, fontSize, ...rest }) => {
       paddingY={paddingY}
       fontSize={fontSize}
       selected={isSelected}
-      onClick={handleClickButtonTag}
+      // onClick={handleClickButtonTag}
       {...rest}
     >
       {item}
@@ -146,4 +146,4 @@ const StyledButtonTagGroup = styled.div`
 `;
 
 export default ButtonTag;
-export { ButtonFilterTag, ButtonTagGroup };
+export { StyledButtonTag, ButtonFilterTag, ButtonTagGroup };
