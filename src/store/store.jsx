@@ -133,6 +133,9 @@ export const useSearchImgStore = create(
 export const usePetInfoStore = create(
   devtools((set) => ({
     petInfoList: [],
+    setPetInfo: (list) => {
+      set({ petInfoList: list });
+    },
     addPetInfo: (petInfo) => {
       set((state) => ({ petInfoList: [...state.petInfoList, petInfo] }));
     },

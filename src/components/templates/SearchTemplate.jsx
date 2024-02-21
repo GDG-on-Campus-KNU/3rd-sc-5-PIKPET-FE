@@ -6,6 +6,7 @@ import {
   useSearchKeywordsStore,
   useSearchTagsStore,
   useSearchImgStore,
+  usePetInfoStore,
 } from "@store";
 import axios from "axios";
 import useGeolocation from "react-hook-geolocation";
@@ -33,6 +34,7 @@ const SearchTemplate = () => {
     neutralized,
   } = useSearchTagsStore();
   const { searchImg } = useSearchImgStore();
+  const { petInfo, setPetInfo } = usePetInfoStore();
 
   // 로컬 스토리지 값 관리: 앱 리렌더링 시에도 값 보존 위함 ----------
   // 최초 마운트시에(만) 실행
@@ -123,6 +125,11 @@ const SearchTemplate = () => {
       })
       .then((response) => {
         const data = response.data;
+        const { animals, page } = data; // 키로 데이터 추출
+        // animals: 배열, page: 정수 아마도?
+        setPetInfo(animals);
+
+        // navigate(`/pet/${animalId}`);
       })
       .catch((error) => {
         console.error(`An error occurred while image searching.`, error);
