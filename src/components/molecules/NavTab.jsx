@@ -4,9 +4,12 @@ import Icon from "@components/atoms/Icon";
 
 import styled from "styled-components";
 import Text from "@styles/Text";
+import {} from "../../store/store";
 
 const NavTab = ({ type, selected }) => {
-  const { isLoggedin } = useLoggedinStore();
+  const isLoggedin = localStorage.getItem("localIsLoggedin"); // get isLoggedIn from local storage
+  // 상태 관리 값으로 가져오니 안 먹음
+  // const { isLoggedin } = useLoggedinStore();
 
   return (
     <>
