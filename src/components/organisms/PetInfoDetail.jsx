@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useNavigate } from "react-router";
 import axios from "axios";
 
 import PetInfoDetailItem from "@components/molecules/PetInfoDetailItem";
@@ -37,8 +38,12 @@ const PetInfoDetail = ({
   shelter,
   ...rest
 }) => {
+  const navigate = useNavigate();
+
   // 보호소 위치 보기
-  const handleViewShelterLocation = () => {};
+  const handleViewShelterLocation = () => {
+    navigate(`/pet/${petId}/location`);
+  };
 
   return (
     <ContainerIncludingImg flexDirection="column">
