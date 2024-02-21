@@ -50,7 +50,7 @@ const SearchTemplate = () => {
     const formattedBreedTagsList = breedTagsList.map((item) =>
       item.toUpperCase().replace(/\s+/g, "_")
     );
-    queryParams.append("breed", formattedBreedTagsList);
+    queryParams.append("breeds", formattedBreedTagsList);
   }
   if (minAge) queryParams.append("minAge", minAge); // 0이면 추가가 안 됨
   if (maxAge) queryParams.append("maxAge", maxAge);
@@ -70,7 +70,7 @@ const SearchTemplate = () => {
     const formattedColorTagsList = colorTagsList.map((item) =>
       item.toUpperCase().replace(/\s+/g, "_")
     );
-    queryParams.append("color", formattedColorTagsList);
+    queryParams.append("colors", formattedColorTagsList);
   }
   if (neutralized === true) queryParams.append("neutralized", neutralized);
 
