@@ -90,9 +90,9 @@ const SearchTemplate = () => {
     axios
       .get(`/api/animal?${queryString}`)
       .then((response) => {
-        // setIsSent(true);
-        // response.data 배열에 담기 (상태관리로)
-        // {petId, 이름, 사진, 나이, 성별, 종, 관심 여부, 보호소 이름}
+        const data = response.data;
+        console.log(data); // for test
+
         // navigate(`/search?${queryString}`);
       })
       .catch((error) => {
