@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useTagsStore } from "@store";
+import { useSearchTagsStore } from "@store";
 
 import ButtonTag, { ButtonTagGroup } from "@components/atoms/ButtonTag";
 import Input from "@components/atoms/Input";

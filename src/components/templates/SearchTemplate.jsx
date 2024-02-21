@@ -1,6 +1,13 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
-import { useCurrentPageStore, useLoggedinStore, useKeywordsStore, useTagsStore } from "@store";
+import {
+  useCurrentPageStore,
+  useLoggedinStore,
+  useSearchKeywordsStore,
+  useSearchTagsStore,
+  useSearchImgStore,
+  usePetInfoStore,
+} from "@store";
 import axios from "axios";
 import useGeolocation from "react-hook-geolocation";
 
@@ -15,7 +22,7 @@ const SearchTemplate = () => {
   const navigate = useNavigate();
   const { currentPage, setCurrentPage } = useCurrentPageStore();
   const { isLoggedin, setIsLoggedin } = useLoggedinStore();
-  const { keywordsList, setKeywordsList } = useKeywordsStore();
+  const { keywordsList, setKeywordsList } = useSearchKeywordsStore();
   const {
     speciesTagsList,
     breedTagsList,
@@ -25,7 +32,9 @@ const SearchTemplate = () => {
     sizeTagsList,
     colorTagsList,
     neutralized,
-  } = useTagsStore();
+  } = useSearchTagsStore();
+  const { searchImg } = useSearchImgStore();
+  const { petInfo, setPetInfo } = usePetInfoStore();
 
   // 로컬 스토리지 값 관리: 앱 리렌더링 시에도 값 보존 위함 ----------
   // 최초 마운트시에(만) 실행
@@ -85,7 +94,7 @@ const SearchTemplate = () => {
   const queryString = queryParams.toString();
   console.log(`queryString: ${queryString}`); // test
 
-  // 키워드 보내기 (axios 통신) -----------
+  // 필터 검색 통신 -----------
   const handleClickSearch = () => {
     axios
       .get(`/api/animal?${queryString}`)
@@ -100,9 +109,36 @@ const SearchTemplate = () => {
       });
   };
 
+  // for (let pair of searchImg.entries()) {
+  //   console.log("key:", pair[0] + ", value: " + pair[1]);
+  // } // for checking request body
+
+  // 이미지 검색 통신 ----------
+  const handleSendImg = () => {
+    console.log("called"); // for test
+
+    axios
+      .post(`/api/animal/image`, searchImg, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((response) => {
+        const data = response.data;
+        const { animals, page } = data; // 키로 데이터 추출
+        // animals: 배열, page: 정수 아마도?
+        setPetInfo(animals);
+
+        // navigate(`/pet/${animalId}`);
+      })
+      .catch((error) => {
+        console.error(`An error occurred while image searching.`, error);
+      });
+  };
+
   return (
     <Layout backgroundColor="white">
-      <SearchBar />
+      <SearchBar onClick={handleSendImg} />
 
       <Main padding0>
         <Contents>

@@ -1,4 +1,4 @@
-import { useTagsStore } from "@store";
+import { useSearchTagsStore } from "@store";
 
 import styled from "styled-components";
 
@@ -48,7 +48,7 @@ const StyledInput = styled.input`
 `;
 
 const AgeInput = () => {
-  const { minAge, setMinAge, maxAge, setMaxAge } = useTagsStore(); // 재사용성... 어차피 동물나이 인풋 받는 데밖에 사용 안 할듯
+  const { minAge, setMinAge, maxAge, setMaxAge } = useSearchTagsStore(); // 재사용성... 어차피 동물나이 인풋 받는 데밖에 사용 안 할듯
 
   const handleSetMinAge = (value) => {
     setMinAge(value);

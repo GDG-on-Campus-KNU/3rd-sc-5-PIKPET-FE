@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useTagsStore } from "@store";
+import { useSearchTagsStore } from "@store";
 
 import styled from "styled-components";
 
@@ -44,7 +44,7 @@ const ButtonFilterTag = ({ item, category, paddingX, paddingY, fontSize, ...rest
     colorTagsList,
     addColorTag,
     removeColorTag,
-  } = useTagsStore();
+  } = useSearchTagsStore();
 
   const handleClickButtonTag = () => {
     if (category === "Species") {

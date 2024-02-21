@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useTagsStore } from "@store";
+import { useSearchTagsStore } from "@store";
 
 import styled from "styled-components";
 
@@ -37,13 +37,9 @@ const StyledToggleContainer = styled.div`
 `;
 
 const Toggle = ({ isOn, onClick }) => {
-  const handleClickToggle = () => {
-    onClick();
-  };
-
   return (
     <>
-      <StyledToggleContainer onClick={handleClickToggle}>
+      <StyledToggleContainer onClick={onClick}>
         {/* 아래에 div 엘리먼트 2개가 있다. 각각의 클래스를 'toggle-container', 'toggle-circle' 로 지정 */}
         {/* Toggle Switch가 ON인 상태일 경우에만 toggle--checked 클래스를 div 엘리먼트 2개에 모두 추가. 조건부 스타일링을 활용*/}
         <div className={`toggle-container ${isOn ? "toggle--checked" : null}`} />

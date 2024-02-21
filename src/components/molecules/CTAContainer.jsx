@@ -1,11 +1,11 @@
 import ButtonCTA from "@components/atoms/ButtonCTA";
 import Icon from "@components/atoms/Icon";
 import styled from "styled-components";
-import { useTagsStore } from "@store";
+import { useSearchTagsStore } from "@store";
 
 // type: 필수
 const CTAContainer = ({ type, title1, title2, onClick, onClick1, onClick2 }) => {
-  const { clearAllTags } = useTagsStore();
+  const { clearAllTags } = useSearchTagsStore();
 
   // 각 리스트에 담긴 tag 값들 모두 삭제
   const handleClearAllTags = () => {
