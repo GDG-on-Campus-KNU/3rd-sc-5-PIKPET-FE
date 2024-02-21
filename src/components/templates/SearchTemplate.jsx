@@ -40,7 +40,7 @@ const SearchTemplate = () => {
   const { latitude, longitude, error } = useGeolocation();
   const currentLatitude = latitude;
   const currentLongitude = longitude;
-  console.log(currentLatitude, currentLongitude); // for test
+  // console.log(currentLatitude, currentLongitude); // for test
 
   // 각 tags list로부터 쿼리 파라미터 생성하기 ----------
   // queryParams에 담은 후에 queryString으로 문자열화할 것임
@@ -80,7 +80,7 @@ const SearchTemplate = () => {
   }
   if (neutralized === true) queryParams.append("neutralized", neutralized);
   if (currentLatitude) queryParams.append("lat", currentLatitude);
-  if (currentLongitude) queryParams.append("lat", currentLongitude);
+  if (currentLongitude) queryParams.append("lon", currentLongitude);
 
   const queryString = queryParams.toString();
   console.log(`queryString: ${queryString}`); // test
