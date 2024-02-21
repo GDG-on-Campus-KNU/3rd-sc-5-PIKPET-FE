@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useCurrentPageStore, usePetInfoStore } from "@store";
+import { useCurrentPageStore, useLoggedinStore, usePetInfoStore } from "@store";
 import axios from "axios";
 
 import { BASE_URL } from "@utils";
@@ -14,13 +14,17 @@ import Layout, { Main, Contents } from "@styles/layout";
 
 const SearchResultTemplate = () => {
   const { currentPage, setCurrentPage } = useCurrentPageStore();
+  const { isLoggedin, setIsLoggedin } = useLoggedinStore();
   const { petInfoList, setPetInfoList } = usePetInfoStore();
 
-  // 최초 마운트시에(만) setCurrentPage
+  // 로컬 스토리지 값 관리: 앱 리렌더링 시에도 값 보존 위함 ----------
+  // 최초 마운트시에(만) 실행
   useEffect(() => {
+    // 현재 페이지 경로 저장
     setCurrentPage("/interests");
-    localStorage.setItem("currentPage", JSON.stringify(currentPage)); // 로컬스토리지에 저장 (앱 리렌더링 시에도 값 보존 위해서)
-  }, []);
+    // console.log("currentPage: ", currentPage); // test
+    localStorage.setItem("currentPage", JSON.stringify(currentPage)); // 로컬스토리지에 저장
+  }, [currentPage]);
 
   const NUM_OF_INTERESTED_PETS = 10;
 

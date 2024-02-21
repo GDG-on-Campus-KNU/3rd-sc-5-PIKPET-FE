@@ -1,10 +1,12 @@
-import Icon from "@components/atoms/Icon";
-import styled from "styled-components";
-import Text from "@styles/Text";
 import { useLoggedinStore } from "@store";
 
+import Icon from "@components/atoms/Icon";
+
+import styled from "styled-components";
+import Text from "@styles/Text";
+
 const NavTab = ({ type, selected }) => {
-  const { isLoggedin } = useLoggedinStore;
+  const { isLoggedin } = useLoggedinStore();
 
   return (
     <>

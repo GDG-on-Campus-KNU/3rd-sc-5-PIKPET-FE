@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
+// import { useCookies } from "react-cookie";
 import { useLoggedinStore } from "@store";
 
 import { FiEye, FiEyeOff } from "react-icons/fi";
@@ -62,53 +63,55 @@ const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [userInfo, setUserInfo] = useState(null);
+  // const [cookies, setCookie, removeCookie] = useCookies(["JSESSIONID"]);
   const { isLoggedin, setIsLoggedin } = useLoggedinStore();
 
   const handleLogin = () => {
+    // test: 쿠키 포함 요청 전송되는지 ----------
+    // axios
+    //   .get(`api/userInfo`)
+    //   .then((response) => {
+    //     const data = response.data;
+    //     console.log(`data:`, data); // 바디 확인
+    //     console.log("---");
+    //   })
+    //   .catch((error) => {
+    //     console.error(`An error occurred during login.`, error);
+    //   });
+
+    // login 요청 보내기 ----------
     let formData = new FormData();
     formData.append("username", username);
     formData.append("password", password);
 
     axios
-      .post(`${BASE_URL}/login`, formData, { withCredentials: true })
+      .post(`/api/login`, formData, { withCredentials: true })
       .then((response) => {
-        // 유저 정보 저장
         const data = response.data;
-        console.log(`data: ${data}`);
-        const {
-          email,
-          password,
-          phoneNumber,
-          gender,
-          age,
-          address,
-          job,
-          userRole,
-          authorities,
-        } = data;
-        setUserInfo({
-          email,
-          password,
-          phoneNumber,
-          gender,
-          age,
-          address,
-          job,
-          userRole,
-          authorities,
-        });
+        // console.log(`data:`, data); // data 확인
 
-        // console.log(`Set-Cookie: ${response.headers["set-cookie"]}`); // 쿠키 값 확인
-        if (response.data) {
-          setIsLoggedin(true);
-        }
-        console.log(`Login succeed: ${isLoggedin}`); // test
-        if (isLoggedin === true) navigate("/");
+        const headers = response.headers;
+        // console.log(`headers:`, headers); // 헤더 전체 확인
+
+        // const sessionId = cookies.JSESSIONID; // 쿠키의 JSESSIONID를 sessionId에 저장
+        // console.log(`sessionId: ${sessionId}`);
+
+        setIsLoggedin(true);
+        localStorage.setItem("localIsLoggedin", "true"); // 로컬스토리지에 저장 (앱 리렌더링 시에도 값 보존 위해서)
       })
       .catch((error) => {
         console.error(`An error occurred during login.`, error);
       });
   };
+
+  useEffect(() => {
+    const localIsLoggedin = localStorage.getItem("localIsLoggedin");
+
+    if (localIsLoggedin === "true") {
+      navigate("/");
+      // console.log("Login succeed: ", localIsLoggedin); // test
+    }
+  }, [isLoggedin, navigate]);
 
   return (
     <StyledLoginForm>

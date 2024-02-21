@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
-import { useCurrentPageStore, useKeywordsStore, useTagsStore } from "@store";
+import { useCurrentPageStore, useLoggedinStore, useKeywordsStore, useTagsStore } from "@store";
 import axios from "axios";
 
 import { BASE_URL } from "@utils";
@@ -14,6 +14,7 @@ import Layout, { Main, Contents } from "@styles/layout";
 const SearchTemplate = () => {
   const navigate = useNavigate();
   const { currentPage, setCurrentPage } = useCurrentPageStore();
+  const { isLoggedin, setIsLoggedin } = useLoggedinStore();
   const { keywordsList, setKeywordsList } = useKeywordsStore();
   const {
     speciesTagsList,
@@ -26,52 +27,65 @@ const SearchTemplate = () => {
     neutralized,
   } = useTagsStore();
 
-  // each tags list로부터 쿼리 파라미터 생성하기
+  // 로컬 스토리지 값 관리: 앱 리렌더링 시에도 값 보존 위함 ----------
+  // 최초 마운트시에(만) 실행
+  useEffect(() => {
+    // 현재 페이지 경로 저장
+    setCurrentPage(`/search`);
+    // console.log("currentPage: ", currentPage); // test
+    localStorage.setItem("currentPage", JSON.stringify(currentPage)); // 로컬스토리지에 저장
+  }, [currentPage]);
+
+  // 각 tags list로부터 쿼리 파라미터 생성하기 ----------
+  // queryParams에 담은 후에 queryString으로 문자열화할 것임
   const queryParams = new URLSearchParams();
 
   if (speciesTagsList.length !== 0) {
-    const formattedSpeciesTagsList = speciesTagsList.map((species) => species.toLowerCase());
+    const formattedSpeciesTagsList = speciesTagsList.map((item) =>
+      item.toUpperCase().replace(/\s+/g, "_")
+    ); // 배열의 아이템들을 포맷팅: 대문자화, 공백은 _로 대체
     queryParams.append("species", formattedSpeciesTagsList);
   }
   if (breedTagsList.length !== 0) {
-    const formattedBreedTagsList = breedTagsList.map((species) => species.toLowerCase());
+    const formattedBreedTagsList = breedTagsList.map((item) =>
+      item.toUpperCase().replace(/\s+/g, "_")
+    );
     queryParams.append("breed", formattedBreedTagsList);
   }
-  if (minAge) queryParams.append("min_age", minAge); // 0이면 추가가 안 됨
-  if (maxAge) queryParams.append("max_age", maxAge);
+  if (minAge) queryParams.append("minAge", minAge); // 0이면 추가가 안 됨
+  if (maxAge) queryParams.append("maxAge", maxAge);
   if (genderTagsList.length !== 0) {
-    const formattedGenderTagsList = genderTagsList.map((species) => species.toLowerCase());
+    const formattedGenderTagsList = genderTagsList.map((item) =>
+      item.toUpperCase().replace(/\s+/g, "_")
+    );
     queryParams.append("gender", formattedGenderTagsList);
   }
   if (sizeTagsList.length !== 0) {
-    const formattedSizeTagsList = sizeTagsList.map((size) => size.toLowerCase());
-    queryParams.append("size", formattedSizeTagsList);
+    const formattedSizeTagsList = sizeTagsList.map((item) =>
+      item.toUpperCase().replace(/\s+/g, "_")
+    );
+    queryParams.append("animalSize", formattedSizeTagsList);
   }
   if (colorTagsList.length !== 0) {
-    const formattedColorTagsList = colorTagsList.map((species) => species.toLowerCase());
+    const formattedColorTagsList = colorTagsList.map((item) =>
+      item.toUpperCase().replace(/\s+/g, "_")
+    );
     queryParams.append("color", formattedColorTagsList);
   }
   if (neutralized === true) queryParams.append("neutralized", neutralized);
 
   const queryString = queryParams.toString();
-  // console.log(`queryString: ${queryString}`); // test
+  console.log(`queryString: ${queryString}`); // test
 
-  // 최초 마운트시에(만) setCurrentPage
-  useEffect(() => {
-    setCurrentPage(`/search?${queryString}}`);
-    localStorage.setItem("currentPage", JSON.stringify(currentPage)); // 로컬스토리지에 저장 (앱 리렌더링 시에도 값 보존 위해서)
-  }, []);
-
-  // 키워드 보내기 (axios 통신)
+  // 키워드 보내기 (axios 통신) -----------
   const handleClickSearch = () => {
     axios
-      .get(`${BASE_URL}/search?${queryString}`)
+      .get(`/api/animal?${queryString}`)
       .then((response) => {
-        // console.log(`The request has been sent successfully.`);
         // setIsSent(true);
         // response.data 배열에 담기 (상태관리로)
         // {petId, 이름, 사진, 나이, 성별, 종, 관심 여부, 보호소 이름}
-        navigate("/search/result");
+        // navigate(`/search?${queryString}`);
       })
       .catch((error) => {
         console.error(`An error occurred while searching.`, error);
