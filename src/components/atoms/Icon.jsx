@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import IconArrowRightBlack20 from "@assets/icons/icon-arrow-right-black-20.svg";
 import IconBackward from "@assets/icons/icon-backward.svg";
 import IconHeartSelected from "@assets/icons/icon-heart-selected.svg";
@@ -6,7 +5,8 @@ import IconHeartMono from "@assets/icons/icon-heart-mono.svg";
 import IconHeartOff from "@assets/icons/icon-heart-off.svg";
 import IconHomeMono from "@assets/icons/icon-home-mono.svg";
 import IconHomeSelected from "@assets/icons/icon-home-selected.svg";
-import IconPicture from "@assets/icons/icon-picture.svg";
+import IconPictureMono from "@assets/icons/icon-picture-Mono.svg";
+import IconPictureSelected from "@assets/icons/icon-picture-selected.svg";
 import IconPinLocation from "@assets/icons/icon-pin-location.svg";
 import IconRefreshMono from "@assets/icons/icon-refresh-mono.svg";
 import IconSave from "@assets/icons/icon-save.svg";
@@ -15,6 +15,8 @@ import IconSearchSelected from "@assets/icons/icon-search-selected.svg";
 import IconUserMono from "@assets/icons/icon-user-mono.svg";
 import IconUserSelected from "@assets/icons/icon-user-selected.svg";
 import IconXCircle from "@assets/icons/icon-x-circle.svg";
+
+import styled from "styled-components";
 
 const Icon = ({ src, width, height, onClick }) => {
   let icon;
@@ -26,7 +28,8 @@ const Icon = ({ src, width, height, onClick }) => {
   else if (src === "IconHeartOff") icon = IconHeartOff;
   else if (src === "IconHomeMono") icon = IconHomeMono;
   else if (src === "IconHomeSelected") icon = IconHomeSelected;
-  else if (src === "IconPicture") icon = IconPicture;
+  else if (src === "IconPictureMono") icon = IconPictureMono;
+  else if (src === "IconPictureSelected") icon = IconPictureSelected;
   else if (src === "IconPinLocation") icon = IconPinLocation;
   else if (src === "IconRefreshMono") icon = IconRefreshMono;
   else if (src === "IconSave") icon = IconSave;
