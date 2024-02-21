@@ -7,6 +7,10 @@ import Text from "@styles/Text";
 const Header = ({ type, title }) => {
   const navigate = useNavigate();
 
+  const goBackward = () => {
+    navigate(-1);
+  };
+
   const handleClickHome = () => {
     navigate("/");
   };
@@ -16,7 +20,7 @@ const Header = ({ type, title }) => {
   };
 
   const handleClickHeart = () => {
-    navigate("/interest");
+    navigate("/interests");
   };
 
   if (type === undefined) {
@@ -32,7 +36,7 @@ const Header = ({ type, title }) => {
   } else if (type === "Widget") {
     return (
       <StyledHeader>
-        <Icon src="IconBackward" />
+        <Icon src="IconBackward" onClick={goBackward} />
         <Text fontWeight="700">{title}</Text>
         <div style={{ width: "24px", height: "24px" }}></div>
       </StyledHeader>
@@ -40,7 +44,7 @@ const Header = ({ type, title }) => {
   } else if (type === "PetInfoDetail") {
     return (
       <StyledHeader>
-        <Icon src="IconBackward" />
+        <Icon src="IconBackward" onClick={goBackward} />
         <IconGroup
           srcs={["IconHomeMono", "IconSearchMono", "IconHeartMono"]}
           onClicks={[handleClickHome, handleClickSearch, handleClickHeart]}
@@ -50,21 +54,21 @@ const Header = ({ type, title }) => {
   } else if (type === "Mypage") {
     return (
       <StyledHeader>
-        <Icon src="IconBackward" />
+        <Icon src="IconBackward" onClick={goBackward} />
         <Icon src="IconHeartMono" />
       </StyledHeader>
     );
   } else if (type === "Login") {
     return (
       <StyledHeader>
-        <Icon src="IconBackward" />
+        <Icon src="IconBackward" onClick={goBackward} />
         <Icon src="IconHomeMono" onClick={handleClickHome} />
       </StyledHeader>
     );
   } else if (type === "Application") {
     return (
       <StyledHeader>
-        <Icon src="IconBackward" />
+        <Icon src="IconBackward" onClick={goBackward} />
         <Text fontWeight="700">{title}</Text>
         <Icon src="IconSave" />
       </StyledHeader>

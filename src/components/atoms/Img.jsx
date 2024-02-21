@@ -58,8 +58,8 @@ const Img = ({
     return (
       <StyledImg
         src={src}
-        width="328px"
-        height="410px"
+        width={width}
+        height={height}
         border={border}
         borderRadius={borderRadius}
         margin={margin}
@@ -70,16 +70,20 @@ const Img = ({
   else throw new Error("Undefined size of Img component.");
 };
 
+// const StyledImgContainer = styled.div`
+//   // width: 100%;
+//   // height: 125%;
+// `;
+
 const StyledImg = styled.img`
-  width: ${(props) => props.width};
-  height: ${(props) => props.height};
+  width: ${(props) => props.width || "100%"};
+  height: ${(props) => props.height || "125%"};
   object-fit: cover;
   border: ${(props) => props.border || "none"};
   border-radius: ${(props) => props.borderRadius || "10px"};
   margin: ${(props) => props.margin || "0"};
   box-shadow: ${(props) => props.boxShadow || "none"};
-  background-color: ${(props) =>
-    props.backgroundColor || `${(props) => props.theme.colors.extraLightGray}`};
+  background-color: ${(props) => props.backgroundColor || props.theme.colors.extraLightGray};
 `;
 
 export const ImgGroup = ({ children }) => {

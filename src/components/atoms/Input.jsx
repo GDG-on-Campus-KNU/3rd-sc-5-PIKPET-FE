@@ -1,3 +1,5 @@
+import { useSearchTagsStore } from "@store";
+
 import styled from "styled-components";
 
 const Input = ({
@@ -45,4 +47,44 @@ const StyledInput = styled.input`
   }
 `;
 
+const AgeInput = () => {
+  const { minAge, setMinAge, maxAge, setMaxAge } = useSearchTagsStore(); // 재사용성... 어차피 동물나이 인풋 받는 데밖에 사용 안 할듯
+
+  const handleSetMinAge = (value) => {
+    setMinAge(value);
+  };
+
+  const handleSetMaxAge = (value) => {
+    setMaxAge(value);
+  };
+
+  return (
+    <StyledAgeInput>
+      <Input
+        type="number"
+        value={minAge !== null ? minAge : ""}
+        onChange={(e) => handleSetMinAge(e.target.value)} // value prop의 값을 파라미터로 넘기기
+        width="94px"
+        fontSize="12px"
+      />
+      ~
+      <Input
+        type="number"
+        value={maxAge !== null ? maxAge : ""}
+        onChange={(e) => handleSetMaxAge(e.target.value)} // value prop의 값을 파라미터로 넘기기
+        width="94px"
+        fontSize="12px"
+      />
+    </StyledAgeInput>
+  );
+};
+
+const StyledAgeInput = styled.form`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+`;
+
 export default Input;
+export { AgeInput };
