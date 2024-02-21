@@ -5,6 +5,7 @@ import { useCurrentPageStore } from "@store";
 import Header from "@components/organisms/Header";
 import PetInfoDetail from "@components/organisms/PetInfoDetail";
 import CTAContainer from "@components/molecules/CTAContainer";
+import sampleImg from "@assets/sample-picture-2.jpeg";
 
 import Text from "@styles/Text";
 import Layout, { Main, Contents } from "@styles/layout";
@@ -25,7 +26,7 @@ const PetInfoDetailTemplate = () => {
   }, [currentPage]);
 
   // 임시
-  const img = null;
+  const img = sampleImg;
   const name = "솜솜이";
   const interested = false;
   const breed = "Maltese";
@@ -50,6 +51,23 @@ const PetInfoDetailTemplate = () => {
   const comment =
     "She is rescued on a cold winter day, and was very dwarfed at first because she didn't eat well. However, she is adaptable enough to quickly become a normal size while eating well here. She is lively and obedient, and she runs around briskly and makes everyone happy.";
 
+  // 이미지 비율 설정하기 ----------
+  let newWidth, newHeight;
+  const image = new Image();
+  image.src = sampleImg;
+  image.onload = function () {
+    const originalWidth = image.width;
+    const originalHeight = image.height;
+
+    // const desiredRatio = 4 / 5; // 원하는 가로:세로 비율
+    // newWidth = originalWidth;
+    // newHeight = originalWidth / desiredRatio;
+
+    // 높이를 자동으로 조정하여 비율 유지
+    const desiredHeight = originalWidth * 1.25; // 4:5 비율에 따라 높이 계산
+    image.style.height = `${desiredHeight}px`; // 높이 설정
+  };
+
   // 펫 정보 가져오기 통신 ----------
   //   useEffect(() => {
   //     axios
@@ -73,6 +91,8 @@ const PetInfoDetailTemplate = () => {
           <PetInfoDetail
             petId={null}
             img={img}
+            imgWidth={newWidth}
+            imgHeight={newHeight}
             name={name}
             interested={interested}
             breed={breed}

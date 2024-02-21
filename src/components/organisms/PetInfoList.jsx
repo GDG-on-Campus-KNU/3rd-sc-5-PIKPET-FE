@@ -1,6 +1,7 @@
 import { usePetInfoStore } from "@store";
 
 import PetInfo from "@components/molecules/PetInfo";
+import sampleImg from "@assets/sample-picture-2.jpeg";
 
 import styled from "styled-components";
 
@@ -12,7 +13,7 @@ const PetInfoList = ({ data }) => {
       {/* petInfoList.map((pet, index)=>(<PetInfo petId={} name={pet.name} ... />)) */}
       <PetInfo
         petId={0}
-        img={null}
+        img={sampleImg}
         name="솜솜이"
         interested={false}
         breed="말티즈"

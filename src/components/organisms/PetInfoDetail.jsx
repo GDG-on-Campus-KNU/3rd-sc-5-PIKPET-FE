@@ -20,6 +20,8 @@ const FONT_SIZE = "14px";
 const PetInfoDetail = ({
   petId,
   img,
+  imgWidth,
+  imgHeight,
   name,
   interested,
   breed,
@@ -41,7 +43,7 @@ const PetInfoDetail = ({
   return (
     <ContainerIncludingImg flexDirection="column">
       {/* 이미지 */}
-      <Img src={img} size="Big" />
+      <Img src={img} alt="picture" size="Big" width={imgWidth} height={imgHeight} />
 
       <InnerContainerIncludingImg gap="24px">
         {/* 기본 정보 */}
