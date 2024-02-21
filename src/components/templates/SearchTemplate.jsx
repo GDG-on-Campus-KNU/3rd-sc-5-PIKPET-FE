@@ -1,6 +1,12 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
-import { useCurrentPageStore, useLoggedinStore, useKeywordsStore, useTagsStore } from "@store";
+import {
+  useCurrentPageStore,
+  useLoggedinStore,
+  useKeywordsStore,
+  useTagsStore,
+  useSearchImgStore,
+} from "@store";
 import axios from "axios";
 import useGeolocation from "react-hook-geolocation";
 
@@ -26,6 +32,7 @@ const SearchTemplate = () => {
     colorTagsList,
     neutralized,
   } = useTagsStore();
+  const { searchImg } = useSearchImgStore();
 
   // 로컬 스토리지 값 관리: 앱 리렌더링 시에도 값 보존 위함 ----------
   // 최초 마운트시에(만) 실행
@@ -85,7 +92,7 @@ const SearchTemplate = () => {
   const queryString = queryParams.toString();
   console.log(`queryString: ${queryString}`); // test
 
-  // 키워드 보내기 (axios 통신) -----------
+  // 필터 검색 통신 -----------
   const handleClickSearch = () => {
     axios
       .get(`/api/animal?${queryString}`)
@@ -100,9 +107,31 @@ const SearchTemplate = () => {
       });
   };
 
+  // for (let pair of searchImg.entries()) {
+  //   console.log("key:", pair[0] + ", value: " + pair[1]);
+  // } // for checking request body
+
+  // 이미지 검색 통신 ----------
+  const handleSendImg = () => {
+    console.log("called"); // for test
+
+    axios
+      .post(`/api/animal/image`, searchImg, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((response) => {
+        const data = response.data;
+      })
+      .catch((error) => {
+        console.error(`An error occurred while image searching.`, error);
+      });
+  };
+
   return (
     <Layout backgroundColor="white">
-      <SearchBar />
+      <SearchBar onClick={handleSendImg} />
 
       <Main padding0>
         <Contents>
