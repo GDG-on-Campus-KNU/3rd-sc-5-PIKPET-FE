@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { useCurrentPageStore } from "@store";
 
 import Header from "@components/organisms/Header";
@@ -12,15 +12,15 @@ import Layout, { Main, Contents } from "@styles/layout";
 
 const PetInfoDetailTemplate = () => {
   const navigate = useNavigate();
+  const params = useParams();
+  const petId = params.petId; // useParams를 통해 URL에서 가져온 petId
   const { currentPage, setCurrentPage } = useCurrentPageStore();
-  // const { selectedPetId } = store에서 관리
-  // const petId = selectedPetId;
 
   // 로컬 스토리지 값 관리: 앱 리렌더링 시에도 값 보존 위함 ----------
   // 최초 마운트시에(만) 실행
   useEffect(() => {
     // 현재 페이지 경로 저장
-    setCurrentPage("/petinfodetail");
+    setCurrentPage(`/pet/${petId}`);
     // console.log("currentPage: ", currentPage); // test
     localStorage.setItem("currentPage", JSON.stringify(currentPage)); // 로컬스토리지에 저장
   }, [currentPage]);

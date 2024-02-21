@@ -11,15 +11,9 @@ import {
 } from "@styles/Container";
 import Text from "@styles/Text";
 
-const PetInfo = ({ petId, img, name, interested, breed, age, gender, shelter }) => {
-  const navigate = useNavigate();
-
-  const goPetInfoDetail = (pedId) => {
-    navigate(`/search/result/${petId}`);
-  };
-
+const PetInfo = ({ petId, img, name, interested, breed, age, gender, shelter, onClick }) => {
   return (
-    <ContainerIncludingImg flexDirection="row" onClick={(petId) => goPetInfoDetail(petId)}>
+    <ContainerIncludingImg flexDirection="row" onClick={onClick}>
       <Img src={img} size="Middle" />
       <InnerContainerIncludingImg justifyContent="space-between">
         <StyledPetInfo_1_1>

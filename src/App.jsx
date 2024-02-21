@@ -11,10 +11,10 @@ const router = createBrowserRouter([
   { index: true, path: "/", element: <HomePage /> },
   { path: "login", element: <LoginPage /> },
   { path: "search", element: <SearchPage /> },
-  { path: "search/result", element: <SearchResultPage /> },
+  { path: "search/result", element: <SearchResultPage /> }, // useParams로 동적 설정할 것
   { path: "mypage", element: <MypagePage /> },
   { path: "interests", element: <InterestsPage /> },
-  { path: "/petinfodetail", element: <PetInfoDetailPage /> }, // rename the path later...
+  { path: "/pet/:petId", element: <PetInfoDetailPage /> },
 ]);
 
 const App = () => {

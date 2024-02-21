@@ -1,10 +1,13 @@
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { useCurrentPageStore } from "@store";
 
 import NavTab from "@components/molecules/NavTab";
 import styled from "styled-components";
 
 const NavBar = () => {
+  const params = useParams();
+  // const queryString = params.queryString;
+  const queryString = "breed=MALTESE";
   const { currentPage } = useCurrentPageStore();
   const navigate = useNavigate();
 
@@ -17,7 +20,9 @@ const NavBar = () => {
       />
       <NavTab
         type="Search"
-        selected={currentPage === "/search" || currentPage === "/search/result" ? true : false}
+        selected={
+          currentPage === "/search" || currentPage === `/search?${queryString}` ? true : false
+        }
         // onClick={navigate("/search")}
       />
       <NavTab

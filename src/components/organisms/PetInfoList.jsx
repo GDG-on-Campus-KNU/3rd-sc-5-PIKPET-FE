@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router";
 import { usePetInfoStore } from "@store";
 
 import PetInfo from "@components/molecules/PetInfo";
@@ -6,13 +7,20 @@ import sampleImg from "@assets/sample-picture-2.jpeg";
 import styled from "styled-components";
 
 const PetInfoList = ({ data }) => {
+  const navigate = useNavigate();
   const { petInfoList } = usePetInfoStore();
+
+  const petId = 0;
+
+  const handleClickPetInfo = (petId) => {
+    navigate(`/pet/${petId}`);
+  };
 
   return (
     <StyledPetInfoList>
       {/* petInfoList.map((pet, index)=>(<PetInfo petId={} name={pet.name} ... />)) */}
       <PetInfo
-        petId={0}
+        petId={petId}
         img={sampleImg}
         name="솜솜이"
         interested={false}
@@ -20,6 +28,7 @@ const PetInfoList = ({ data }) => {
         age="8개월"
         gender="여"
         shelter="OO보호소"
+        onClick={() => handleClickPetInfo(petId)}
       />
     </StyledPetInfoList>
   );
