@@ -50,7 +50,7 @@ const PetInfoDetail = ({
         <ContainerBasicPetInfo>
           <ContainerNameAndIcon>
             <Text fontSize="20px" fontWeight="700">
-              {name}
+              PETID{petId}
             </Text>
             <Icon src={interested ? "IconHeartSelected" : "IconHeartOff"} />
           </ContainerNameAndIcon>

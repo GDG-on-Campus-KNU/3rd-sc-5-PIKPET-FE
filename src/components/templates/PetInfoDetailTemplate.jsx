@@ -89,7 +89,7 @@ const PetInfoDetailTemplate = () => {
       <Main>
         <Contents>
           <PetInfoDetail
-            petId={null}
+            petId={petId}
             img={img}
             imgWidth={newWidth}
             imgHeight={newHeight}

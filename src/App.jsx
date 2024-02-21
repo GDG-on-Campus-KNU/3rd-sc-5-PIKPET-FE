@@ -16,7 +16,7 @@ const router = createBrowserRouter([
   { path: "mypage", element: <MypagePage /> },
   { path: "interests", element: <InterestsPage /> },
   { path: "/pet/:petId", element: <PetInfoDetailPage /> },
-  { path: "/pet/0/location", element: <ShelterLocationPage /> },
+  { path: "/pet/:petId/location", element: <ShelterLocationPage /> },
 ]);
 
 const App = () => {
