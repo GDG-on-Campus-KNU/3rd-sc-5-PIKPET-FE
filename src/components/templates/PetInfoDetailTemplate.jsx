@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
-import { useCurrentPageStore, useLoggedinStore } from "@store";
+import { useCurrentPageStore } from "@store";
 
 import Header from "@components/organisms/Header";
 import PetInfoDetail from "@components/organisms/PetInfoDetail";
@@ -12,7 +12,6 @@ import Layout, { Main, Contents } from "@styles/layout";
 const PetInfoDetailTemplate = () => {
   const navigate = useNavigate();
   const { currentPage, setCurrentPage } = useCurrentPageStore();
-  const { isLoggedin, setIsLoggedin } = useLoggedinStore();
 
   // 로컬 스토리지 값 관리: 앱 리렌더링 시에도 값 보존 위함 ----------
   // 최초 마운트시에(만) 실행
