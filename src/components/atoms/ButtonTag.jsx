@@ -141,7 +141,7 @@ const ButtonTagGroup = ({ children }) => {
 const StyledButtonTagGroup = styled.div`
   width: 100%;
   display: flex;
-  gap: 4px;
+  gap: 6px;
   flex-wrap: wrap;
 `;
 
