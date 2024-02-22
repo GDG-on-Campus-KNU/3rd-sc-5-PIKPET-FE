@@ -1,12 +1,21 @@
 import GoogleMapReact from "google-map-react";
-
-import styled from "styled-components";
-
 import { GOOGLE_MAP_API_KEY } from "@utils/utils";
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+import Icon from "@components/atoms/Icon";
 
-const Map = ({ lat, lng }) => {
+import styled from "styled-components";
+import Text from "@styles/Text";
+
+const Pin = ({ name }) => (
+  <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+    <Icon src="IconPinLocation" width="36px" height="36px" />
+    <Text fontSize="14px" fontWeight="500">
+      {name}
+    </Text>
+  </div>
+);
+
+const Map = ({ lat, lng, name }) => {
   const defaultProps = {
     center: {
       lat: lat,
@@ -22,7 +31,7 @@ const Map = ({ lat, lng }) => {
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
       >
-        <AnyReactComponent lat={lat} lng={lng} text="My Marker" />
+        <Pin lat={lat} lng={lng} name={name} />
       </GoogleMapReact>
     </StyledMap>
   );
