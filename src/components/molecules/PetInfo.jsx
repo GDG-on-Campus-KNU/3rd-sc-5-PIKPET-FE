@@ -18,12 +18,12 @@ const PetInfo = ({ petId, img, name, interested, breed, age, gender, shelter, on
       <InnerContainerIncludingImg justifyContent="space-between">
         <StyledPetInfo_1_1>
           <ContainerNameAndIcon>
-            <Text fontWeight="700">PETID{petId}</Text>
+            <Text fontWeight="700">PETID-{petId}</Text>
             <Icon src={interested ? "IconHeartSelected" : "IconHeartOff"} />
           </ContainerNameAndIcon>
           <Text fontSize="14px">{breed}</Text>
           <Text fontSize="14px">
-            {age}, {gender}
+            {age} year(s) old, {gender}
           </Text>
         </StyledPetInfo_1_1>
         <StyledShelter>
