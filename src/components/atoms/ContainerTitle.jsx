@@ -2,9 +2,9 @@ import Icon from "@components/atoms/Icon";
 import styled from "styled-components";
 import Text from "@styles/Text";
 
-const ContainerTitle = ({ title, color, fontSize }) => {
+const ContainerTitle = ({ title, color, fontSize, onClick }) => {
   return (
-    <StyledContainerTitle color={color} fontSize={fontSize}>
+    <StyledContainerTitle color={color} fontSize={fontSize} onClick={onClick}>
       {title}
       <Icon src="IconArrowRight" />
     </StyledContainerTitle>
