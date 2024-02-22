@@ -20,9 +20,7 @@ const NavBar = () => {
       />
       <NavTab
         type="Search"
-        selected={
-          currentPage === "/search" || currentPage === `/search?${queryString}` ? true : false
-        }
+        selected={currentPage === "/search" || currentPage === `/result` ? true : false}
         // onClick={navigate("/search")}
       />
       <NavTab
@@ -36,7 +34,7 @@ const NavBar = () => {
 
 const StyledNavBar = styled.div`
   width: 100%;
-  height: auto;
+  height: 72px;
   display: flex;
 
   position: sticky;

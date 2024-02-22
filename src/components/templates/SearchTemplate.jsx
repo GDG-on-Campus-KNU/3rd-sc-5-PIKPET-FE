@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import {
   useCurrentPageStore,
@@ -34,7 +34,7 @@ const SearchTemplate = () => {
     neutralized,
   } = useSearchTagsStore();
   const { searchImg } = useSearchImgStore();
-  const { petInfo, setPetInfo } = usePetInfoStore();
+  const { petInfoList, setPetInfoList, setNumberOfElements } = usePetInfoStore();
 
   // 로컬 스토리지 값 관리: 앱 리렌더링 시에도 값 보존 위함 ----------
   // 최초 마운트시에(만) 실행
@@ -45,14 +45,26 @@ const SearchTemplate = () => {
     localStorage.setItem("currentPage", JSON.stringify(currentPage)); // 로컬스토리지에 저장
   }, [currentPage]);
 
-  // 위치 get ----------
+  // 위치 get ===================================================
   const { latitude, longitude, error } = useGeolocation();
   const currentLatitude = latitude;
   const currentLongitude = longitude;
+
+  // 이건 왠지 모르겠지만 값 설정이 안 됨: null null 뜸
+  // const [currentLatitude, setCurrentLatitude] = useState(null);
+  // const [currentLongitude, setCurrentLongitude] = useState(null);
+
+  // useEffect(() => {
+  //   if (latitude && longitude) {
+  //     setCurrentLatitude(latitude);
+  //     setCurrentLongitude(longitude);
+  //   }
+  // }, []); // 초기 렌더링 시에만 위치 설정
+
   // console.log(currentLatitude, currentLongitude); // for test
 
-  // 각 tags list로부터 쿼리 파라미터 생성하기 ----------
-  // queryParams에 담은 후에 queryString으로 문자열화할 것임
+  // 각 tags list로부터 쿼리 파라미터 생성하기 =======================
+  // queryParams에 담은 후에 queryString으로 문자열화
   const queryParams = new URLSearchParams();
 
   if (speciesTagsList.length !== 0) {
@@ -94,45 +106,55 @@ const SearchTemplate = () => {
   const queryString = queryParams.toString();
   console.log(`queryString: ${queryString}`); // test
 
-  // 필터 검색 통신 -----------
+  // 필터 검색 통신 ==================================================
   const handleClickSearch = () => {
     axios
-      .get(`/api/animal?${queryString}`)
+      .get(`/api/api/animal?${queryString}`)
       .then((response) => {
         const data = response.data;
-        const { animals, page } = data; // 키로 데이터 추출
-        console.log(animals, page); // for test
-        // animals: 배열, page: 정수 아마도?
-        setPetInfo(animals);
+        // console.log("data: ", data); // test
+        const { animals, numberOfElements, page } = data; // 키로 데이터 추출
+        // console.log(
+        //   "animals: ",
+        //   animals,
+        //   "numberOfElements: ",
+        //   numberOfElements,
+        //   "page: ",
+        //   page
+        // ); // for test
 
-        // navigate(`/search?${queryString}`);
+        setPetInfoList(animals);
+        setNumberOfElements(numberOfElements);
+
+        navigate(`/result?${queryString}`);
       })
       .catch((error) => {
         console.error(`An error occurred while searching.`, error);
       });
   };
 
-  // for (let pair of searchImg.entries()) {
-  //   console.log("key:", pair[0] + ", value: " + pair[1]);
-  // } // for checking request body
-
-  // 이미지 검색 통신 ----------
+  // 이미지 검색 통신 =================================================
   const handleSendImg = () => {
-    console.log("called"); // for test
+    // console.log("called"); // for test
 
     axios
-      .post(`/api/animal/image`, searchImg, {
+      .post(`/api/api/animal/image?${queryString}`, searchImg, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       })
       .then((response) => {
         const data = response.data;
-        const { animals, page } = data; // 키로 데이터 추출
-        // animals: 배열, page: 정수 아마도?
-        setPetInfo(animals);
+        // console.log("data: ", data); // test
+        const { animals, numberOfElements, page } = data; // 키로 데이터 추출
 
-        // navigate(`/pet/${animalId}`);
+        // pet 리스트에 저장
+        setPetInfoList(animals);
+        setNumberOfElements(numberOfElements);
+        // console.log(petInfoList); // test
+        // console.log(numberOfElements); // test
+
+        navigate(`/result?${queryString}`);
       })
       .catch((error) => {
         console.error(`An error occurred while image searching.`, error);

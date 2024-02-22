@@ -5,31 +5,37 @@ import PetInfo from "@components/molecules/PetInfo";
 import sampleImg from "@assets/sample-picture-2.jpeg";
 
 import styled from "styled-components";
-
-const PetInfoList = ({ data }) => {
+const PetInfoList = () => {
   const navigate = useNavigate();
   const { petInfoList } = usePetInfoStore();
-
-  const petId = 0;
 
   const handleClickPetInfo = (petId) => {
     navigate(`/pet/${petId}`);
   };
 
+  // 문자열 포맷팅 BEAGLE -> Beagle
+  const capitalizeSecondLetter = (word) => {
+    return word.charAt(0) + word.slice(1).toLowerCase();
+  };
+
+  setSelectedPetId;
+
   return (
     <StyledPetInfoList>
-      {/* petInfoList.map((pet, index)=>(<PetInfo petId={} name={pet.name} ... />)) */}
-      <PetInfo
-        petId={petId}
-        img={sampleImg}
-        name="솜솜이"
-        interested={false}
-        breed="말티즈"
-        age="8개월"
-        gender="여"
-        shelter="OO보호소"
-        onClick={() => handleClickPetInfo(petId)}
-      />
+      {petInfoList &&
+        petInfoList.map((pet, index) => (
+          <PetInfo
+            key={index}
+            petId={pet.animalId}
+            age={pet.age}
+            breed={capitalizeSecondLetter(pet.breed)}
+            gender={capitalizeSecondLetter(pet.gender)}
+            img={pet.imageUrl || null} // 이미지가 없는 경우를 처리
+            interested={pet.isLiked}
+            shelterName={pet.branchName}
+            onClick={() => handleClickPetInfo(pet.animalId)}
+          />
+        ))}
     </StyledPetInfoList>
   );
 };

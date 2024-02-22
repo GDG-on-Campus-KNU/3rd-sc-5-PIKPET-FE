@@ -82,7 +82,7 @@ const PetInfoDetail = ({
           <Text fontSize={FONT_SIZE} color={(props) => props.theme.colors.gray}>
             {shelter}
           </Text>
-          <ButtonMiniCTA item="위치 보기" onClick={handleViewShelterLocation} />
+          <ButtonMiniCTA item="View location" onClick={handleViewShelterLocation} />
         </StyledShelter>
       </InnerContainerIncludingImg>
     </ContainerIncludingImg>

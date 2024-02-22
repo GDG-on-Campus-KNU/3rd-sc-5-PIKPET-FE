@@ -11,25 +11,25 @@ import {
 } from "@styles/Container";
 import Text from "@styles/Text";
 
-const PetInfo = ({ petId, img, name, interested, breed, age, gender, shelter, onClick }) => {
+const PetInfo = ({ petId, img, interested, breed, age, gender, shelterName, onClick }) => {
   return (
     <ContainerIncludingImg flexDirection="row" onClick={onClick}>
       <Img src={img} size="Middle" />
       <InnerContainerIncludingImg justifyContent="space-between">
         <StyledPetInfo_1_1>
           <ContainerNameAndIcon>
-            <Text fontWeight="700">PETID{petId}</Text>
+            <Text fontWeight="700">PETID-{petId}</Text>
             <Icon src={interested ? "IconHeartSelected" : "IconHeartOff"} />
           </ContainerNameAndIcon>
           <Text fontSize="14px">{breed}</Text>
           <Text fontSize="14px">
-            {age}, {gender}
+            {age} year(s) old, {gender}
           </Text>
         </StyledPetInfo_1_1>
         <StyledShelter>
           <Icon src="IconPinLocation" width="14px" />
           <Text fontSize="12px" color={(props) => props.theme.colors.gray}>
-            {shelter}
+            {shelterName}
           </Text>
         </StyledShelter>
       </InnerContainerIncludingImg>
