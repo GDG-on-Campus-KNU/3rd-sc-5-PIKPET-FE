@@ -6,6 +6,7 @@ import SearchResultPage from "@pages/SearchResultPage";
 import MypagePage from "@pages/MypagePage";
 import InterestsPage from "@pages/InterestsPage";
 import PetInfoDetailPage from "@pages/PetInfoDetailPage";
+import ShelterLocationPage from "@pages/ShelterLocationPage";
 
 const router = createBrowserRouter([
   { index: true, path: "/", element: <HomePage /> },
@@ -15,6 +16,7 @@ const router = createBrowserRouter([
   { path: "mypage", element: <MypagePage /> },
   { path: "interests", element: <InterestsPage /> },
   { path: "/pet/:petId", element: <PetInfoDetailPage /> },
+  { path: "/pet/:petId/location", element: <ShelterLocationPage /> },
 ]);
 
 const App = () => {

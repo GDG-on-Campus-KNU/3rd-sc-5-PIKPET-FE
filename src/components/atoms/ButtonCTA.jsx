@@ -52,6 +52,18 @@ const ButtonCTA = ({ type, title, width, paddingX, paddingY, fontSize, ...rest }
         {title}
       </StyledSecondaryDisabled>
     );
+  } else if (type === "Logout") {
+    return (
+      <StyledLogout
+        width={width}
+        paddingX={paddingX}
+        paddingY={paddingY}
+        fontSize={fontSize}
+        {...rest}
+      >
+        {title}
+      </StyledLogout>
+    );
   } else throw new Error("Undefined type of ButtonCTA");
 };
 
@@ -94,6 +106,11 @@ const StyledSecondaryDisabled = styled(StyledSecondary)`
   opacity: 0.5;
   //   cursor: not-allowed;
   pointer-events: none;
+`;
+
+const StyledLogout = styled(StyledSecondary)`
+  border-color: ${(props) => props.theme.colors.lightGray};
+  color: ${(props) => props.theme.colors.lightGray};
 `;
 
 export default ButtonCTA;

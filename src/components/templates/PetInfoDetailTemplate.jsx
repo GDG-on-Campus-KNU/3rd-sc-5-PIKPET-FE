@@ -89,7 +89,7 @@ const PetInfoDetailTemplate = () => {
       <Main>
         <Contents>
           <PetInfoDetail
-            petId={null}
+            petId={petId}
             img={img}
             imgWidth={newWidth}
             imgHeight={newHeight}
@@ -110,8 +110,8 @@ const PetInfoDetailTemplate = () => {
         </Contents>
         <CTAContainer
           type="2ButtonEven"
-          title1="연락하기"
-          title2="입양 신청"
+          title1="Contact"
+          title2="Apply"
           onClick1={handleContact}
           onClick2={handleApply}
         />

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useNavigate } from "react-router";
 import axios from "axios";
 
 import PetInfoDetailItem from "@components/molecules/PetInfoDetailItem";
@@ -37,8 +38,12 @@ const PetInfoDetail = ({
   shelter,
   ...rest
 }) => {
+  const navigate = useNavigate();
+
   // 보호소 위치 보기
-  const handleViewShelterLocation = () => {};
+  const handleViewShelterLocation = () => {
+    navigate(`/pet/${petId}/location`);
+  };
 
   return (
     <ContainerIncludingImg flexDirection="column">
@@ -50,7 +55,7 @@ const PetInfoDetail = ({
         <ContainerBasicPetInfo>
           <ContainerNameAndIcon>
             <Text fontSize="20px" fontWeight="700">
-              {name}
+              PETID{petId}
             </Text>
             <Icon src={interested ? "IconHeartSelected" : "IconHeartOff"} />
           </ContainerNameAndIcon>
@@ -77,7 +82,7 @@ const PetInfoDetail = ({
           <Text fontSize={FONT_SIZE} color={(props) => props.theme.colors.gray}>
             {shelter}
           </Text>
-          <ButtonMiniCTA item="위치 보기" onClick={handleViewShelterLocation} />
+          <ButtonMiniCTA item="View location" onClick={handleViewShelterLocation} />
         </StyledShelter>
       </InnerContainerIncludingImg>
     </ContainerIncludingImg>

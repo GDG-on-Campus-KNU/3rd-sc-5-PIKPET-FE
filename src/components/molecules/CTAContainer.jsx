@@ -25,6 +25,12 @@ const CTAContainer = ({ type, title1, title2, onClick, onClick1, onClick2 }) => 
         <ButtonCTA type="Primary" title={title1} />
       </StyledCTAContainer>
     );
+  } else if (type === "1ButtonLogout") {
+    return (
+      <StyledCTAContainer>
+        <ButtonCTA type="Logout" title={title1} />
+      </StyledCTAContainer>
+    );
   } else if (type === "2ButtonEven") {
     return (
       <StyledCTAContainer>
