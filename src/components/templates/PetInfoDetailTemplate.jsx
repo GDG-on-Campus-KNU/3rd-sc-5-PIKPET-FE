@@ -51,22 +51,22 @@ const PetInfoDetailTemplate = () => {
   const comment =
     "She is rescued on a cold winter day, and was very dwarfed at first because she didn't eat well. However, she is adaptable enough to quickly become a normal size while eating well here. She is lively and obedient, and she runs around briskly and makes everyone happy.";
 
-  // 이미지 비율 설정하기 ----------
-  let newWidth, newHeight;
-  const image = new Image();
-  image.src = sampleImg;
-  image.onload = function () {
-    const originalWidth = image.width;
-    const originalHeight = image.height;
+  // // 이미지 비율 설정하기 ----------
+  // let newWidth, newHeight;
+  // const image = new Image();
+  // image.src = sampleImg;
+  // image.onload = function () {
+  //   const originalWidth = image.width;
+  //   const originalHeight = image.height;
 
-    // const desiredRatio = 4 / 5; // 원하는 가로:세로 비율
-    // newWidth = originalWidth;
-    // newHeight = originalWidth / desiredRatio;
+  //   // const desiredRatio = 4 / 5; // 원하는 가로:세로 비율
+  //   // newWidth = originalWidth;
+  //   // newHeight = originalWidth / desiredRatio;
 
-    // 높이를 자동으로 조정하여 비율 유지
-    const desiredHeight = originalWidth * 1.25; // 4:5 비율에 따라 높이 계산
-    image.style.height = `${desiredHeight}px`; // 높이 설정
-  };
+  //   // 높이를 자동으로 조정하여 비율 유지
+  //   const desiredHeight = originalWidth * 1.25; // 4:5 비율에 따라 높이 계산
+  //   image.style.height = `${desiredHeight}px`; // 높이 설정
+  // };
 
   // 펫 정보 가져오기 통신 ----------
   //   useEffect(() => {
