@@ -18,7 +18,7 @@ const SearchResultTemplate = () => {
   const { currentPage, setCurrentPage } = useCurrentPageStore();
   const { isLoggedin, setIsLoggedin } = useLoggedinStore();
 
-  console.log("called");
+  // console.log("called");
 
   // 로컬 스토리지 값 관리: 앱 리렌더링 시에도 값 보존 위함 ----------
   // 최초 마운트시에(만) 실행
