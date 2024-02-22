@@ -61,7 +61,7 @@ const HomeTemplate = () => {
             </Container>
             <Container>
               <a href="/interests">
-                <ContainerTitle title="My Interests" />
+                <ContainerTitle title="My interests" />
               </a>
               <ImgGroup>
                 <Img src={samplePicture} size="Small" />

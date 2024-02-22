@@ -35,7 +35,7 @@ const SearchResultTemplate = () => {
           <div>
             {/* <SearchFilterDropdown /> */}
             <Text fontSize="12px">
-              검색 결과 <b>{NUM_OF_PETS}</b>건
+              <b>{NUM_OF_PETS}</b> in total
             </Text>
           </div>
           <PetInfoList />

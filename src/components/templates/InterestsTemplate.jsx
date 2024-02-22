@@ -61,14 +61,14 @@ const SearchResultTemplate = () => {
 
   return (
     <Layout backgroundColor="white">
-      <Header type="Widget" title="내 관심 동물" />
+      <Header type="Widget" title="My interests" />
 
       <Main>
         <Contents>
           <div>
             {/* <SearchFilterDropdown /> */}
             <Text fontSize="12px">
-              전체 <b>{NUM_OF_INTERESTED_PETS}</b>건
+              <b>{NUM_OF_INTERESTED_PETS}</b> in total
             </Text>
           </div>
           <PetInfoList />
