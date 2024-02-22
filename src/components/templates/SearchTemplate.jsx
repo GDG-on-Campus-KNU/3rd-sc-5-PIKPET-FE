@@ -148,7 +148,7 @@ const SearchTemplate = () => {
         setPetInfoList(animals);
         // console.log(petInfoList); // test
 
-        navigate(`/result`);
+        navigate(`/result?${queryString}`);
       })
       .catch((error) => {
         console.error(`An error occurred while image searching.`, error);
