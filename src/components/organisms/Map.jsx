@@ -1,26 +1,37 @@
 import GoogleMapReact from "google-map-react";
+import { GOOGLE_MAP_API_KEY } from "@utils/utils";
+
+import Icon from "@components/atoms/Icon";
 
 import styled from "styled-components";
+import Text from "@styles/Text";
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+const Pin = ({ name }) => (
+  <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+    <Icon src="IconPinLocation" width="36px" height="36px" />
+    <Text fontSize="14px" fontWeight="500">
+      {name}
+    </Text>
+  </div>
+);
 
-const Map = ({ lat, lng }) => {
+const Map = ({ lat, lng, name }) => {
   const defaultProps = {
     center: {
       lat: lat,
       lng: lng,
     },
-    zoom: 11,
+    zoom: 12,
   };
 
   return (
     <StyledMap>
       <GoogleMapReact
-        bootstrapURLKeys={{ key: "YOUR_API_KEY" }} // API key 발급받아 넣기
+        bootstrapURLKeys={{ key: GOOGLE_MAP_API_KEY }}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
       >
-        <AnyReactComponent lat={lat} lng={lng} text="My Marker" />
+        <Pin lat={lat} lng={lng} name={name} />
       </GoogleMapReact>
     </StyledMap>
   );

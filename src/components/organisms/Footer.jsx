@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { SiGithub, SiNotion } from "react-icons/si";
 
-import { GITHUB_URL, NOTION_URL } from "@utils";
+import { GITHUB_URL, NOTION_URL } from "@utils/utils";
 
 import styled from "styled-components";
 import Text from "@styles/Text";

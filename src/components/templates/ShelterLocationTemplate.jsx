@@ -23,15 +23,16 @@ const ShelterLocationTemplate = () => {
   }, [currentPage]);
 
   // 지도에 핀 찍을 위도와 경도
-  const lat = 35;
-  const lng = 128;
+  const lat = 35.888841470939546;
+  const lng = 128.61024856567383;
+  const shelterName = "Here";
 
   return (
     <Layout backgroundColor="white">
       <Header type="PetInfoDetail" />
 
       <Main>
-        <Map lat={lat} lng={lng} />
+        <Map lat={lat} lng={lng} name={shelterName} />
       </Main>
     </Layout>
   );
