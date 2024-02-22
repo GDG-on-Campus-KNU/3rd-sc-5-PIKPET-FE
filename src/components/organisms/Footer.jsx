@@ -1,18 +1,28 @@
+import { Link } from "react-router-dom";
 import { SiGithub, SiNotion } from "react-icons/si";
+
+import { GITHUB_URL, NOTION_URL } from "@utils";
+
 import styled from "styled-components";
 import Text from "@styles/Text";
 
 const Footer = () => {
   return (
     <StyledFooter>
-      <Text fontSize="8px" fontWeight="600">
+      <Text fontSize="12px" fontWeight="600">
         ©️ 2024. PIKPET All rights reserved.
       </Text>
-      <Text fontSize="8px">Visit our websites below for more information.</Text>
-      <StyledIconGroup gap="narrow">
-        <SiGithub />
-        <SiNotion />
-      </StyledIconGroup>
+      <Websites>
+        <Text fontSize="12px">Visit our websites below for more information.</Text>
+        <StyledIconGroup gap="narrow">
+          <Link to={GITHUB_URL} style={{ color: "black" }}>
+            <SiGithub />
+          </Link>
+          <Link to={NOTION_URL} style={{ color: "black" }}>
+            <SiNotion />
+          </Link>
+        </StyledIconGroup>
+      </Websites>
     </StyledFooter>
   );
 };
@@ -26,9 +36,15 @@ const StyledFooter = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 10px;
+  gap: 24px;
 
   background-color: ${(props) => props.theme.colors.background};
+`;
+
+const Websites = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 `;
 
 const StyledIconGroup = styled.div`
