@@ -1,3 +1,4 @@
+import { Component } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "@pages/HomePage";
 import LoginPage from "@pages/LoginPage";
@@ -11,8 +12,10 @@ import ShelterLocationPage from "@pages/ShelterLocationPage";
 const router = createBrowserRouter([
   { index: true, path: "/", element: <HomePage /> },
   { path: "login", element: <LoginPage /> },
+
   { path: "search", element: <SearchPage /> },
-  { path: "search/result", element: <SearchResultPage /> }, // useParams로 동적 설정할 것
+  { path: "result", element: <SearchResultPage /> },
+
   { path: "mypage", element: <MypagePage /> },
   { path: "interests", element: <InterestsPage /> },
   { path: "/pet/:petId", element: <PetInfoDetailPage /> },
