@@ -64,9 +64,8 @@ const SearchTemplate = () => {
   // console.log(currentLatitude, currentLongitude); // for test
 
   // 각 tags list로부터 쿼리 파라미터 생성하기 =======================
-  // queryParams에 담은 후에 queryString으로 문자열화할 것임
+  // queryParams에 담은 후에 queryString으로 문자열화
   const queryParams = new URLSearchParams();
-  const queryParamsLocation = new URLSearchParams();
 
   if (speciesTagsList.length !== 0) {
     const formattedSpeciesTagsList = speciesTagsList.map((item) =>
@@ -107,13 +106,10 @@ const SearchTemplate = () => {
   const queryString = queryParams.toString();
   console.log(`queryString: ${queryString}`); // test
 
-  // const queryStringLocation = queryParamsLocation.toString();
-  // console.log(`queryStringLocation: ${queryStringLocation}`); // test
-
   // 필터 검색 통신 ==================================================
   const handleClickSearch = () => {
     axios
-      .get(`/api/api/animal?${queryString}${queryStringLocation}`)
+      .get(`/api/api/animal?${queryString}`)
       .then((response) => {
         const data = response.data;
         // console.log("data: ", data); // test
@@ -122,7 +118,7 @@ const SearchTemplate = () => {
 
         setPetInfoList(animals);
 
-        // navigate(`/search?${queryString}`);
+        navigate(`/result?${queryString}`);
       })
       .catch((error) => {
         console.error(`An error occurred while searching.`, error);
