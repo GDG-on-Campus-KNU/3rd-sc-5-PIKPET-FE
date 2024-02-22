@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
 import { useCurrentPageStore } from "@store";
+import axios from "axios";
 
 import Header from "@components/organisms/Header";
 import PetInfoDetail from "@components/organisms/PetInfoDetail";
@@ -68,13 +69,17 @@ const PetInfoDetailTemplate = () => {
   //   image.style.height = `${desiredHeight}px`; // 높이 설정
   // };
 
-  // 펫 정보 가져오기 통신 ----------
-  //   useEffect(() => {
-  //     axios
-  //       .get(`/api/pet/${petId}`)
-  //       .then((response) => {})
-  //       .catch((error) => console.log(`An error occurred when fetching the pet info.`, error));
-  //   }, []);
+  // 펫 정보 가져오기 통신 ========================================
+  useEffect(() => {
+    axios
+      .get(`/api/pet/${petId}`)
+      .then((response) => {
+        const data = response.data;
+        console.log("data: ", data); // 응답 데이터 확인
+        // const { animalId } = data; //
+      })
+      .catch((error) => console.log(`An error occurred when fetching the pet info.`, error));
+  }, []);
 
   const handleContact = () => {};
 
@@ -91,8 +96,8 @@ const PetInfoDetailTemplate = () => {
           <PetInfoDetail
             petId={petId}
             img={img}
-            imgWidth={newWidth}
-            imgHeight={newHeight}
+            // imgWidth={newWidth}
+            // imgHeight={newHeight}
             name={name}
             interested={interested}
             breed={breed}
