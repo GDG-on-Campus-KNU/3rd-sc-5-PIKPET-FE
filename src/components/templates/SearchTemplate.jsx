@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import {
   useCurrentPageStore,
@@ -34,7 +34,7 @@ const SearchTemplate = () => {
     neutralized,
   } = useSearchTagsStore();
   const { searchImg } = useSearchImgStore();
-  const { petInfo, setPetInfo } = usePetInfoStore();
+  const { petInfoList, setPetInfoList } = usePetInfoStore();
 
   // 로컬 스토리지 값 관리: 앱 리렌더링 시에도 값 보존 위함 ----------
   // 최초 마운트시에(만) 실행
@@ -45,15 +45,28 @@ const SearchTemplate = () => {
     localStorage.setItem("currentPage", JSON.stringify(currentPage)); // 로컬스토리지에 저장
   }, [currentPage]);
 
-  // 위치 get ----------
+  // 위치 get ===================================================
   const { latitude, longitude, error } = useGeolocation();
   const currentLatitude = latitude;
   const currentLongitude = longitude;
+
+  // 이건 왠지 모르겠지만 값 설정이 안 됨: null null 뜸
+  // const [currentLatitude, setCurrentLatitude] = useState(null);
+  // const [currentLongitude, setCurrentLongitude] = useState(null);
+
+  // useEffect(() => {
+  //   if (latitude && longitude) {
+  //     setCurrentLatitude(latitude);
+  //     setCurrentLongitude(longitude);
+  //   }
+  // }, []); // 초기 렌더링 시에만 위치 설정
+
   // console.log(currentLatitude, currentLongitude); // for test
 
-  // 각 tags list로부터 쿼리 파라미터 생성하기 ----------
+  // 각 tags list로부터 쿼리 파라미터 생성하기 =======================
   // queryParams에 담은 후에 queryString으로 문자열화할 것임
   const queryParams = new URLSearchParams();
+  const queryParamsLocation = new URLSearchParams();
 
   if (speciesTagsList.length !== 0) {
     const formattedSpeciesTagsList = speciesTagsList.map((item) =>
@@ -88,22 +101,26 @@ const SearchTemplate = () => {
     queryParams.append("colors", formattedColorTagsList);
   }
   if (neutralized === true) queryParams.append("neutralized", neutralized);
-  if (currentLatitude) queryParams.append("lat", currentLatitude);
-  if (currentLongitude) queryParams.append("lon", currentLongitude);
+  if (currentLatitude) queryParamsLocation.append("lat", currentLatitude);
+  if (currentLongitude) queryParamsLocation.append("lon", currentLongitude);
 
   const queryString = queryParams.toString();
   console.log(`queryString: ${queryString}`); // test
 
-  // 필터 검색 통신 -----------
+  const queryStringLocation = queryParamsLocation.toString();
+  console.log(`queryStringLocation: ${queryStringLocation}`); // test
+
+  // 필터 검색 통신 ==================================================
   const handleClickSearch = () => {
     axios
-      .get(`/api/animal?${queryString}`)
+      .get(`/api/api/animal?${queryString}${queryStringLocation}`)
       .then((response) => {
         const data = response.data;
+        // console.log("data: ", data); // test
         const { animals, page } = data; // 키로 데이터 추출
-        console.log(animals, page); // for test
-        // animals: 배열, page: 정수 아마도?
-        setPetInfo(animals);
+        console.log("animals: ", animals, "page: ", page); // for test
+
+        setPetInfoList(animals);
 
         // navigate(`/search?${queryString}`);
       })
@@ -112,27 +129,26 @@ const SearchTemplate = () => {
       });
   };
 
-  // for (let pair of searchImg.entries()) {
-  //   console.log("key:", pair[0] + ", value: " + pair[1]);
-  // } // for checking request body
-
-  // 이미지 검색 통신 ----------
+  // 이미지 검색 통신 =================================================
   const handleSendImg = () => {
-    console.log("called"); // for test
+    // console.log("called"); // for test
 
     axios
-      .post(`/api/animal/image`, searchImg, {
+      .post(`/api/api/animal/image?${queryString}${queryStringLocation}`, searchImg, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       })
       .then((response) => {
         const data = response.data;
+        console.log("data: ", data); // test
         const { animals, page } = data; // 키로 데이터 추출
-        // animals: 배열, page: 정수 아마도?
-        setPetInfo(animals);
 
-        // navigate(`/pet/${animalId}`);
+        // pet 리스트에 저장
+        setPetInfoList(animals);
+        // console.log(petInfoList); // test
+
+        navigate(`/search?${queryString}${queryStringLocation}`);
       })
       .catch((error) => {
         console.error(`An error occurred while image searching.`, error);

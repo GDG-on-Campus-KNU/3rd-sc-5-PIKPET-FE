@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useParams } from "react-router";
 import { useCurrentPageStore, useLoggedinStore } from "@store";
 
 import SearchBar from "@components/organisms/SearchBar";
@@ -12,6 +13,8 @@ import Text from "@styles/Text";
 import Layout, { Main, Contents } from "@styles/layout";
 
 const SearchResultTemplate = () => {
+  const params = useParams();
+  const queryString = params.queryString; // useParams를 통해 URL에서 가져온 queryString
   const { currentPage, setCurrentPage } = useCurrentPageStore();
   const { isLoggedin, setIsLoggedin } = useLoggedinStore();
 
@@ -19,7 +22,7 @@ const SearchResultTemplate = () => {
   // 최초 마운트시에(만) 실행
   useEffect(() => {
     // 현재 페이지 경로 저장
-    setCurrentPage("/search/result");
+    setCurrentPage(`/search?${queryString}`);
     // console.log("currentPage: ", currentPage); // test
     localStorage.setItem("currentPage", JSON.stringify(currentPage)); // 로컬스토리지에 저장
   }, [currentPage]);

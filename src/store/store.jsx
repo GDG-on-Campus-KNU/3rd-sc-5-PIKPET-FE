@@ -133,9 +133,29 @@ export const useSearchImgStore = create(
 export const usePetInfoStore = create(
   devtools((set) => ({
     petInfoList: [],
-    setPetInfo: (list) => {
+    setPetInfoList: (list) => {
       set({ petInfoList: list });
     },
+    // petInfoList = [
+    //   {
+    //     age: 3,
+    //     animalId: 1,
+    //     breed: "BEAGLE",
+    //     gender: "MALE",
+    //     imageUrl:
+    //       "https://storage.googleapis.com/solution-challenge-bucket/dog-breeds/beagle/beagle1.jpg",
+    //     isLiked: false,
+    //   },
+    //   {
+    //     age: 1,
+    //     animalId: 2,
+    //     breed: "BEAGLE",
+    //     gender: "FEMALE",
+    //     imageUrl:
+    //       "https://storage.googleapis.com/solution-challenge-bucket/dog-breeds/beagle/beagle1.jpg",
+    //     isLiked: false,
+    //   },
+    // ];
     addPetInfo: (petInfo) => {
       set((state) => ({ petInfoList: [...state.petInfoList, petInfo] }));
     },

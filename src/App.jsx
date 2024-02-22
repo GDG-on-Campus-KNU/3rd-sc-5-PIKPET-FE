@@ -11,8 +11,8 @@ import ShelterLocationPage from "@pages/ShelterLocationPage";
 const router = createBrowserRouter([
   { index: true, path: "/", element: <HomePage /> },
   { path: "login", element: <LoginPage /> },
-  { path: "search", element: <SearchPage /> },
-  { path: "search/result", element: <SearchResultPage /> }, // useParams로 동적 설정할 것
+  { exact: true, path: "search", element: <SearchPage /> },
+  { path: "search?:queryString", element: <SearchResultPage /> },
   { path: "mypage", element: <MypagePage /> },
   { path: "interests", element: <InterestsPage /> },
   { path: "/pet/:petId", element: <PetInfoDetailPage /> },
