@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
 
+// 현재 url 경로 관리
 export const useCurrentPageStore = create(
   devtools((set) => ({
     currentPage: "",

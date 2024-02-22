@@ -18,6 +18,8 @@ const PetInfoList = () => {
     return word.charAt(0) + word.slice(1).toLowerCase();
   };
 
+  setSelectedPetId;
+
   return (
     <StyledPetInfoList>
       {petInfoList &&
