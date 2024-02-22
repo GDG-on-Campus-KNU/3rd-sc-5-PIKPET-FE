@@ -7,7 +7,6 @@ import { useLoggedinStore } from "@store";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import Input from "@components/atoms/Input";
 import ButtonCTA from "@components/atoms/ButtonCTA";
-import { BASE_URL } from "@utils";
 
 import styled from "styled-components";
 import Text from "@styles/Text";
