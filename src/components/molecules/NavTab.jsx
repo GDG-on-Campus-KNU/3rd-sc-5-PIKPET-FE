@@ -1,12 +1,20 @@
+import { useLoggedinStore } from "@store";
+
 import Icon from "@components/atoms/Icon";
+
 import styled from "styled-components";
 import Text from "@styles/Text";
+import {} from "../../store/store";
 
 const NavTab = ({ type, selected }) => {
+  const isLoggedin = localStorage.getItem("localIsLoggedin"); // get isLoggedIn from local storage
+  // 상태 관리 값으로 가져오니 안 먹음
+  // const { isLoggedin } = useLoggedinStore();
+
   return (
     <>
       {type === "Home" && (
-        <StyledNavTab selected={selected}>
+        <StyledNavTab selected={selected} href="/">
           <Icon src={selected ? "IconHomeSelected" : "IconHomeMono"} />
           <Text
             color={(props) =>
@@ -14,12 +22,12 @@ const NavTab = ({ type, selected }) => {
             }
             fontSize="12px"
           >
-            홈
+            Home
           </Text>
         </StyledNavTab>
       )}
       {type === "Search" && (
-        <StyledNavTab selected={selected}>
+        <StyledNavTab selected={selected} href="/search">
           <Icon src={selected ? "IconSearchSelected" : "IconSearchMono"} />
           <Text
             color={(props) =>
@@ -27,12 +35,12 @@ const NavTab = ({ type, selected }) => {
             }
             fontSize="12px"
           >
-            검색
+            Search
           </Text>
         </StyledNavTab>
       )}
       {type === "User" && (
-        <StyledNavTab selected={selected}>
+        <StyledNavTab selected={selected} href={isLoggedin ? "/mypage" : "/login"}>
           <Icon src={selected ? "IconUserSelected" : "IconUserMono"} />
           <Text
             color={(props) =>
@@ -40,7 +48,7 @@ const NavTab = ({ type, selected }) => {
             }
             fontSize="12px"
           >
-            마이페이지
+            {isLoggedin ? "My page" : "Log in"}
           </Text>
         </StyledNavTab>
       )}
@@ -48,7 +56,7 @@ const NavTab = ({ type, selected }) => {
   );
 };
 
-const StyledNavTab = styled.div`
+const StyledNavTab = styled.a`
   width: calc(100% / 3);
   height: 72px;
   display: flex;
