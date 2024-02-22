@@ -18,11 +18,13 @@ const SearchResultTemplate = () => {
   const { currentPage, setCurrentPage } = useCurrentPageStore();
   const { isLoggedin, setIsLoggedin } = useLoggedinStore();
 
+  console.log("called");
+
   // 로컬 스토리지 값 관리: 앱 리렌더링 시에도 값 보존 위함 ----------
   // 최초 마운트시에(만) 실행
   useEffect(() => {
     // 현재 페이지 경로 저장
-    setCurrentPage(`/search?${queryString}`);
+    setCurrentPage(`/result?${queryString}`);
     // console.log("currentPage: ", currentPage); // test
     localStorage.setItem("currentPage", JSON.stringify(currentPage)); // 로컬스토리지에 저장
   }, [currentPage]);
@@ -50,4 +52,7 @@ const SearchResultTemplate = () => {
   );
 };
 
+const loader = () => {};
+
 export default SearchResultTemplate;
+export { loader };

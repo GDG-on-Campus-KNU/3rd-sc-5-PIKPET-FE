@@ -101,14 +101,14 @@ const SearchTemplate = () => {
     queryParams.append("colors", formattedColorTagsList);
   }
   if (neutralized === true) queryParams.append("neutralized", neutralized);
-  if (currentLatitude) queryParamsLocation.append("lat", currentLatitude);
-  if (currentLongitude) queryParamsLocation.append("lon", currentLongitude);
+  if (currentLatitude) queryParams.append("lat", currentLatitude);
+  if (currentLongitude) queryParams.append("lon", currentLongitude);
 
   const queryString = queryParams.toString();
   console.log(`queryString: ${queryString}`); // test
 
-  const queryStringLocation = queryParamsLocation.toString();
-  console.log(`queryStringLocation: ${queryStringLocation}`); // test
+  // const queryStringLocation = queryParamsLocation.toString();
+  // console.log(`queryStringLocation: ${queryStringLocation}`); // test
 
   // 필터 검색 통신 ==================================================
   const handleClickSearch = () => {
@@ -134,7 +134,7 @@ const SearchTemplate = () => {
     // console.log("called"); // for test
 
     axios
-      .post(`/api/api/animal/image?${queryString}${queryStringLocation}`, searchImg, {
+      .post(`/api/api/animal/image?${queryString}`, searchImg, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -148,7 +148,7 @@ const SearchTemplate = () => {
         setPetInfoList(animals);
         // console.log(petInfoList); // test
 
-        navigate(`/search?${queryString}${queryStringLocation}`);
+        navigate(`/result`);
       })
       .catch((error) => {
         console.error(`An error occurred while image searching.`, error);

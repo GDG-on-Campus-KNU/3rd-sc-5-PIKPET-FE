@@ -1,3 +1,4 @@
+import { Component } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "@pages/HomePage";
 import LoginPage from "@pages/LoginPage";
@@ -11,8 +12,10 @@ import ShelterLocationPage from "@pages/ShelterLocationPage";
 const router = createBrowserRouter([
   { index: true, path: "/", element: <HomePage /> },
   { path: "login", element: <LoginPage /> },
-  { exact: true, path: "search", element: <SearchPage /> },
-  { path: "search?:queryString", element: <SearchResultPage /> },
+
+  { path: "search", element: <SearchPage /> },
+  { path: "result", element: <SearchResultPage /> },
+
   { path: "mypage", element: <MypagePage /> },
   { path: "interests", element: <InterestsPage /> },
   { path: "/pet/:petId", element: <PetInfoDetailPage /> },
