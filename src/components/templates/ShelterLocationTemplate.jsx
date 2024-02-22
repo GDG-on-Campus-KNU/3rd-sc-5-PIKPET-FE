@@ -23,8 +23,8 @@ const ShelterLocationTemplate = () => {
   }, [currentPage]);
 
   // 지도에 핀 찍을 위도와 경도
-  const lat = 35;
-  const lng = 128;
+  const lat = 35.888841470939546;
+  const lng = 128.61024856567383;
 
   return (
     <Layout backgroundColor="white">
