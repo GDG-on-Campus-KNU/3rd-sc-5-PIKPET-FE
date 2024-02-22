@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useParams } from "react-router";
-import { useCurrentPageStore, useLoggedinStore } from "@store";
+import { useCurrentPageStore, useLoggedinStore, usePetInfoStore } from "@store";
 
 import SearchBar from "@components/organisms/SearchBar";
 // import SearchFilterDropdown from "@components/organisms/SearchFilterDropdown";
@@ -17,6 +17,7 @@ const SearchResultTemplate = () => {
   const queryString = params.queryString; // useParams를 통해 URL에서 가져온 queryString
   const { currentPage, setCurrentPage } = useCurrentPageStore();
   const { isLoggedin, setIsLoggedin } = useLoggedinStore();
+  const { petInfoList, numberOfElements } = usePetInfoStore();
 
   // console.log("called");
 
@@ -29,7 +30,7 @@ const SearchResultTemplate = () => {
     localStorage.setItem("currentPage", JSON.stringify(currentPage)); // 로컬스토리지에 저장
   }, [currentPage]);
 
-  const NUM_OF_PETS = 100;
+  const NUM_OF_PETS = numberOfElements;
 
   return (
     <Layout backgroundColor="white">

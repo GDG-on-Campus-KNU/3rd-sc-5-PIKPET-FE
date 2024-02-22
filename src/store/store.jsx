@@ -159,6 +159,12 @@ export const usePetInfoStore = create(
     addPetInfo: (petInfo) => {
       set((state) => ({ petInfoList: [...state.petInfoList, petInfo] }));
     },
+
+    // 검색 결과 건수
+    numberOfElements: 0,
+    setNumberOfElements: (value) => {
+      set({ numberOfElements: value });
+    },
   })),
   "usePetInfoStore"
 );

@@ -5,10 +5,9 @@ import PetInfo from "@components/molecules/PetInfo";
 import sampleImg from "@assets/sample-picture-2.jpeg";
 
 import styled from "styled-components";
-
 const PetInfoList = () => {
   const navigate = useNavigate();
-  const { petInfoList, setPetInfoList } = usePetInfoStore();
+  const { petInfoList } = usePetInfoStore();
 
   const handleClickPetInfo = (petId) => {
     navigate(`/pet/${petId}`);
@@ -21,18 +20,20 @@ const PetInfoList = () => {
 
   return (
     <StyledPetInfoList>
-      {petInfoList.map((pet, index) => (
-        <PetInfo
-          key={index}
-          petId={pet.animalId}
-          age={pet.age}
-          breed={capitalizeSecondLetter(pet.breed)}
-          gender={capitalizeSecondLetter(pet.gender)}
-          img={pet.imageUrl}
-          interested={pet.isLiked}
-          onClick={() => handleClickPetInfo(pet.animalId)}
-        />
-      ))}
+      {petInfoList &&
+        petInfoList.map((pet, index) => (
+          <PetInfo
+            key={index}
+            petId={pet.animalId}
+            age={pet.age}
+            breed={capitalizeSecondLetter(pet.breed)}
+            gender={capitalizeSecondLetter(pet.gender)}
+            img={pet.imageUrl || null} // 이미지가 없는 경우를 처리
+            interested={pet.isLiked}
+            shelterName={pet.branchName}
+            onClick={() => handleClickPetInfo(pet.animalId)}
+          />
+        ))}
     </StyledPetInfoList>
   );
 };

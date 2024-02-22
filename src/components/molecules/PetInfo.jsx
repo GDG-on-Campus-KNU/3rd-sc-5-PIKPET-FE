@@ -11,7 +11,7 @@ import {
 } from "@styles/Container";
 import Text from "@styles/Text";
 
-const PetInfo = ({ petId, img, name, interested, breed, age, gender, shelter, onClick }) => {
+const PetInfo = ({ petId, img, interested, breed, age, gender, shelterName, onClick }) => {
   return (
     <ContainerIncludingImg flexDirection="row" onClick={onClick}>
       <Img src={img} size="Middle" />
@@ -29,7 +29,7 @@ const PetInfo = ({ petId, img, name, interested, breed, age, gender, shelter, on
         <StyledShelter>
           <Icon src="IconPinLocation" width="14px" />
           <Text fontSize="12px" color={(props) => props.theme.colors.gray}>
-            {shelter}
+            {shelterName}
           </Text>
         </StyledShelter>
       </InnerContainerIncludingImg>

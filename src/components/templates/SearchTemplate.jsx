@@ -34,7 +34,7 @@ const SearchTemplate = () => {
     neutralized,
   } = useSearchTagsStore();
   const { searchImg } = useSearchImgStore();
-  const { petInfoList, setPetInfoList } = usePetInfoStore();
+  const { petInfoList, setPetInfoList, setNumberOfElements } = usePetInfoStore();
 
   // 로컬 스토리지 값 관리: 앱 리렌더링 시에도 값 보존 위함 ----------
   // 최초 마운트시에(만) 실행
@@ -113,10 +113,18 @@ const SearchTemplate = () => {
       .then((response) => {
         const data = response.data;
         // console.log("data: ", data); // test
-        const { animals, page } = data; // 키로 데이터 추출
-        console.log("animals: ", animals, "page: ", page); // for test
+        const { animals, numberOfElements, page } = data; // 키로 데이터 추출
+        // console.log(
+        //   "animals: ",
+        //   animals,
+        //   "numberOfElements: ",
+        //   numberOfElements,
+        //   "page: ",
+        //   page
+        // ); // for test
 
         setPetInfoList(animals);
+        setNumberOfElements(numberOfElements);
 
         navigate(`/result?${queryString}`);
       })
@@ -137,12 +145,14 @@ const SearchTemplate = () => {
       })
       .then((response) => {
         const data = response.data;
-        console.log("data: ", data); // test
-        const { animals, page } = data; // 키로 데이터 추출
+        // console.log("data: ", data); // test
+        const { animals, numberOfElements, page } = data; // 키로 데이터 추출
 
         // pet 리스트에 저장
         setPetInfoList(animals);
+        setNumberOfElements(numberOfElements);
         // console.log(petInfoList); // test
+        // console.log(numberOfElements); // test
 
         navigate(`/result?${queryString}`);
       })
