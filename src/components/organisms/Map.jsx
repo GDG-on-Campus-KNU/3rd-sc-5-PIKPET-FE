@@ -2,6 +2,8 @@ import GoogleMapReact from "google-map-react";
 
 import styled from "styled-components";
 
+import MAP_KEY from "@utils/utils";
+
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 const Map = ({ lat, lng }) => {
@@ -16,7 +18,7 @@ const Map = ({ lat, lng }) => {
   return (
     <StyledMap>
       <GoogleMapReact
-        bootstrapURLKeys={{ key: "YOUR_API_KEY" }} // API key 발급받아 넣기
+        bootstrapURLKeys={{ key: MAP_KEY }}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
       >
