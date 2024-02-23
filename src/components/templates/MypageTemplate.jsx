@@ -113,7 +113,7 @@ const MypageProfileImg = styled.img`
 
 const MypageItem = styled.div`
   width: 100%;
-  padding: 12px 16px;
+  padding: 12px 0;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -127,6 +127,7 @@ const MypageProfile = styled(MypageItem)`
 `;
 
 const Adoption = styled.div`
+  margin: 0 16px;
   display: flex;
   border-radius: 10px;
   border: 1px solid ${(props) => props.theme.colors.lightPrimary};

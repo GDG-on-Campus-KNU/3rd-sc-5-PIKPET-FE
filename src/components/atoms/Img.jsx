@@ -91,6 +91,7 @@ export const ImgGroup = ({ children }) => {
 };
 
 const StyledImgGroup = styled.div`
+  padding: 0 16px;
   display: flex;
   justify-content: flex-start;
   align-items: center;

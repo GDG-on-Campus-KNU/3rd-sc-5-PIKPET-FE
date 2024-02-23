@@ -47,10 +47,6 @@ const HomeTemplate = () => {
           <WidgetArea>
             <Container>
               <ContainerTitle title="My search history" />
-              <ButtonTagGroup>
-                <ButtonTag item="white poodle" />
-                {/* 동적으로 검색 키워드 기록 넣기 */}
-              </ButtonTagGroup>
               <ImgGroup>
                 <Img src={samplePicture} size="Small" />
                 <Img src={samplePicture} size="Small" />

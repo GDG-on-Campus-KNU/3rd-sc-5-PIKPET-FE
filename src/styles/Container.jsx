@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Container = styled.div`
   width: ${(props) => props.width || "100%"};
   height: ${(props) => props.height || "auto"};
-  padding: ${(props) => props.paddingY || "12px"} ${(props) => props.paddingX || "16px"};
+  padding: ${(props) => props.paddingY || "12px"} ${(props) => props.paddingX || "0"};
   box-sizing: border-box;
   border: 1px solid ${(props) => props.theme.colors.lightGray};
   border-radius: 10px;
