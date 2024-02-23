@@ -5,7 +5,7 @@ import { useCurrentPageStore, usePetInfoDetailStore } from "@store";
 import Header from "@components/organisms/Header";
 import Map from "@components/organisms/Map";
 
-import Layout, { Main, Contents } from "@styles/layout";
+import Layout, { Main, Contents } from "@styles/Layout";
 
 const ShelterLocationTemplate = () => {
   const navigate = useNavigate();

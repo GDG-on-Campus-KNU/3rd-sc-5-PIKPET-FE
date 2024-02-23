@@ -9,7 +9,7 @@ import Paginator from "@components/organisms/Paginator";
 
 import styled from "styled-components";
 import Text from "@styles/Text";
-import Layout, { Main, Contents } from "@styles/layout";
+import Layout, { Main, Contents } from "@styles/Layout";
 
 const SearchResultTemplate = () => {
   const { currentPage, setCurrentPage } = useCurrentPageStore();

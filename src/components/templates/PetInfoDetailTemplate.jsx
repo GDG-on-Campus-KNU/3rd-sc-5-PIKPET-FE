@@ -8,7 +8,7 @@ import PetInfoDetail from "@components/organisms/PetInfoDetail";
 import CTAContainer from "@components/molecules/CTAContainer";
 
 import Text from "@styles/Text";
-import Layout, { Main, Contents } from "@styles/layout";
+import Layout, { Main, Contents } from "@styles/Layout";
 
 const PetInfoDetailTemplate = () => {
   const navigate = useNavigate();

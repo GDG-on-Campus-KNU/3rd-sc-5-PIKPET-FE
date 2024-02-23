@@ -16,7 +16,7 @@ import SearchFilter from "@components/organisms/SearchFilter";
 import CTAContainer from "@components/molecules/CTAContainer";
 
 // import styled from "styled-components";
-import Layout, { Main, Contents } from "@styles/layout";
+import Layout, { Main, Contents } from "@styles/Layout";
 
 const SearchTemplate = () => {
   const navigate = useNavigate();

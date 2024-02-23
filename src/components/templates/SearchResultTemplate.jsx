@@ -10,7 +10,7 @@ import NavBar from "@components/organisms/NavBar";
 
 // import styled from "styled-components";
 import Text from "@styles/Text";
-import Layout, { Main, Contents } from "@styles/layout";
+import Layout, { Main, Contents } from "@styles/Layout";
 
 const SearchResultTemplate = () => {
   const params = useParams();

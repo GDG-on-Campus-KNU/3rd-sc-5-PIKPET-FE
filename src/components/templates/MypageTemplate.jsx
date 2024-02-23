@@ -11,7 +11,7 @@ import Img, { ImgGroup } from "@components/atoms/Img";
 import samplePicture from "@assets/sample-picture.png";
 
 import styled from "styled-components";
-import Layout, { Main, Contents } from "@styles/layout";
+import Layout, { Main, Contents } from "@styles/Layout";
 import Text from "@styles/Text";
 
 const MypageTemplate = () => {
