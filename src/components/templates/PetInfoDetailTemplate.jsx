@@ -38,38 +38,38 @@ const PetInfoDetailTemplate = () => {
         const {
           id,
           imageUrl,
-          imInterested,
+          isLiked,
           species,
           breed,
           age,
           gender,
           size,
+          colors,
+          isNeutralized,
           disease,
-          shelter,
-          neutralized,
           checkUp,
+          shelter,
           captureDate,
           euthanasiaDate,
-          color,
         } = data;
 
         // 스토어에 펫 정보 한꺼번에 저장
         setPetInfoDetail({
           id,
           imageUrl,
-          imInterested,
+          isLiked,
           species,
           breed,
           age,
           gender,
           size,
+          colors,
+          isNeutralized,
           disease,
-          shelter,
-          neutralized,
           checkUp,
+          shelter,
           captureDate,
           euthanasiaDate,
-          color,
         });
         // console.log("petInfoDetail: ", petInfoDetail); // for test
       })
@@ -94,7 +94,7 @@ const PetInfoDetailTemplate = () => {
 
       <Main>
         <Contents>
-          <PetInfoDetail petId={petId} />
+          <PetInfoDetail />
         </Contents>
 
         <CTAContainer

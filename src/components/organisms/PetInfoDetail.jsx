@@ -37,23 +37,22 @@ const formatString = (word) => {
   return formattedString.join(" ");
 };
 
-const PetInfoDetail = ({ petId }) => {
+const PetInfoDetail = () => {
   const navigate = useNavigate();
   const { petInfoDetail, setPetInfoDetail } = usePetInfoDetailStore();
 
   // 렌더링할 변수들: 스토어에서 가져와서 변수에 할당 ======================
-  // const petId = petInfoDetail.id;
+  const petId = petInfoDetail.id;
   const img = petInfoDetail.imageUrl; // URL string
-  const interested = petInfoDetail.interested; // boolean
+  const interested = petInfoDetail.isLiked; // boolean
   const species = formatString(petInfoDetail.species); // string
   const breed = formatString(petInfoDetail.breed); // string
   const age = petInfoDetail.age; // int
   const gender = formatString(petInfoDetail.gender); // string
   const size = formatString(petInfoDetail.size); // string e.g. "MINIATURE"
-  const neutralized = petInfoDetail.neutralized; // boolean
-  // const colors = petInfoDetail.color; // string list (요소들의 포맷팅은 밑에서 렌더링 시)
-  // const shelter = petInfoDetail.shelter; // object { branchName, contact, latitude, longitude }
-
+  const neutralized = petInfoDetail.isNeutralized; // boolean
+  const colors = petInfoDetail.colors; // string list (요소들의 포맷팅은 밑에서 렌더링 시)
+  const shelter = petInfoDetail.shelter; // object { branchName, contact, latitude, longitude }
   // 임시 ------------------------------------------------------------
   // const petId = 1;
   // const img = sampleImg;
@@ -63,15 +62,15 @@ const PetInfoDetail = ({ petId }) => {
   // const gender = "FEMALE";
   // const size = "MINIATURE";
   // const neutralized = true;
-  const colors = ["WHITE", "BLACK", "BROWN"];
-  const shelter = {
-    branchName: "Huel-Ratke",
-    contact: "433-830-2032",
-    id: 13,
-    location: null,
-    latitude: 13.9142931,
-    longitude: -87.921223,
-  };
+  // const colors = ["WHITE", "BLACK", "BROWN"];
+  // const shelter = {
+  //   branchName: "Huel-Ratke",
+  //   contact: "433-830-2032",
+  //   id: 13,
+  //   location: null,
+  //   latitude: 13.9142931,
+  //   longitude: -87.921223,
+  // };
   const diseasesList = [
     { key: "Malnutrition", value: true },
     { key: "Eye trouble", value: false },
