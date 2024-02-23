@@ -13,8 +13,12 @@ const PetInfoList = () => {
     navigate(`/pet/${petId}`);
   };
 
-  // 문자열 포맷팅 BEAGLE -> Beagle
+  // 문자열 포맷팅 BEAGLE -> Beagle =====================================
   const capitalizeSecondLetter = (word) => {
+    if (typeof word !== "string" || word.length === 0) {
+      return "null";
+    }
+
     return word.charAt(0) + word.slice(1).toLowerCase();
   };
 
