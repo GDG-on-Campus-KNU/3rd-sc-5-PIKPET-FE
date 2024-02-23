@@ -155,10 +155,15 @@ const PetInfoDetail = () => {
         {/* 보호소 정보 */}
         <StyledShelter>
           <Icon src="IconPinLocation" width="14px" />
-          <Text fontSize={FONT_SIZE} color={(props) => props.theme.colors.gray}>
-            {shelter.branchName}
-          </Text>
-          <ButtonMiniCTA item="View location" onClick={handleViewShelterLocation} />
+          <ShelterName>
+            <Text fontSize={FONT_SIZE} color={(props) => props.theme.colors.gray}>
+              {shelter.branchName}
+            </Text>
+          </ShelterName>
+          <ButtonMiniCTA
+            item={window.innerWidth > 354 ? "View map" : "Map"}
+            onClick={handleViewShelterLocation}
+          />
         </StyledShelter>
       </InnerContainerIncludingImg>
     </ContainerIncludingImg>
@@ -174,14 +179,20 @@ const ContainerBasicPetInfo = styled.div`
 const ContainerBasicPetInfo_1 = styled.div`
   display: flex;
   justify-content: space-between;
-  gap: 4px;
+  gap: 6px;
   flex-wrap: wrap;
 `;
 
 const StyledShelter = styled.div`
+  width: 100%;
   display: flex;
+  justify-content: flex-start;
   align-items: center;
   gap: 4px;
+`;
+
+const ShelterName = styled.div`
+  flex-grow: 1; /* 나머지 공간을 채우도록 설정 */
 `;
 
 export default PetInfoDetail;
