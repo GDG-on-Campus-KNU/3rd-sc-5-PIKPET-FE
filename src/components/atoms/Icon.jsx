@@ -5,7 +5,7 @@ import IconHeartMono from "@assets/icons/icon-heart-mono.svg";
 import IconHeartOff from "@assets/icons/icon-heart-off.svg";
 import IconHomeMono from "@assets/icons/icon-home-mono.svg";
 import IconHomeSelected from "@assets/icons/icon-home-selected.svg";
-import IconPictureMono from "@assets/icons/icon-picture-Mono.svg";
+import IconPictureMono from "@assets/icons/icon-picture-mono.svg";
 import IconPictureSelected from "@assets/icons/icon-picture-selected.svg";
 import IconPinLocation from "@assets/icons/icon-pin-location.svg";
 import IconRefreshMono from "@assets/icons/icon-refresh-mono.svg";
