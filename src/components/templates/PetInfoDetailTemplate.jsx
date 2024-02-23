@@ -94,26 +94,7 @@ const PetInfoDetailTemplate = () => {
 
       <Main>
         <Contents>
-          <PetInfoDetail
-            petId={petId}
-            // img={img}
-            // imgWidth={newWidth}
-            // imgHeight={newHeight}
-            // name={name}
-            // interested={interested}
-            // breed={breed}
-            // age={age}
-            // gender={gender}
-            // height={height}
-            // weight={weight}
-            // size={size}
-            // colors={colors}
-            // neutralized={neutralized}
-            // diseasesList={diseasesList}
-            // checkupList={checkupList}
-            // shelter={shelter}
-            // comment={comment}
-          />
+          <PetInfoDetail petId={petId} />
         </Contents>
 
         <CTAContainer
