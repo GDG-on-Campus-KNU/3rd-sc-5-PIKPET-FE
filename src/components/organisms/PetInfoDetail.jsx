@@ -51,8 +51,9 @@ const PetInfoDetail = () => {
   const gender = formatString(petInfoDetail.gender); // string
   const size = formatString(petInfoDetail.size); // string e.g. "MINIATURE"
   const neutralized = petInfoDetail.isNeutralized; // boolean
-  const colors = petInfoDetail.colors; // string list (요소들의 포맷팅은 밑에서 렌더링 시)
-  const shelter = petInfoDetail.shelter; // object { branchName, contact, latitude, longitude }
+  const colors = petInfoDetail.colors || []; // string list (요소들의 포맷팅은 밑에서 렌더링 시)
+  const shelter = petInfoDetail.shelter || {}; // object { branchName, contact, latitude, longitude }
+
   // 임시 ------------------------------------------------------------
   // const petId = 1;
   // const img = sampleImg;
@@ -86,20 +87,19 @@ const PetInfoDetail = () => {
 
   // 이미지 비율 설정하기 ==============================================
   let newWidth, newHeight;
-  const image = new Image();
-  image.src = sampleImg;
-  image.onload = function () {
-    const originalWidth = image.width;
-    const originalHeight = image.height;
+  useEffect(() => {
+    const image = new Image();
+    image.src = sampleImg;
+    image.onload = function () {
+      const originalWidth = image.width;
+      const originalHeight = image.height;
 
-    // const desiredRatio = 4 / 5; // 원하는 가로:세로 비율
-    // newWidth = originalWidth;
-    // newHeight = originalWidth / desiredRatio;
-
-    // 높이를 자동으로 조정하여 비율 유지
-    const desiredHeight = originalWidth * 1.25; // 4:5 비율에 따라 높이 계산
-    image.style.height = `${desiredHeight}px`; // 높이 설정
-  };
+      // 높이를 자동으로 조정하여 비율 유지
+      const desiredHeight = originalWidth * 1.25; // 4:5 비율에 따라 높이 계산
+      newHeight = desiredHeight;
+      newWidth = originalWidth;
+    };
+  }, []);
 
   // 보호소 위치 보기 =================================================
   const handleViewShelterLocation = () => {
