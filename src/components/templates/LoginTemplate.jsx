@@ -5,7 +5,7 @@ import { useCurrentPageStore, useLoggedinStore } from "@store";
 import Header from "@components/organisms/Header";
 import LoginForm from "@components/organisms/LoginForm";
 
-import Layout, { Main, Contents } from "@styles/layout";
+import Layout, { Main, Contents } from "@styles/Layout";
 import Text from "@styles/Text";
 
 const LoginTemplate = () => {
