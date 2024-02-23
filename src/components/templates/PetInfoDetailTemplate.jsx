@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
 import { useCurrentPageStore } from "@store";
+import axios from "axios";
 
 import Header from "@components/organisms/Header";
 import PetInfoDetail from "@components/organisms/PetInfoDetail";
@@ -51,30 +52,34 @@ const PetInfoDetailTemplate = () => {
   const comment =
     "She is rescued on a cold winter day, and was very dwarfed at first because she didn't eat well. However, she is adaptable enough to quickly become a normal size while eating well here. She is lively and obedient, and she runs around briskly and makes everyone happy.";
 
-  // 이미지 비율 설정하기 ----------
-  let newWidth, newHeight;
-  const image = new Image();
-  image.src = sampleImg;
-  image.onload = function () {
-    const originalWidth = image.width;
-    const originalHeight = image.height;
+  // // 이미지 비율 설정하기 ----------
+  // let newWidth, newHeight;
+  // const image = new Image();
+  // image.src = sampleImg;
+  // image.onload = function () {
+  //   const originalWidth = image.width;
+  //   const originalHeight = image.height;
 
-    // const desiredRatio = 4 / 5; // 원하는 가로:세로 비율
-    // newWidth = originalWidth;
-    // newHeight = originalWidth / desiredRatio;
+  //   // const desiredRatio = 4 / 5; // 원하는 가로:세로 비율
+  //   // newWidth = originalWidth;
+  //   // newHeight = originalWidth / desiredRatio;
 
-    // 높이를 자동으로 조정하여 비율 유지
-    const desiredHeight = originalWidth * 1.25; // 4:5 비율에 따라 높이 계산
-    image.style.height = `${desiredHeight}px`; // 높이 설정
-  };
+  //   // 높이를 자동으로 조정하여 비율 유지
+  //   const desiredHeight = originalWidth * 1.25; // 4:5 비율에 따라 높이 계산
+  //   image.style.height = `${desiredHeight}px`; // 높이 설정
+  // };
 
-  // 펫 정보 가져오기 통신 ----------
-  //   useEffect(() => {
-  //     axios
-  //       .get(`/api/pet/${petId}`)
-  //       .then((response) => {})
-  //       .catch((error) => console.log(`An error occurred when fetching the pet info.`, error));
-  //   }, []);
+  // 펫 정보 가져오기 통신 ========================================
+  useEffect(() => {
+    axios
+      .get(`/api/pet/${petId}`)
+      .then((response) => {
+        const data = response.data;
+        console.log("data: ", data); // 응답 데이터 확인
+        // const { animalId } = data; //
+      })
+      .catch((error) => console.log(`An error occurred when fetching the pet info.`, error));
+  }, []);
 
   const handleContact = () => {};
 
@@ -91,8 +96,8 @@ const PetInfoDetailTemplate = () => {
           <PetInfoDetail
             petId={petId}
             img={img}
-            imgWidth={newWidth}
-            imgHeight={newHeight}
+            // imgWidth={newWidth}
+            // imgHeight={newHeight}
             name={name}
             interested={interested}
             breed={breed}
