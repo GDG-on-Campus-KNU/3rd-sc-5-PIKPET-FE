@@ -130,10 +130,10 @@ export const useSearchImgStore = create(
   "useSearchImgStore"
 );
 
-// 동물 정보 담은 리스트
+// 검색 결과 동물 정보 담은 리스트
 export const usePetInfoStore = create(
   devtools((set) => ({
-    petInfoList: [],
+    petInfoList: [], // 객체의 배열
     setPetInfoList: (list) => {
       set({ petInfoList: list });
     },
@@ -168,4 +168,15 @@ export const usePetInfoStore = create(
     },
   })),
   "usePetInfoStore"
+);
+
+// 동물 한 마리 상세 정보 담은 리스트
+export const usePetInfoDetailStore = create(
+  devtools((set) => ({
+    petInfoDetail: {}, // 객체 타입
+    setPetInfoDetail: (data) => {
+      set({ petInfoDetail: data });
+    },
+  })),
+  "usePetInfoDetailStore"
 );

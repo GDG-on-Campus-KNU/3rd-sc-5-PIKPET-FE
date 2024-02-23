@@ -10,9 +10,11 @@ const ButtonMiniCTA = ({ item, paddingX, paddingY, fontSize, ...rest }) => {
 };
 
 const StyledMiniCTA = styled(StyledButtonTag)`
+  padding: ${(props) => props.paddingY || "4px"} ${(props) => props.paddingX || "12px"};
   border: none;
   color: white;
   background-color: ${(props) => props.theme.colors.primary};
+  font-size: ${(props) => props.fontSize || "12px"};
 `;
 
 export default ButtonMiniCTA;
