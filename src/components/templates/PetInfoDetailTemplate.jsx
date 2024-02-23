@@ -29,7 +29,7 @@ const PetInfoDetailTemplate = () => {
   // 펫 정보 가져오기 통신 ===================================
   useEffect(() => {
     axios
-      .get(`/api/api/animals/${petId}`)
+      .get(`/api/api/animal/${petId}`)
       .then((response) => {
         const data = response.data;
         console.log("data: ", data); // 응답 데이터 확인
