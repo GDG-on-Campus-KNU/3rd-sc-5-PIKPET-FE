@@ -1,24 +1,45 @@
-import NavButton from "@components/atoms/NavButton";
+import { useNavigate, useParams } from "react-router";
+import { useCurrentPageStore } from "@store";
+
+import NavTab from "@components/molecules/NavTab";
 import styled from "styled-components";
 
-// currentPage 연결하고 selected=true / false 넣기
 const NavBar = () => {
+  const params = useParams();
+  // const queryString = params.queryString;
+  const queryString = "breed=MALTESE";
+  const { currentPage } = useCurrentPageStore();
+  const navigate = useNavigate();
+
   return (
     <StyledNavBar>
-      <NavButton type="home" selected={true} />
-      <NavButton type="search" selected={false} />
-      <NavButton type="user" selected={false} />
+      <NavTab
+        type="Home"
+        selected={currentPage === "/" ? true : false}
+        // onClick={navigate("/")}
+      />
+      <NavTab
+        type="Search"
+        selected={currentPage === "/search" || currentPage === `/result` ? true : false}
+        // onClick={navigate("/search")}
+      />
+      <NavTab
+        type="User"
+        selected={currentPage === "/mypage" ? true : false}
+        // onClick={navigate("/mypage")}
+      />
     </StyledNavBar>
   );
 };
 
 const StyledNavBar = styled.div`
   width: 100%;
-  height: auto;
+  height: 72px;
   display: flex;
 
-  position: fixed;
+  position: sticky;
   bottom: 0;
+  z-index: 1000;
 `;
 
 export default NavBar;

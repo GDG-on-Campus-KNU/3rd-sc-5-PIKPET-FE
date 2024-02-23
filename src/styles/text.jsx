@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Text = styled.span`
+const Text = styled.span`
   color: ${(props) => props.color || "black"};
   // font-family:
   font-size: ${(props) => props.fontSize || "16px"};
@@ -9,7 +9,9 @@ export const Text = styled.span`
   line-height: ${(props) => props.lineHeight || "normal"};
   margin: ${(props) => props.margin || "0"};
   padding: ${(props) => props.padding || "0"};
-  text-align: ${(props) => props.textAlign || "center"};
+  text-align: ${(props) => props.textAlign || "left"};
   justify-content: ${(props) => props.justifyContent || "left"};
   cursor: ${(props) => props.cursor};
 `;
+
+export default Text;
