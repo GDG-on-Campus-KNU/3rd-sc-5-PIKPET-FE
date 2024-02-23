@@ -29,14 +29,15 @@ const Footer = () => {
 
 const StyledFooter = styled.div`
   width: 100%;
-  height: 84px;
-  padding: 12px 16px;
+  padding: 8px 16px;
   box-sizing: border-box;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 24px;
+
+  gap: 12px;
 
   background-color: ${(props) => props.theme.colors.background};
 `;
@@ -44,7 +45,7 @@ const StyledFooter = styled.div`
 const Websites = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 4px;
 `;
 
 const StyledIconGroup = styled.div`
