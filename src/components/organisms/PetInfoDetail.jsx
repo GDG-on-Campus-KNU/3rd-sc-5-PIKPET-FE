@@ -21,12 +21,20 @@ import Text from "@styles/Text";
 const FONT_SIZE = "14px";
 
 // 문자열 포맷팅 BEAGLE -> Beagle =====================================
-const capitalizeSecondLetter = (word) => {
+const formatString = (word) => {
   if (typeof word !== "string" || word.length === 0) {
-    return "null";
+    return "null"; // 혹은 다른 기본값을 반환할 수 있음
   }
 
-  return word.charAt(0) + word.slice(1).toLowerCase();
+  // 단어를 공백으로 구분하여 배열로 분할
+  const words = word.split("_");
+  // 각 단어의 첫 글자를 대문자로 변환하고, 나머지 글자는 소문자로 변환하여 새로운 배열 생성
+  const formattedString = words.map(
+    (w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()
+  );
+
+  // 배열을 공백으로 연결하여 하나의 문자열로 반환
+  return formattedString.join(" ");
 };
 
 const PetInfoDetail = ({ petId }) => {
@@ -37,11 +45,11 @@ const PetInfoDetail = ({ petId }) => {
   // const petId = petInfoDetail.id;
   const img = petInfoDetail.imageUrl; // URL string
   const interested = petInfoDetail.interested; // boolean
-  const species = capitalizeSecondLetter(petInfoDetail.species); // string
-  const breed = capitalizeSecondLetter(petInfoDetail.breed); // string
+  const species = formatString(petInfoDetail.species); // string
+  const breed = formatString(petInfoDetail.breed); // string
   const age = petInfoDetail.age; // int
-  const gender = capitalizeSecondLetter(petInfoDetail.gender); // string
-  const size = capitalizeSecondLetter(petInfoDetail.size); // string e.g. "MINIATURE"
+  const gender = formatString(petInfoDetail.gender); // string
+  const size = formatString(petInfoDetail.size); // string e.g. "MINIATURE"
   const neutralized = petInfoDetail.neutralized; // boolean
   // const colors = petInfoDetail.color; // string list (요소들의 포맷팅은 밑에서 렌더링 시)
   // const shelter = petInfoDetail.shelter; // object { branchName, contact, latitude, longitude }
@@ -127,7 +135,7 @@ const PetInfoDetail = ({ petId }) => {
             <Text fontSize={FONT_SIZE}>
               {colors.map((color, index) => (
                 <span key={index}>
-                  {capitalizeSecondLetter(color)}
+                  {formatString(color)}
                   {index < colors.length - 1 ? ", " : ""}
                   {/* 마지막 요소 이후에는 쉼표를 출력하지 않음  */}
                 </span>
