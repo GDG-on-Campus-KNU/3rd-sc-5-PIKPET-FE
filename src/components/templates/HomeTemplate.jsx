@@ -8,7 +8,7 @@ import ContainerTitle from "@components/atoms/ContainerTitle";
 import WidgetArea from "@components/organisms/WidgetArea";
 import ButtonTag, { ButtonTagGroup } from "@components/atoms/ButtonTag";
 import Img, { ImgGroup } from "@components/atoms/Img";
-import InterestsImgsList from "@components/molecules/InterestsImgsList";
+import InterestsThumbnailList from "@components/molecules/InterestsThumbnailList";
 import samplePicture from "@assets/sample-picture.png";
 import poster from "@assets/poster-ad.png";
 
@@ -60,7 +60,7 @@ const HomeTemplate = () => {
               <a href="/interests">
                 <ContainerTitle title="My interests" />
               </a>
-              <InterestsImgsList />
+              <InterestsThumbnailList />
             </Container>
           </WidgetArea>
           <Img src={poster} width="100%" />
