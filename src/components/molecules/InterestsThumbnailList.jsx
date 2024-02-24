@@ -56,7 +56,7 @@ const InterestsThumbnailList = () => {
     <ImgGroup>
       {interestsList
         .reverse()
-        .slice(0, 1)
+        .slice(0, 5)
         .map((item, index) => (
           <InterestsThumbnail key={index} onClick={() => handleViewPetInfoDetail(item.id)}>
             <div style={{ position: "relative" }}>
