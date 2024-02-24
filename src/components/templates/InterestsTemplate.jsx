@@ -5,7 +5,8 @@ import axios from "axios";
 import Header from "@components/organisms/Header";
 import SearchFilterDropdown from "@components/organisms/SearchFilterDropdown";
 import NoResultNoti from "@components/organisms/NoResultNoti";
-import PetInfoList from "@components/organisms/PetInfoList";
+// import PetInfoList from "@components/organisms/PetInfoList";
+import InterestsList from "@components/organisms/InterestsList";
 import Paginator from "@components/organisms/Paginator";
 
 // import styled from "styled-components";
@@ -38,13 +39,13 @@ const SearchResultTemplate = () => {
       .get(`api/userInfo/likeAnimal`)
       .then((response) => {
         const data = response.data;
-        // console.log("data: ", data); // for test
+        console.log("data: ", data); // for test
         // data = [{ id, animal, userAccount }, { id, animal, userAccount }, ...] // list
 
         // 필요한 데이터 추출하여 스토어에 저장
         setNumberOfInterests(data.length); // 관심 동물 건수
         data.map((entry) => addInterest(entry.animal)); // 관심 동물
-        // console.log("interestsList: ", interestsList); // for test
+        console.log("interestsList: ", interestsList); // for test
       })
       .catch((error) => {
         console.error(`An error occurred while fetching the interests.`, error);
@@ -77,8 +78,7 @@ const SearchResultTemplate = () => {
             />
           ) : (
             <>
-              <PetInfoList />
-              {/* 관심 동물 리스트로 바꾸기 */}
+              <InterestsList />
               {/* <Paginator /> */}
             </>
           )}
