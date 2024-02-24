@@ -1,13 +1,13 @@
 import { useEffect } from "react";
-import { useCurrentPageStore, useLoggedinStore, useInterestsStore } from "@store";
+import { useCurrentPageStore, useInterestsStore } from "@store";
 import axios from "axios";
 
 import Header from "@components/organisms/Header";
-import SearchFilterDropdown from "@components/organisms/SearchFilterDropdown";
+// import SearchFilterDropdown from "@components/organisms/SearchFilterDropdown";
 import NoResultNoti from "@components/organisms/NoResultNoti";
 // import PetInfoList from "@components/organisms/PetInfoList";
 import InterestsList from "@components/organisms/InterestsList";
-import Paginator from "@components/organisms/Paginator";
+// import Paginator from "@components/organisms/Paginator";
 
 // import styled from "styled-components";
 import Text from "@styles/Text";
@@ -16,14 +16,9 @@ import { usePetInfoStore } from "../../store/store"; // test
 
 const SearchResultTemplate = () => {
   const { currentPage, setCurrentPage } = useCurrentPageStore();
-  const { isLoggedin, setIsLoggedin } = useLoggedinStore();
-  const {
-    interestsList,
-    setInterestsList,
-    addInterest,
-    numberOfInterests,
-    setNumberOfInterests,
-  } = useInterestsStore();
+  // const { isLoggedin, setIsLoggedin } = useLoggedinStore();
+  const { interestsList, setInterestsList, addInterest, numberOfInterests, setNumberOfInterests } =
+    useInterestsStore();
   const { numberOfElements, setNumberOfElements } = usePetInfoStore(); // test
 
   // 로컬 스토리지 값 관리: 앱 리렌더링 시에도 값 보존 위함 ===============================
@@ -47,16 +42,7 @@ const SearchResultTemplate = () => {
         // 필요한 데이터 추출하여 스토어에 저장 => 왜 데브툴즈에서는 뜨고 콘솔 로그 찍으면 안 뜨지?????????????
         setNumberOfInterests(data.length); // 관심 동물 건수 저장
         data.forEach((entry) => addInterest(entry.animal)); // 관심 동물 저장
-        // console.log(
-        //   "numberofInterests: ",
-        //   numberOfInterests,
-        //   "interestsList: ",
-        //   interestsList
-        // ); // for test
-
-        // test
-        // setNumberOfElements(data.length);
-        // console.log("num: ", numberOfElements);
+        // console.log("numberofInterests: ", numberOfInterests, "interestsList: ", interestsList); // for test
       })
       .catch((error) => {
         console.error(`An error occurred while fetching the interests.`, error);
