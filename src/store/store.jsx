@@ -1,6 +1,16 @@
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
 
+// 모달 창 open/close 관리
+export const useModalStore = create(
+  devtools((set) => ({
+    isModalOpen: false,
+    openModal: () => set({ isModalOpen: true }),
+    closeModal: () => set({ isModalOpen: false }),
+  })),
+  "useModalStore"
+);
+
 // 현재 url 경로 관리
 export const useCurrentPageStore = create(
   devtools((set) => ({

@@ -15,6 +15,7 @@ import IconSearchSelected from "@assets/icons/icon-search-selected.svg";
 import IconUserMono from "@assets/icons/icon-user-mono.svg";
 import IconUserSelected from "@assets/icons/icon-user-selected.svg";
 import IconXCircle from "@assets/icons/icon-x-circle.svg";
+import IconXMono from "@assets/icons/icon-x-mono.svg";
 
 import styled from "styled-components";
 
@@ -38,6 +39,7 @@ const Icon = ({ src, width, height, onClick }) => {
   else if (src === "IconUserMono") icon = IconUserMono;
   else if (src === "IconUserSelected") icon = IconUserSelected;
   else if (src === "IconXCircle") icon = IconXCircle;
+  else if (src === "IconXMono") icon = IconXMono;
   else throw new Error("Undefined src of Icon");
 
   return <StyledIcon src={icon} alt="icon" width={width} height={height} onClick={onClick} />;
