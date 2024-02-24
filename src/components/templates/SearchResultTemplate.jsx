@@ -7,8 +7,9 @@ import SearchBar from "@components/organisms/SearchBar";
 import PetInfoList from "@components/organisms/PetInfoList";
 import Paginator from "@components/organisms/Paginator";
 import NavBar from "@components/organisms/NavBar";
+import DrawingPets from "@assets/drawing-pets.png";
 
-// import styled from "styled-components";
+import styled from "styled-components";
 import Text from "@styles/Text";
 import Layout, { Main, Contents } from "@styles/Layout";
 
@@ -44,14 +45,38 @@ const SearchResultTemplate = () => {
               <b>{NUM_OF_PETS}</b> in total
             </Text>
           </div>
-          <PetInfoList />
-          <Paginator />
+          {numberOfElements === 0 ? (
+            <NoResult>
+              <img src={DrawingPets} alt="no result" style={{ width: "220px" }} />
+              <Text fontSize="14px" textAlign="center">
+                Sorry, no result. <br />
+                Please retry with another keyword or image
+                <br />
+                or reset the filter tags.
+              </Text>
+            </NoResult>
+          ) : (
+            <>
+              <PetInfoList />
+              <Paginator />
+            </>
+          )}
         </Contents>
         <NavBar />
       </Main>
     </Layout>
   );
 };
+
+const NoResult = styled.div`
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 24px;
+`;
 
 const loader = () => {};
 
