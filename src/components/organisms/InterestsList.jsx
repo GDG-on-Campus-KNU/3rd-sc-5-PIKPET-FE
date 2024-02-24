@@ -36,7 +36,7 @@ const InterestsList = () => {
   return (
     <StyledPetInfoList>
       {interestsList &&
-        interestsList.map((pet, index) => (
+        interestsList.reverse().map((pet, index) => (
           <PetInfo
             key={index}
             petId={pet.id}

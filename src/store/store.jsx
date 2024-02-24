@@ -199,11 +199,13 @@ export const useInterestsStore = create(
       set({ interestsList: list });
     },
     addInterest: (pet) => {
+      // console.log("called");
       set((state) => ({ interestsList: [...state.interestsList, pet] }));
     },
 
     numberOfInterests: 0,
     setNumberOfInterests: (value) => {
+      // console.log("called");
       set({ numberOfInterests: value });
     },
   })),
