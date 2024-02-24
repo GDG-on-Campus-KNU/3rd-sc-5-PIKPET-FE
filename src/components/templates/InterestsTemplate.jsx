@@ -38,7 +38,7 @@ const SearchResultTemplate = () => {
       .get(`api/userInfo/likeAnimal`)
       .then((response) => {
         const data = response.data;
-        console.log("data: ", data); // for test
+        // console.log("data: ", data); // for test
         // data = [{ id, animal, userAccount }, { id, animal, userAccount }, ...] // list
 
         // 필요한 데이터 추출하여 스토어에 저장
