@@ -9,7 +9,7 @@ import WidgetArea from "@components/organisms/WidgetArea";
 import ButtonTag, { ButtonTagGroup } from "@components/atoms/ButtonTag";
 import Img, { ImgGroup } from "@components/atoms/Img";
 import samplePicture from "@assets/sample-picture.png";
-import poster from "@assets/poster.png";
+import poster from "@assets/poster-ad.png";
 
 import styled from "styled-components";
 import Layout, { Main, Contents } from "@styles/Layout";
