@@ -27,7 +27,7 @@ const PetInfo = ({ petId, img, interested, breed, age, gender, shelterName, onCl
           </Text>
         </StyledPetInfo_1_1>
         <StyledShelter>
-          <Icon src="IconPinLocation" width="14px" />
+          <Icon src="IconPinLocation" width="14px" height="14px" />
           <Text fontSize="12px" color={(props) => props.theme.colors.gray}>
             {shelterName}
           </Text>
@@ -45,8 +45,9 @@ const StyledPetInfo_1_1 = styled.div`
 
 const StyledShelter = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 4px;
 `;
 
 export default PetInfo;
+export { StyledShelter };
