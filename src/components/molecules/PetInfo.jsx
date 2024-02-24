@@ -6,7 +6,7 @@ import Img from "@components/atoms/Img";
 import styled from "styled-components";
 import {
   ContainerIncludingImg,
-  InnerContainerIncludingImg,
+  InnerContainerIncludingImg1,
   ContainerNameAndIcon,
 } from "@styles/Container";
 import Text from "@styles/Text";
@@ -15,7 +15,7 @@ const PetInfo = ({ petId, img, interested, breed, age, gender, shelterName, onCl
   return (
     <ContainerIncludingImg flexDirection="row" onClick={onClick}>
       <Img src={img} size="Middle" />
-      <InnerContainerIncludingImg justifyContent="space-between">
+      <InnerContainerIncludingImg1 justifyContent="space-between">
         <StyledPetInfo_1_1>
           <ContainerNameAndIcon>
             <Text fontWeight="700">PETID-{petId}</Text>
@@ -32,7 +32,7 @@ const PetInfo = ({ petId, img, interested, breed, age, gender, shelterName, onCl
             {shelterName}
           </Text>
         </StyledShelter>
-      </InnerContainerIncludingImg>
+      </InnerContainerIncludingImg1>
     </ContainerIncludingImg>
   );
 };
@@ -41,6 +41,7 @@ const StyledPetInfo_1_1 = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
+  box-sizing: border-box;
 `;
 
 const StyledShelter = styled.div`

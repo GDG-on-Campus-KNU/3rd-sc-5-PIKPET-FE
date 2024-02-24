@@ -10,7 +10,7 @@ import { StyledShelter } from "@components/molecules/PetInfo";
 import styled from "styled-components";
 import Text from "@styles/Text";
 
-const InterestsImgsList = () => {
+const InterestsThumbnailList = () => {
   const navigate = useNavigate();
   const { interestsList, setInterestsList, addInterest, numberOfInterests, setNumberOfInterests } =
     useInterestsStore();
@@ -58,7 +58,7 @@ const InterestsImgsList = () => {
         .reverse()
         .slice(0, 5)
         .map((item, index) => (
-          <InterestsItem key={index} onClick={() => handleViewPetInfoDetail(item.id)}>
+          <InterestsThumbnail key={index} onClick={() => handleViewPetInfoDetail(item.id)}>
             <div style={{ position: "relative" }}>
               <Img src={item.imageUrl} size="Small" />
               <IconWrapper>
@@ -78,13 +78,14 @@ const InterestsImgsList = () => {
                 {item.shelter.branchName}
               </Text>
             </StyledShelter>
-          </InterestsItem>
+          </InterestsThumbnail>
         ))}
     </ImgGroup>
   );
 };
 
-const InterestsItem = styled.div`
+const InterestsThumbnail = styled.div`
+  width: 100px;
   // display: flex;
   // flex-direction: column;
   // gap: 4px;
@@ -99,4 +100,4 @@ const IconWrapper = styled.div`
   bottom: 8px;
 `;
 
-export default InterestsImgsList;
+export default InterestsThumbnailList;

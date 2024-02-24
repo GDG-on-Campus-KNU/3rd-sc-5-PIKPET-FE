@@ -8,7 +8,7 @@ import Footer from "@components/organisms/Footer";
 import CTAContainer from "@components/molecules/CTAContainer";
 import ContainerTitle from "@components/atoms/ContainerTitle";
 // import Img, { ImgGroup } from "@components/atoms/Img";
-import InterestsImgsList from "@components/molecules/InterestsImgsList";
+import InterestsThumbnailList from "@components/molecules/InterestsThumbnailList";
 import samplePicture from "@assets/sample-picture.png";
 
 import styled from "styled-components";
@@ -85,7 +85,7 @@ const MypageTemplate = () => {
           </MypageItem>
           <MypageItem>
             <ContainerTitle title="My interests" onClick={handleViewInterests} />
-            <InterestsImgsList />
+            <InterestsThumbnailList />
           </MypageItem>
           <MypageItem>
             <ContainerTitle title="Edit profile" />
