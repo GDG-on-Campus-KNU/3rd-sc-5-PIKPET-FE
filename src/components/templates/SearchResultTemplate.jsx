@@ -4,10 +4,10 @@ import { useCurrentPageStore, useLoggedinStore, usePetInfoStore } from "@store";
 
 import SearchBar from "@components/organisms/SearchBar";
 // import SearchFilterDropdown from "@components/organisms/SearchFilterDropdown";
+import NoResultNoti from "@components/organisms/NoResultNoti";
 import PetInfoList from "@components/organisms/PetInfoList";
 import Paginator from "@components/organisms/Paginator";
 import NavBar from "@components/organisms/NavBar";
-import DrawingPets from "@assets/drawing-pets.png";
 
 import styled from "styled-components";
 import Text from "@styles/Text";
@@ -46,15 +46,16 @@ const SearchResultTemplate = () => {
             </Text>
           </div>
           {numberOfElements === 0 ? (
-            <NoResult>
-              <img src={DrawingPets} alt="no result" style={{ width: "220px" }} />
-              <Text fontSize="14px" textAlign="center">
-                Sorry, no result. <br />
-                Please retry with another keyword or image
-                <br />
-                or reset the filter tags.
-              </Text>
-            </NoResult>
+            <NoResultNoti
+              content={
+                <>
+                  Sorry, no result. <br />
+                  Please retry with another keyword or image
+                  <br />
+                  or reset the filter tags.
+                </>
+              }
+            />
           ) : (
             <>
               <PetInfoList />
@@ -67,16 +68,6 @@ const SearchResultTemplate = () => {
     </Layout>
   );
 };
-
-const NoResult = styled.div`
-  width: 100%;
-  height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 24px;
-`;
 
 const loader = () => {};
 

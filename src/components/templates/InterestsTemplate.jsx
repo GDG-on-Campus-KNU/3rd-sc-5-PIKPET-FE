@@ -4,11 +4,11 @@ import axios from "axios";
 
 import Header from "@components/organisms/Header";
 import SearchFilterDropdown from "@components/organisms/SearchFilterDropdown";
+import NoResultNoti from "@components/organisms/NoResultNoti";
 import PetInfoList from "@components/organisms/PetInfoList";
 import Paginator from "@components/organisms/Paginator";
-import DrawingPets from "@assets/drawing-pets.png";
 
-import styled from "styled-components";
+// import styled from "styled-components";
 import Text from "@styles/Text";
 import Layout, { Main, Contents } from "@styles/Layout";
 
@@ -51,6 +51,8 @@ const SearchResultTemplate = () => {
       });
   }, []);
 
+  // const NUM = 0; // test
+
   return (
     <Layout backgroundColor="white">
       <Header type="Widget" title="My interests" />
@@ -64,13 +66,15 @@ const SearchResultTemplate = () => {
             </Text>
           </div>
           {numberOfInterests === 0 ? (
-            <NoResult>
-              <img src={DrawingPets} alt="no result" style={{ width: "220px" }} />
-              <Text fontSize="14px" textAlign="center">
-                Tap the heart to collect the pets <br />
-                you are interested in here.
-              </Text>
-            </NoResult>
+            <NoResultNoti
+              content={
+                <>
+                  Tap the heart to collect the pets.
+                  <br />
+                  You are interested in here.
+                </>
+              }
+            />
           ) : (
             <>
               <PetInfoList />
@@ -83,15 +87,5 @@ const SearchResultTemplate = () => {
     </Layout>
   );
 };
-
-const NoResult = styled.div`
-  width: 100%;
-  height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 24px;
-`;
 
 export default SearchResultTemplate;
