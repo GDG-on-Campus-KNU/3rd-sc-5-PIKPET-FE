@@ -56,7 +56,7 @@ const InterestsImgsList = () => {
     <ImgGroup>
       {interestsList
         .reverse()
-        .slice(0, 5)
+        .slice(0, 1)
         .map((item, index) => (
           <InterestsItem key={index} onClick={() => handleViewPetInfoDetail(item.id)}>
             <div style={{ position: "relative" }}>
@@ -85,6 +85,7 @@ const InterestsImgsList = () => {
 };
 
 const InterestsItem = styled.div`
+  width: 100px;
   // display: flex;
   // flex-direction: column;
   // gap: 4px;
