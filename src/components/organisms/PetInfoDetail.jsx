@@ -13,7 +13,7 @@ import sampleImg from "@assets/sample-picture-2.jpeg";
 import styled from "styled-components";
 import {
   ContainerIncludingImg,
-  InnerContainerIncludingImg,
+  InnerContainerIncludingImg2,
   ContainerNameAndIcon,
 } from "@styles/Container";
 import Text from "@styles/Text";
@@ -109,7 +109,7 @@ const PetInfoDetail = () => {
       {/* 이미지 */}
       <Img src={img || null} alt="picture" size="Big" width={newWidth} height={newHeight} />
 
-      <InnerContainerIncludingImg gap="24px">
+      <InnerContainerIncludingImg2 gap="24px">
         {/* 기본 정보 */}
         <ContainerBasicPetInfo>
           {/* PETID & interested */}
@@ -160,7 +160,7 @@ const PetInfoDetail = () => {
             onClick={handleViewShelterLocation}
           />
         </StyledShelter>
-      </InnerContainerIncludingImg>
+      </InnerContainerIncludingImg2>
     </ContainerIncludingImg>
   );
 };
