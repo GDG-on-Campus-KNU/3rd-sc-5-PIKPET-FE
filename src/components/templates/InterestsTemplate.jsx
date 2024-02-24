@@ -1,11 +1,12 @@
 import { useEffect } from "react";
-import { useCurrentPageStore, useLoggedinStore, usePetInfoStore } from "@store";
+import { useCurrentPageStore, useLoggedinStore, useInterestsStore } from "@store";
 import axios from "axios";
 
 import Header from "@components/organisms/Header";
 import SearchFilterDropdown from "@components/organisms/SearchFilterDropdown";
 import PetInfoList from "@components/organisms/PetInfoList";
 import Paginator from "@components/organisms/Paginator";
+import DrawingPets from "@assets/drawing-pets.png";
 
 import styled from "styled-components";
 import Text from "@styles/Text";
@@ -14,9 +15,15 @@ import Layout, { Main, Contents } from "@styles/Layout";
 const SearchResultTemplate = () => {
   const { currentPage, setCurrentPage } = useCurrentPageStore();
   const { isLoggedin, setIsLoggedin } = useLoggedinStore();
-  const { petInfoList, setPetInfoList } = usePetInfoStore();
+  const {
+    interestsList,
+    setInterestsList,
+    addInterest,
+    numberOfInterests,
+    setNumberOfInterests,
+  } = useInterestsStore();
 
-  // 로컬 스토리지 값 관리: 앱 리렌더링 시에도 값 보존 위함 ----------
+  // 로컬 스토리지 값 관리: 앱 리렌더링 시에도 값 보존 위함 ===============================
   // 최초 마운트시에(만) 실행
   useEffect(() => {
     // 현재 페이지 경로 저장
@@ -25,38 +32,24 @@ const SearchResultTemplate = () => {
     localStorage.setItem("currentPage", JSON.stringify(currentPage)); // 로컬스토리지에 저장
   }, [currentPage]);
 
-  const NUM_OF_INTERESTED_PETS = 10;
+  // 관심 동물 리스트 조회 ===========================================================
+  useEffect(() => {
+    axios
+      .get(`api/userInfo/likeAnimal`)
+      .then((response) => {
+        const data = response.data;
+        console.log("data: ", data); // for test
+        // data = [{ id, animal, userAccount }, { id, animal, userAccount }, ...] // list
 
-  // 관심 동물 리스트 조회
-  //   useEffect(() => {
-  //     let paramsToSend = {};
-
-  //     axios
-  //       .get(`${BASE_URL}/userInfo/likeAnimal`, paramsToSend, {
-  //         headers: {
-  //           Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-  //         },
-  //       })
-  //       .then((response) => {
-  //         console.log(`The interested pets data has been brought successfully.`);
-  //         // 새로운 동물 정보 추가
-  // response.data.map((pet, index)=>
-  // usePetInfoStore.getState().addPetInfo({
-  //     petId: 0,
-  //     img: "",
-  //     name: "멍멍이",
-  //     interested: false,
-  //     breed: "푸들",
-  //     age: 3,
-  //     gender: "female",
-  //     shelter: "동물 보호소",
-  //   });
-  // )
-  //       })
-  //       .catch((error) => {
-  //         console.error(`An error occurred while fetching the data.`, error);
-  //       });
-  //   }, []);
+        // 필요한 데이터 추출하여 스토어에 저장
+        setNumberOfInterests(data.length); // 관심 동물 건수
+        data.map((entry) => addInterest(entry.animal)); // 관심 동물
+        // console.log("interestsList: ", interestsList); // for test
+      })
+      .catch((error) => {
+        console.error(`An error occurred while fetching the interests.`, error);
+      });
+  }, []);
 
   return (
     <Layout backgroundColor="white">
@@ -67,15 +60,38 @@ const SearchResultTemplate = () => {
           <div>
             {/* <SearchFilterDropdown /> */}
             <Text fontSize="12px">
-              <b>{NUM_OF_INTERESTED_PETS}</b> in total
+              <b>{numberOfInterests}</b> in total
             </Text>
           </div>
-          <PetInfoList />
-          <Paginator />
+          {numberOfInterests === 0 ? (
+            <NoResult>
+              <img src={DrawingPets} alt="no result" style={{ width: "220px" }} />
+              <Text fontSize="14px" textAlign="center">
+                Tap the heart to collect the pets <br />
+                you are interested in here.
+              </Text>
+            </NoResult>
+          ) : (
+            <>
+              <PetInfoList />
+              {/* 관심 동물 리스트로 바꾸기 */}
+              {/* <Paginator /> */}
+            </>
+          )}
         </Contents>
       </Main>
     </Layout>
   );
 };
+
+const NoResult = styled.div`
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 24px;
+`;
 
 export default SearchResultTemplate;

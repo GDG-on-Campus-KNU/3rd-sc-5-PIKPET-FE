@@ -190,3 +190,22 @@ export const usePetInfoDetailStore = create(
   })),
   "usePetInfoDetailStore"
 );
+
+// 관심 동물 리스트
+export const useInterestsStore = create(
+  devtools((set) => ({
+    interestsList: [],
+    setInterestsList: (list) => {
+      set({ interestsList: list });
+    },
+    addInterest: (pet) => {
+      set((state) => ({ interestsList: [...state.interestsList, pet] }));
+    },
+
+    numberOfInterests: 0,
+    setNumberOfInterests: (value) => {
+      set({ numberOfInterests: value });
+    },
+  })),
+  "useInterestsStore"
+);
