@@ -122,6 +122,31 @@ const ApplyTemplate = () => {
           {/* questions list */}
           <ContainerPlain>
             <ContainerTitle2 title="Please answer the questions below." fontSize="14px" />
+            <div
+              style={{ display: "flex", flexDirection: "column", gap: "12px", padding: "0 16px" }}
+            >
+              <Text fontSize="14px">1. Have you ever raised any pet? Which species was it?</Text>
+              <Input type="text" />
+
+              <Text fontSize="14px">2. Please write down why you decided to adopt.</Text>
+              <Input type="text" />
+
+              <Text fontSize="14px">
+                3. Do you have any family you are living with? Did they agree to adopt a pet?
+              </Text>
+              <Input type="text" />
+
+              <Text fontSize="14px">3-1. How many family members do you live with?</Text>
+              <Input type="text" />
+
+              <Text fontSize="14px">
+                4. Are you sure to be on time to feed and give the pet the health care?
+              </Text>
+              <Input type="text" />
+
+              <Text fontSize="14px">4-1. What kind of food are you planning to feed the pet?</Text>
+              <Input type="text" />
+            </div>
           </ContainerPlain>
 
           {/* confirm list */}
