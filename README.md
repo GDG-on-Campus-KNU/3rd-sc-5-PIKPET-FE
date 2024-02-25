@@ -8,6 +8,7 @@
 - [Components](#components)
 - [Function](#main_function)
 - [Upcoming updates](#upcoming_updates)
+- [How to run](#How_to_run)
 
 
 ## Getting_Started - Why did we choose the topic
