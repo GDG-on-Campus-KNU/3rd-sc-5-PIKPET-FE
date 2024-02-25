@@ -5,6 +5,8 @@ import { useCurrentPageStore, useLoggedinStore } from "@store";
 import Header from "@components/organisms/Header";
 import CTAContainer from "@components/molecules/CTAContainer";
 import { ContainerTitle2 } from "@components/atoms/ContainerTitle";
+import FilterItem from "@components/molecules/FilterItem";
+import Input from "@components/atoms/Input";
 
 import styled from "styled-components";
 import Layout, { Main, Contents } from "@styles/Layout";
@@ -30,7 +32,10 @@ const ApplyTemplate = () => {
   const options = { month: "short", day: "2-digit", year: "numeric" };
   const formattedDate = today.toLocaleDateString("en-US", options); // "Mar 26, 2024"
 
-  const applicant = `Minjoo Kim`;
+  const [applicant, setApplicant] = useState("");
+  const handleNameInput = (value) => {
+    setApplicant(value);
+  };
 
   // submit application ===========================================
   const handleSubmit = () => {
@@ -71,7 +76,47 @@ const ApplyTemplate = () => {
               title="Applicant information"
               color={(props) => props.theme.colors.primary}
             />
-            <div></div>
+            <div
+              style={{ display: "flex", flexDirection: "column", gap: "12px", padding: "0 16px" }}
+            >
+              <FilterItem type="Input" title="Name">
+                <Input
+                  type="text"
+                  value={applicant}
+                  onChange={(e) => handleNameInput(e.target.value)}
+                />
+              </FilterItem>
+
+              <div className="BirthAndGender" style={{ display: "flex", gap: "12px" }}>
+                <FilterItem type="Birth" title="Birth">
+                  <Input type="date" width="180px" />
+                </FilterItem>
+                <FilterItem type="Gender" title="Gender">
+                  <Select type="select" width="50px">
+                    <option value="Male" selected>
+                      Male
+                    </option>
+                    <option value="Female">Female</option>
+                  </Select>
+                </FilterItem>
+              </div>
+
+              <FilterItem type="Input" title="Phone">
+                <Input type="text" />
+              </FilterItem>
+
+              <FilterItem type="Input" title="E-mail">
+                <Input type="text" />
+              </FilterItem>
+
+              <FilterItem type="Input" title="Address">
+                <Input type="text" />
+              </FilterItem>
+
+              <FilterItem type="Input" title="Job">
+                <Input type="text" />
+              </FilterItem>
+            </div>
           </ContainerPlain>
 
           {/* questions list */}
@@ -132,6 +177,23 @@ const DateAndApplicant = styled.div`
   align-items: flex-end;
   gap: 4px;
 `;
+
+// Input이랑 똑같게
+const Select = styled.select`
+  width: ${(props) => props.width || "100%"};
+  padding: ${(props) => props.paddingY || "12px"} ${(props) => props.paddingX || "16px"};
+  box-sizing: border-box;
+  font-size: ${(props) => props.fontSize || "14px"};
+  border: ${(props) => props.border || `1px solid ${props.theme.colors.lightGray}`};
+  border-radius: ${(props) => props.borderRadius || "10px"};
+  background-color: ${(props) => props.backgroundColor || "white"};
+  outline: none;
+
+  &:focus {
+    border-color: ${(props) => props.theme.colors.primary};
+  }
+`;
+
 // const StyledCheckbox = styled.input`
 //   width: 14px;
 //   height: 14px;
