@@ -91,7 +91,7 @@ const PetInfoDetailTemplate = () => {
 
   // move to Application page =============================
   const handleApply = () => {
-    // navigate('/apply');
+    navigate("/apply");
   };
 
   return (

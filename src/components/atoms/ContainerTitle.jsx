@@ -11,6 +11,14 @@ const ContainerTitle = ({ title, color, fontSize, onClick }) => {
   );
 };
 
+const ContainerTitle2 = ({ title, color, fontSize, onClick }) => {
+  return (
+    <StyledContainerTitle color={color} fontSize={fontSize} onClick={onClick}>
+      {title}
+    </StyledContainerTitle>
+  );
+};
+
 const StyledContainerTitle = styled.div`
   margin: 0 16px;
   display: flex;
@@ -23,3 +31,4 @@ const StyledContainerTitle = styled.div`
 `;
 
 export default ContainerTitle;
+export { ContainerTitle2 };

@@ -190,3 +190,24 @@ export const usePetInfoDetailStore = create(
   })),
   "usePetInfoDetailStore"
 );
+
+// 관심 동물 리스트
+export const useInterestsStore = create(
+  devtools((set) => ({
+    interestsList: [],
+    setInterestsList: (list) => {
+      set({ interestsList: list });
+    },
+    // addInterest: (pet) => {
+    //   // console.log("called");
+    //   set((state) => ({ interestsList: [...state.interestsList, pet] }));
+    // }, // 응답 형태 변경으로 미사용
+
+    numberOfInterests: 0,
+    setNumberOfInterests: (value) => {
+      // console.log("called");
+      set({ numberOfInterests: value });
+    },
+  })),
+  "useInterestsStore"
+);

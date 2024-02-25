@@ -8,6 +8,7 @@ import ContainerTitle from "@components/atoms/ContainerTitle";
 import WidgetArea from "@components/organisms/WidgetArea";
 import ButtonTag, { ButtonTagGroup } from "@components/atoms/ButtonTag";
 import Img, { ImgGroup } from "@components/atoms/Img";
+import InterestsThumbnailList from "@components/molecules/InterestsThumbnailList";
 import samplePicture from "@assets/sample-picture.png";
 import poster from "@assets/poster-ad.png";
 
@@ -39,10 +40,6 @@ const HomeTemplate = () => {
       <Header type="Default" />
 
       <Main>
-        {/* <ButtonCTA type="SecondaryDisabled" title="입력하기" /> */}
-        {/* <ButtonTag type="Default" title="#포메라니안"></ButtonTag> */}
-        {/* <CTAContainer type="2ButtonUneven" title1="입력하기" title2="신청하기" /> */}
-        {/* <Input placeholder="이름" /> */}
         <Contents noPadding>
           <WidgetArea>
             <Container>
@@ -59,13 +56,7 @@ const HomeTemplate = () => {
               <a href="/interests">
                 <ContainerTitle title="My interests" />
               </a>
-              <ImgGroup>
-                <Img src={samplePicture} size="Small" />
-                <Img src={samplePicture} size="Small" />
-                <Img src={samplePicture} size="Small" />
-                <Img src={samplePicture} size="Small" />
-                <Img src={samplePicture} size="Small" />
-              </ImgGroup>
+              <InterestsThumbnailList />
             </Container>
           </WidgetArea>
           <Img src={poster} width="100%" />

@@ -16,12 +16,24 @@ const Container = styled.div`
 const ContainerIncludingImg = styled(Container)`
   padding: 0;
   gap: 0;
+  display: flex;
   flex-direction: ${(props) => props.flexDirection || "row"};
   box-sizing: border-box;
   cursor: pointer;
 `;
 
-const InnerContainerIncludingImg = styled.div`
+const InnerContainerIncludingImg1 = styled.div`
+  width: calc(100% - 112px); // 사진 너비만큼 뺌
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: ${(props) => props.justifyContent};
+  box-sizing: border-box;
+  gap: ${(props) => props.gap};
+  // flex-grow: 1; // 이건 왠지 안 되더라...
+`;
+
+const InnerContainerIncludingImg2 = styled.div`
   width: 100%;
   padding: 12px 16px;
   display: flex;
@@ -29,6 +41,7 @@ const InnerContainerIncludingImg = styled.div`
   justify-content: ${(props) => props.justifyContent};
   box-sizing: border-box;
   gap: ${(props) => props.gap};
+  // flex-grow: 1; // 이건 왠지 안 되더라...
 `;
 
 const ContainerNameAndIcon = styled.div`
@@ -39,4 +52,9 @@ const ContainerNameAndIcon = styled.div`
 `;
 
 export default Container;
-export { ContainerIncludingImg, InnerContainerIncludingImg, ContainerNameAndIcon };
+export {
+  ContainerIncludingImg,
+  InnerContainerIncludingImg1,
+  InnerContainerIncludingImg2,
+  ContainerNameAndIcon,
+};

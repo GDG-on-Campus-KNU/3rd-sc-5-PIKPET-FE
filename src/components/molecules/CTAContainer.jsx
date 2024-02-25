@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router";
+
 import ButtonCTA from "@components/atoms/ButtonCTA";
 import Icon from "@components/atoms/Icon";
 import styled from "styled-components";
@@ -15,6 +17,12 @@ const CTAContainer = ({ type, title1, title2, onClick, onClick1, onClick2 }) => 
   // 검색(Go)
   const handleSearchButton = () => {
     onClick();
+  };
+
+  // 임시
+  const navigate = useNavigate();
+  const handleSubmit = () => {
+    navigate("/mypage");
   };
 
   if (type === undefined) {
@@ -41,8 +49,8 @@ const CTAContainer = ({ type, title1, title2, onClick, onClick1, onClick2 }) => 
   } else if (type === "2ButtonUneven") {
     return (
       <StyledCTAContainer>
-        <ButtonCTA type="Secondary" title={title1} width="calc(100% / 3)" />
-        <ButtonCTA type="Primary" title={title2} width="calc(100% * 2/3)" />
+        <ButtonCTA type="Secondary" title={title1} width="calc(100% / 3)" onClick={onClick1} />
+        <ButtonCTA type="Primary" title={title2} width="calc(100% * 2/3)" onClick={handleSubmit} />
       </StyledCTAContainer>
     );
   } else if (type === "SearchFilter") {

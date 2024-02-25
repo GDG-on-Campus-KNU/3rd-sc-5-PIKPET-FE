@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
 import { usePetInfoDetailStore } from "@store";
@@ -9,11 +9,12 @@ import ButtonTag from "@components/atoms/ButtonTag";
 import Icon from "@components/atoms/Icon";
 import Img from "@components/atoms/Img";
 import sampleImg from "@assets/sample-picture-2.jpeg";
+import { changeInterested } from "@utils/interestsService";
 
 import styled from "styled-components";
 import {
   ContainerIncludingImg,
-  InnerContainerIncludingImg,
+  InnerContainerIncludingImg2,
   ContainerNameAndIcon,
 } from "@styles/Container";
 import Text from "@styles/Text";
@@ -29,9 +30,7 @@ const formatString = (word) => {
   // 단어를 공백으로 구분하여 배열로 분할
   const words = word.split("_");
   // 각 단어의 첫 글자를 대문자로 변환하고, 나머지 글자는 소문자로 변환하여 새로운 배열 생성
-  const formattedString = words.map(
-    (w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()
-  );
+  const formattedString = words.map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase());
 
   // 배열을 공백으로 연결하여 하나의 문자열로 반환
   return formattedString.join(" ");
@@ -44,7 +43,7 @@ const PetInfoDetail = () => {
   // 렌더링할 변수들: 스토어에서 가져와서 변수에 할당 ======================
   const petId = petInfoDetail.id;
   const img = petInfoDetail.imageUrl; // URL string
-  const interested = petInfoDetail.isLiked; // boolean
+  const [isInterested, setIsInterested] = useState(petInfoDetail.isLiked); // boolean
   const species = formatString(petInfoDetail.species); // string
   const breed = formatString(petInfoDetail.breed); // string
   const age = petInfoDetail.age; // int
@@ -101,6 +100,20 @@ const PetInfoDetail = () => {
     };
   }, []);
 
+  // 관심 on/off 변경 ==============================================================
+  const handleClickHeart = (event, id) => {
+    event.stopPropagation(); // 상위 요소로 이벤트 전파 중단
+
+    changeInterested(id)
+      .then((interested) => {
+        setIsInterested(interested);
+        console.log("set"); // test
+      })
+      .catch((error) => {
+        console.error(`An error occurred in fetching interested.`, error);
+      });
+  };
+
   // 보호소 위치 보기 =================================================
   const handleViewShelterLocation = () => {
     navigate(`/pet/${petId}/location`);
@@ -111,7 +124,7 @@ const PetInfoDetail = () => {
       {/* 이미지 */}
       <Img src={img || null} alt="picture" size="Big" width={newWidth} height={newHeight} />
 
-      <InnerContainerIncludingImg gap="24px">
+      <InnerContainerIncludingImg2 gap="24px">
         {/* 기본 정보 */}
         <ContainerBasicPetInfo>
           {/* PETID & interested */}
@@ -119,7 +132,10 @@ const PetInfoDetail = () => {
             <Text fontSize="20px" fontWeight="700">
               PETID-{petId}
             </Text>
-            <Icon src={interested ? "IconHeartSelected" : "IconHeartOff"} />
+            <Icon
+              src={isInterested ? "IconHeartSelected" : "IconHeartOff"}
+              onClick={(event) => handleClickHeart(event, petId)}
+            />
           </ContainerNameAndIcon>
 
           {/* breed, age & gender, size, & colors */}
@@ -146,15 +162,12 @@ const PetInfoDetail = () => {
         {/* 상세 정보 */}
         <PetInfoDetailItem title="Neutralized" content={neutralized}></PetInfoDetailItem>
         <PetInfoDetailItem title="Diseases" content={diseasesList}></PetInfoDetailItem>
-        <PetInfoDetailItem
-          title="Checkup/Vaccination"
-          content={checkupList}
-        ></PetInfoDetailItem>
+        <PetInfoDetailItem title="Checkup/Vaccination" content={checkupList}></PetInfoDetailItem>
         <PetInfoDetailItem title="Comment" content={comment}></PetInfoDetailItem>
 
         {/* 보호소 정보 */}
         <StyledShelter>
-          <Icon src="IconPinLocation" width="14px" />
+          <Icon src="IconPinLocation" width="14px" height="14px" />
           <ShelterName>
             <Text fontSize={FONT_SIZE} color={(props) => props.theme.colors.gray}>
               {shelter.branchName}
@@ -165,7 +178,7 @@ const PetInfoDetail = () => {
             onClick={handleViewShelterLocation}
           />
         </StyledShelter>
-      </InnerContainerIncludingImg>
+      </InnerContainerIncludingImg2>
     </ContainerIncludingImg>
   );
 };

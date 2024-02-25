@@ -6,7 +6,8 @@ import Img from "@components/atoms/Img";
 import styled from "styled-components";
 import {
   ContainerIncludingImg,
-  InnerContainerIncludingImg,
+  InnerContainerIncludingImg1,
+  InnerContainerIncludingImg2,
   ContainerNameAndIcon,
 } from "@styles/Container";
 import Text from "@styles/Text";
@@ -34,10 +35,7 @@ const PetInfoDetailItem = ({ title, content }) => {
           {content.map((item) => (
             <ItemHealthInfo key={item.key}>
               <Text fontSize={FONT_SIZE}>{item.key}</Text>
-              <ButtonTag
-                item={item.value ? "recovered" : "undergoing"}
-                selected={item.value}
-              />
+              <ButtonTag item={item.value ? "recovered" : "undergoing"} selected={item.value} />
             </ItemHealthInfo>
           ))}
         </ContainerHealthInfo>
