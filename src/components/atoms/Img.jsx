@@ -79,7 +79,7 @@ const StyledImg = styled.img`
   width: ${(props) => props.width || "100%"};
   height: ${(props) => props.height || "125%"};
   object-fit: cover;
-  border: ${(props) => props.border || "none"};
+  border: 1px solid ${(props) => props.borderColor || props.theme.colors.lightGray};
   border-radius: ${(props) => props.borderRadius || "10px"};
   margin: ${(props) => props.margin || "0"};
   box-shadow: ${(props) => props.boxShadow || "none"};
