@@ -198,10 +198,10 @@ export const useInterestsStore = create(
     setInterestsList: (list) => {
       set({ interestsList: list });
     },
-    addInterest: (pet) => {
-      // console.log("called");
-      set((state) => ({ interestsList: [...state.interestsList, pet] }));
-    },
+    // addInterest: (pet) => {
+    //   // console.log("called");
+    //   set((state) => ({ interestsList: [...state.interestsList, pet] }));
+    // }, // 응답 형태 변경으로 미사용
 
     numberOfInterests: 0,
     setNumberOfInterests: (value) => {

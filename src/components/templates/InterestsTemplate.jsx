@@ -17,7 +17,7 @@ import Layout, { Main, Contents } from "@styles/Layout";
 const SearchResultTemplate = () => {
   const { currentPage, setCurrentPage } = useCurrentPageStore();
   // const { isLoggedin, setIsLoggedin } = useLoggedinStore();
-  const { interestsList, setInterestsList, addInterest, numberOfInterests, setNumberOfInterests } =
+  const { interestsList, setInterestsList, numberOfInterests, setNumberOfInterests } =
     useInterestsStore();
 
   // 로컬 스토리지 값 관리: 앱 리렌더링 시에도 값 보존 위함 ===============================
@@ -31,7 +31,7 @@ const SearchResultTemplate = () => {
 
   // 관심 동물 리스트 조회 ===========================================================
   useEffect(() => {
-    fetchInterests(setNumberOfInterests, addInterest);
+    fetchInterests(setNumberOfInterests, setInterestsList);
   }, []);
 
   // const NUM = 0; // test

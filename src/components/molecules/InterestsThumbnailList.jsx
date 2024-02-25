@@ -13,12 +13,12 @@ import Text from "@styles/Text";
 
 const InterestsThumbnailList = () => {
   const navigate = useNavigate();
-  const { interestsList, setInterestsList, addInterest, numberOfInterests, setNumberOfInterests } =
+  const { interestsList, setInterestsList, numberOfInterests, setNumberOfInterests } =
     useInterestsStore();
 
   // 관심 동물 리스트 조회 ===========================================================
   useEffect(() => {
-    fetchInterests(setNumberOfInterests, addInterest);
+    fetchInterests(setNumberOfInterests, setInterestsList);
   }, []);
 
   // 리턴 값 설정 ==================================================================
