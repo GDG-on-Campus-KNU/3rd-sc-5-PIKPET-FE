@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useInterestsStore } from "@store";
 
 export const fetchInterests = async (setNumberOfInterests, addInterest) => {
   try {
@@ -9,7 +8,6 @@ export const fetchInterests = async (setNumberOfInterests, addInterest) => {
     // data = [{ id, userAccount, animal: { id, imageUrl, ... } }, { id, userAccount, animal: { id, imageUrl, ... } }, ...] // list
 
     // 필요한 데이터 추출하여 스토어에 저장 => 왜 데브툴즈에서는 뜨고 콘솔 로그 찍으면 안 뜨지?????????????
-
     setNumberOfInterests(data.length);
     data.forEach((entry) => addInterest(entry.animal));
     // console.log("numberofInterests: ", numberOfInterests, "interestsList: ", interestsList); // for test

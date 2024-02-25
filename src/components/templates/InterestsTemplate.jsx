@@ -13,14 +13,12 @@ import { fetchInterests, changeInterested } from "@/utils/interestsService";
 // import styled from "styled-components";
 import Text from "@styles/Text";
 import Layout, { Main, Contents } from "@styles/Layout";
-import { usePetInfoStore } from "../../store/store"; // test
 
 const SearchResultTemplate = () => {
   const { currentPage, setCurrentPage } = useCurrentPageStore();
   // const { isLoggedin, setIsLoggedin } = useLoggedinStore();
   const { interestsList, setInterestsList, addInterest, numberOfInterests, setNumberOfInterests } =
     useInterestsStore();
-  const { numberOfElements, setNumberOfElements } = usePetInfoStore(); // test
 
   // 로컬 스토리지 값 관리: 앱 리렌더링 시에도 값 보존 위함 ===============================
   // 최초 마운트시에(만) 실행
