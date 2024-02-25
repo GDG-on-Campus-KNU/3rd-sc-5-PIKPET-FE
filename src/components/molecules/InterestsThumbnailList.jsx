@@ -6,7 +6,7 @@ import { useInterestsStore } from "@store";
 import Icon from "@components/atoms/Icon";
 import Img, { ImgGroup } from "@components/atoms/Img";
 import { StyledShelter } from "@components/molecules/PetInfo";
-import { changeInterested } from "@/utils/interestsService";
+import { fetchInterests, changeInterested } from "@/utils/interestsService";
 
 import styled from "styled-components";
 import Text from "@styles/Text";
@@ -16,24 +16,9 @@ const InterestsThumbnailList = () => {
   const { interestsList, setInterestsList, addInterest, numberOfInterests, setNumberOfInterests } =
     useInterestsStore();
 
-  // 이 코드도 중복 코드라 어딘가에 모듈화해야 할듯...
   // 관심 동물 리스트 조회 ===========================================================
   useEffect(() => {
-    axios
-      .get(`api/userInfo/likeAnimal`)
-      .then((response) => {
-        const data = response.data;
-        // console.log("data: ", data, "the number of entries: ", data.length); // for test
-        // data = [{ id, userAccount, animal: { id, imageUrl, ... } }, { id, userAccount, animal: { id, imageUrl, ... } }, ...] // list
-
-        // 필요한 데이터 추출하여 스토어에 저장 => 왜 데브툴즈에서는 뜨고 콘솔 로그 찍으면 안 뜨지?????????????
-        setNumberOfInterests(data.length); // 관심 동물 건수 저장
-        data.forEach((entry) => addInterest(entry.animal)); // 관심 동물 저장
-        // console.log("numberofInterests: ", numberOfInterests, "interestsList: ", interestsList); // for test
-      })
-      .catch((error) => {
-        console.error(`An error occurred while fetching the interests.`, error);
-      });
+    fetchInterests(setNumberOfInterests, addInterest);
   }, []);
 
   // 리턴 값 설정 ==================================================================
