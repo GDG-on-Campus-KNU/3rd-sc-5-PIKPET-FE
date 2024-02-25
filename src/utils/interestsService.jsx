@@ -1,5 +1,6 @@
 import axios from "axios";
 
+// 관심 동물 리스트 받아오기
 export const fetchInterests = async (setNumberOfInterests, addInterest) => {
   try {
     const response = await axios.get(`api/userInfo/likeAnimal`);
@@ -19,6 +20,7 @@ export const fetchInterests = async (setNumberOfInterests, addInterest) => {
   }
 };
 
+// 관심 여부 on/off
 export const changeInterested = async (id) => {
   try {
     const response = await axios.post(`api/userInfo/likeAnimal`, id);
