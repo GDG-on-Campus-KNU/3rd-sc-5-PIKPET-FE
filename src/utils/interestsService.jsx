@@ -9,7 +9,7 @@ export const fetchInterests = async (setNumberOfInterests, setInterestsList) => 
 
     // 필요한 데이터 추출하여 스토어에 저장 => 왜 데브툴즈에서는 뜨고 콘솔 로그 찍으면 안 뜨지?????????????
     setNumberOfInterests(data.length);
-    setInterestsList(data);
+    setInterestsList(data.reverse());
     // console.log("numberofInterests: ", numberOfInterests, "interestsList: ", interestsList); // for test
 
     return data;

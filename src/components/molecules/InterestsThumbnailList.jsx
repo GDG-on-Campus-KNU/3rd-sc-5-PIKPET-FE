@@ -29,7 +29,7 @@ const InterestsThumbnailList = () => {
   }
 
   // 관심 동물(interestsList)이 있을 경우 -------------------------------------------
-  const slicedInterestsList = interestsList.reverse().slice(0, 5);
+  const slicedInterestsList = interestsList.slice(0, 5);
 
   // 동물 상세 페이지로 이동 ------------------------------------------------------
   const handleViewPetInfoDetail = (id) => {
