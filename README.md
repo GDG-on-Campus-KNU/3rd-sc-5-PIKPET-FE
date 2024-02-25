@@ -6,12 +6,13 @@
 
 - [Getting_Started](#getting_started)
 - [Components](#components)
-- [Function](#main_function)
+- [Function](#function)
 - [Upcoming updates](#upcoming_updates)
 - [How to run](#How_to_run)
 
 
-## Getting_Started - Why did we choose the topic
+## Getting_Started
+ - Why did we choose the topic
 ### Problem: Not all countries have a perfect infrastructure related to pets.
 ### Solution: new infrastructure and Simplified Search"
 
