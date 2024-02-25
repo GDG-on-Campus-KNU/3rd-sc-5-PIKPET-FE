@@ -9,7 +9,7 @@ import CTAContainer from "@components/molecules/CTAContainer";
 import ContainerTitle from "@components/atoms/ContainerTitle";
 // import Img, { ImgGroup } from "@components/atoms/Img";
 import InterestsThumbnailList from "@components/molecules/InterestsThumbnailList";
-import samplePicture from "@assets/sample-picture.png";
+import profileUnset from "@assets/profile-unset.png";
 
 import styled from "styled-components";
 import Layout, { Main, Contents } from "@styles/Layout";
@@ -48,7 +48,7 @@ const MypageTemplate = () => {
       <Main>
         <Contents noPadding>
           <MypageProfile>
-            <MypageProfileImg src={samplePicture} />
+            <MypageProfileImg src={profileUnset} />
             <Text fontSize="20px" fontWeight="bold">
               juice
             </Text>

@@ -9,8 +9,12 @@ import WidgetArea from "@components/organisms/WidgetArea";
 import ButtonTag, { ButtonTagGroup } from "@components/atoms/ButtonTag";
 import Img, { ImgGroup } from "@components/atoms/Img";
 import InterestsThumbnailList from "@components/molecules/InterestsThumbnailList";
-import samplePicture from "@assets/sample-picture.png";
 import poster from "@assets/poster-ad.png";
+import samplePicture1 from "@assets/sample-pictures/sample-picture-1.png";
+import samplePicture2 from "@assets/sample-pictures/sample-picture-3.jpeg";
+import samplePicture3 from "@assets/sample-pictures/sample-picture-5.jpeg";
+import samplePicture4 from "@assets/sample-pictures/sample-picture-6.jpeg";
+import samplePicture5 from "@assets/sample-pictures/sample-picture-7.jpeg";
 
 import styled from "styled-components";
 import Layout, { Main, Contents } from "@styles/Layout";
@@ -45,11 +49,11 @@ const HomeTemplate = () => {
             <Container>
               <ContainerTitle title="My search history" />
               <ImgGroup>
-                <Img src={samplePicture} size="Small" />
-                <Img src={samplePicture} size="Small" />
-                <Img src={samplePicture} size="Small" />
-                <Img src={samplePicture} size="Small" />
-                <Img src={samplePicture} size="Small" />
+                <Img src={samplePicture1} size="Small" />
+                <Img src={samplePicture2} size="Small" />
+                <Img src={samplePicture3} size="Small" />
+                <Img src={samplePicture4} size="Small" />
+                <Img src={samplePicture5} size="Small" />
               </ImgGroup>
             </Container>
             <Container>
