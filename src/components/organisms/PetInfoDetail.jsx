@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
 import { usePetInfoDetailStore } from "@store";
@@ -9,6 +9,7 @@ import ButtonTag from "@components/atoms/ButtonTag";
 import Icon from "@components/atoms/Icon";
 import Img from "@components/atoms/Img";
 import sampleImg from "@assets/sample-picture-2.jpeg";
+import { changeInterested } from "@utils/interestsService";
 
 import styled from "styled-components";
 import {
@@ -42,7 +43,7 @@ const PetInfoDetail = () => {
   // 렌더링할 변수들: 스토어에서 가져와서 변수에 할당 ======================
   const petId = petInfoDetail.id;
   const img = petInfoDetail.imageUrl; // URL string
-  const interested = petInfoDetail.isLiked; // boolean
+  const [isInterested, setIsInterested] = useState(petInfoDetail.isLiked); // boolean
   const species = formatString(petInfoDetail.species); // string
   const breed = formatString(petInfoDetail.breed); // string
   const age = petInfoDetail.age; // int
@@ -99,6 +100,20 @@ const PetInfoDetail = () => {
     };
   }, []);
 
+  // 관심 on/off 변경 ==============================================================
+  const handleClickHeart = (event, id) => {
+    event.stopPropagation(); // 상위 요소로 이벤트 전파 중단
+
+    changeInterested(id)
+      .then((interested) => {
+        setIsInterested(interested);
+        console.log("set"); // test
+      })
+      .catch((error) => {
+        console.error(`An error occurred in fetching interested.`, error);
+      });
+  };
+
   // 보호소 위치 보기 =================================================
   const handleViewShelterLocation = () => {
     navigate(`/pet/${petId}/location`);
@@ -117,7 +132,10 @@ const PetInfoDetail = () => {
             <Text fontSize="20px" fontWeight="700">
               PETID-{petId}
             </Text>
-            <Icon src={interested ? "IconHeartSelected" : "IconHeartOff"} />
+            <Icon
+              src={isInterested ? "IconHeartSelected" : "IconHeartOff"}
+              onClick={(event) => handleClickHeart(event, petId)}
+            />
           </ContainerNameAndIcon>
 
           {/* breed, age & gender, size, & colors */}

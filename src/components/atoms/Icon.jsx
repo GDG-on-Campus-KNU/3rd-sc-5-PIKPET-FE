@@ -49,6 +49,7 @@ const StyledIcon = styled.img`
   width: ${(props) => props.width || "24px"};
   height: ${(props) => props.height || "24px"};
   cursor: pointer;
+  z-index: 999;
 
   // &:hover {
   //   background-color: ${(props) => props.theme.colors.extraLightGray};

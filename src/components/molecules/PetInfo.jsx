@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { useNavigate } from "react-router";
 
 import Icon from "@components/atoms/Icon";
 import Img from "@components/atoms/Img";
+import { changeInterested } from "@utils/interestsService";
 
 import styled from "styled-components";
 import {
@@ -12,6 +14,22 @@ import {
 import Text from "@styles/Text";
 
 const PetInfo = ({ petId, img, interested, breed, age, gender, shelterName, onClick }) => {
+  const [isInterested, setIsInterested] = useState(interested);
+
+  // 관심 on/off 변경 ==============================================================
+  const handleClickHeart = (event, id) => {
+    event.stopPropagation(); // 상위 요소로 이벤트 전파 중단
+
+    changeInterested(id)
+      .then((interested) => {
+        setIsInterested(interested);
+        console.log("set"); // test
+      })
+      .catch((error) => {
+        console.error(`An error occurred in fetching interested.`, error);
+      });
+  };
+
   return (
     <ContainerIncludingImg flexDirection="row" onClick={onClick}>
       <Img src={img} size="Middle" />
@@ -19,7 +37,10 @@ const PetInfo = ({ petId, img, interested, breed, age, gender, shelterName, onCl
         <StyledPetInfo_1_1>
           <ContainerNameAndIcon>
             <Text fontWeight="700">PETID-{petId}</Text>
-            <Icon src={interested ? "IconHeartSelected" : "IconHeartOff"} />
+            <Icon
+              src={interested ? "IconHeartSelected" : "IconHeartOff"}
+              onClick={(event) => handleClickHeart(event, petId)}
+            />
           </ContainerNameAndIcon>
           <Text fontSize="14px">{breed}</Text>
           <Text fontSize="14px">

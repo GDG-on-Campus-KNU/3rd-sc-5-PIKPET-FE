@@ -6,6 +6,7 @@ import { useInterestsStore } from "@store";
 import Icon from "@components/atoms/Icon";
 import Img, { ImgGroup } from "@components/atoms/Img";
 import { StyledShelter } from "@components/molecules/PetInfo";
+import { changeInterested } from "@/utils/interestsService";
 
 import styled from "styled-components";
 import Text from "@styles/Text";
@@ -43,43 +44,52 @@ const InterestsThumbnailList = () => {
   }
 
   // 관심 동물(interestsList)이 있을 경우 -------------------------------------------
+  const slicedInterestsList = interestsList.reverse().slice(0, 5);
 
   // 동물 상세 페이지로 이동 ------------------------------------------------------
   const handleViewPetInfoDetail = (id) => {
     navigate(`/pet/${id}`);
   };
 
-  // 관심 on/off ----------------------------------------------------------------
-  const handleSetInterested = (id) => {};
+  // 관심 on/off 변경 ==============================================================
+  // const handleClickHeart = (event, id) => {
+  //   event.stopPropagation(); // 상위 요소로 이벤트 전파 중단
+
+  //   changeInterested(id)
+  //     .then((interested) => {
+  //       setIsInterested(interested);
+  //       console.log("set"); // test
+  //     })
+  //     .catch((error) => {
+  //       console.error(`An error occurred in fetching interested.`, error);
+  //     });
+  // };
 
   return (
     <ImgGroup>
-      {interestsList
-        .reverse()
-        .slice(0, 5)
-        .map((item, index) => (
-          <InterestsThumbnail key={index} onClick={() => handleViewPetInfoDetail(item.id)}>
-            <div style={{ position: "relative" }}>
-              <Img src={item.imageUrl} size="Small" />
-              <IconWrapper>
-                <Icon
-                  // src={item.isLiked ? "IconHeartSelected" : "IconHeartOff"}
-                  src="IconHeartSelected" // 임시
-                  onClick={() => handleSetInterested(item.id)}
-                />
-              </IconWrapper>
-            </div>
-            <Text fontSize="14px" fontWeight="500">
-              PETID-{item.id}
+      {slicedInterestsList.map((item, index) => (
+        <InterestsThumbnail key={index} onClick={() => handleViewPetInfoDetail(item.id)}>
+          <div style={{ position: "relative" }}>
+            <Img src={item.imageUrl} size="Small" />
+            <IconWrapper>
+              <Icon
+                src={item.isLiked ? "IconHeartSelected" : "IconHeartOff"}
+                // src="IconHeartSelected" // 임시
+                // onClick={(event) => handleClickHeart(event, item.id)}
+              />
+            </IconWrapper>
+          </div>
+          <Text fontSize="14px" fontWeight="500">
+            PETID-{item.id}
+          </Text>
+          <StyledShelter>
+            <Icon src="IconPinLocation" width="14px" height="14px" />
+            <Text fontSize="12px" color={(props) => props.theme.colors.gray}>
+              {item.shelter.branchName}
             </Text>
-            <StyledShelter>
-              <Icon src="IconPinLocation" width="14px" height="14px" />
-              <Text fontSize="12px" color={(props) => props.theme.colors.gray}>
-                {item.shelter.branchName}
-              </Text>
-            </StyledShelter>
-          </InterestsThumbnail>
-        ))}
+          </StyledShelter>
+        </InterestsThumbnail>
+      ))}
     </ImgGroup>
   );
 };

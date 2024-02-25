@@ -25,9 +25,7 @@ const InterestsList = () => {
     // 단어를 공백으로 구분하여 배열로 분할
     const words = word.split("_");
     // 각 단어의 첫 글자를 대문자로 변환하고, 나머지 글자는 소문자로 변환하여 새로운 배열 생성
-    const formattedString = words.map(
-      (w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()
-    );
+    const formattedString = words.map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase());
 
     // 배열을 공백으로 연결하여 하나의 문자열로 반환
     return formattedString.join(" ");
