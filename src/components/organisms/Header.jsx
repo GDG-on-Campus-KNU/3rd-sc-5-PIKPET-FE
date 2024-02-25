@@ -68,7 +68,7 @@ const Header = ({ type, title }) => {
         <Icon src="IconHomeMono" onClick={handleClickHome} />
       </StyledHeader>
     );
-  } else if (type === "Application") {
+  } else if (type === "Apply") {
     return (
       <StyledHeader>
         <Icon src="IconBackward" onClick={goBackward} />
