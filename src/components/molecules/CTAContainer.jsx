@@ -41,8 +41,8 @@ const CTAContainer = ({ type, title1, title2, onClick, onClick1, onClick2 }) => 
   } else if (type === "2ButtonUneven") {
     return (
       <StyledCTAContainer>
-        <ButtonCTA type="Secondary" title={title1} width="calc(100% / 3)" />
-        <ButtonCTA type="Primary" title={title2} width="calc(100% * 2/3)" />
+        <ButtonCTA type="Secondary" title={title1} width="calc(100% / 3)" onClick={onClick1} />
+        <ButtonCTA type="Primary" title={title2} width="calc(100% * 2/3)" onClick={onClick2} />
       </StyledCTAContainer>
     );
   } else if (type === "SearchFilter") {
