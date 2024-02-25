@@ -172,7 +172,7 @@ const ApplyTemplate = () => {
           type="2ButtonUneven"
           title1="Backward"
           title2="Submit"
-          onClick2={handleSubmit}
+          //   onClick2={handleSubmit}
         />
       </Main>
     </Layout>
