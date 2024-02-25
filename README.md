@@ -3,22 +3,48 @@
 
 
 ## Table of Contents
-
-- [Getting_Started](#getting_started)
+- [About PIKPET](#About_PIKPET)
 - [Components](#components)
 - [Function](#function)
 - [Upcoming updates](#upcoming_updates)
 - [How to run](#How_to_run)
 
-### About PIKPET
+## About PIKPET
 A website for unified adoption applications for stray dogs, allowing easy connection for applications across different institutions and facilitating bidirectional communication with various certified breeders.
 
 Our goal is to become an alternative to the unethical infrastructure of the pet industry, including pet factories.
 
+
+### Our goal
+![image](https://github.com/GDSC-KNU/3rd-sc-5-PIKPET-BE/assets/112597963/58a7eb89-8ccc-4af3-9e7e-782b5b65e8ee)
+
+Over 90% of the puppies distributed in South Korea go through what are colloquially known as "pet shops." These pet shops are closely linked to illegal groups commonly referred to as "puppy mills."
+
+Puppies over 5 months old are considered to have no commodity value and are disposed of. Female dogs are often sold back to puppy mills to breed more puppies, while male dogs are commonly used as food ingredients.
+
+**We have set a major goal to become an alternative to the unethical infrastructure of the pet industry, including puppy mills, by increasing accessibility to shelters and breeders.**
+
+
 ## Components
 ### Frontend
+```
+(프론트엔드 기술 스택 넣어주세요)
+```
+
 ### Backend
-### AI
+https://github.com/GDSC-KNU/3rd-sc-5-PIKPET-BE
+```
+Java 17
+Spring Boot 3.1.8
+MySQL 8.0
+```
+
+### DevOps
+```
+Docker
+Github Actions
+Google Cloud Platforms
+```
 
 
 ## Function
@@ -38,8 +64,6 @@ Before visiting a shelter, we use Firebase to receive notifications from the she
 ### Addition of Breeder Certification System
 Especially for breeders, there is also an opinion that they cannot be trusted, as the operators of puppy mills can pretend to be professional breeders without requiring specific qualifications.
 we aim to manage the transaction records of breeders to determine if they are certified users.
-
-
 
 
 
