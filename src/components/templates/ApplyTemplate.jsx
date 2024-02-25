@@ -1,4 +1,12 @@
-import React from "react";
+import { useEffect } from "react";
+import { useCurrentPageStore, useLoggedinStore } from "@store";
+
+import Header from "@components/organisms/Header";
+import CTAContainer from "@components/molecules/CTAContainer";
+
+import styled from "styled-components";
+import Layout, { Main, Contents } from "@styles/Layout";
+import Container from "@styles/Container";
 
 const ApplyTemplate = () => {
   const { currentPage, setCurrentPage } = useCurrentPageStore();
