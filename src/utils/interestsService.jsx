@@ -22,7 +22,7 @@ export const fetchInterests = async (setNumberOfInterests, setInterestsList) => 
 // 관심 여부 on/off
 export const changeInterested = async (id) => {
   try {
-    const response = await axios.post(`api/userInfo/likeAnimal`, id);
+    const response = await axios.post(`api/userInfo/likeAnimal/${id}`);
     const data = response.data; // { isLiked, message }
     console.log("data: ", data); // for test
 
