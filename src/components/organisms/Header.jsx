@@ -25,6 +25,10 @@ const Header = ({ type, title }) => {
     navigate("/interests");
   };
 
+  const handleSaveApplication = () => {
+    // alert("Your application has been saved.");
+  };
+
   if (type === undefined) {
     throw new Error("type prop is necessary.");
   } else if (type === "Default") {
@@ -73,7 +77,7 @@ const Header = ({ type, title }) => {
       <StyledHeader>
         <Icon src="IconBackward" onClick={goBackward} />
         <Text fontWeight="700">{title}</Text>
-        <Icon src="IconSave" />
+        <Icon src="IconSave" onClick={handleSaveApplication} />
       </StyledHeader>
     );
   } else throw new Error("undefined type");
