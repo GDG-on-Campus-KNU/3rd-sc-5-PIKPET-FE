@@ -7,11 +7,12 @@ import NavBar from "@components/organisms/NavBar";
 import Footer from "@components/organisms/Footer";
 import CTAContainer from "@components/molecules/CTAContainer";
 import ContainerTitle from "@components/atoms/ContainerTitle";
-import Img, { ImgGroup } from "@components/atoms/Img";
+// import Img, { ImgGroup } from "@components/atoms/Img";
+import InterestsThumbnailList from "@components/molecules/InterestsThumbnailList";
 import samplePicture from "@assets/sample-picture.png";
 
 import styled from "styled-components";
-import Layout, { Main, Contents } from "@styles/layout";
+import Layout, { Main, Contents } from "@styles/Layout";
 import Text from "@styles/Text";
 
 const MypageTemplate = () => {
@@ -84,13 +85,7 @@ const MypageTemplate = () => {
           </MypageItem>
           <MypageItem>
             <ContainerTitle title="My interests" onClick={handleViewInterests} />
-            <ImgGroup>
-              <Img src={samplePicture} size="Small" />
-              <Img src={samplePicture} size="Small" />
-              <Img src={samplePicture} size="Small" />
-              <Img src={samplePicture} size="Small" />
-              <Img src={samplePicture} size="Small" />
-            </ImgGroup>
+            <InterestsThumbnailList />
           </MypageItem>
           <MypageItem>
             <ContainerTitle title="Edit profile" />

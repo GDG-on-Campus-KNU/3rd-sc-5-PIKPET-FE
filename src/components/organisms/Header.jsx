@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
+
 import Icon, { IconGroup } from "@components/atoms/Icon";
+import Logo from "@assets/logo-2.svg";
 
 import styled from "styled-components";
 import Text from "@styles/Text";
@@ -23,14 +25,19 @@ const Header = ({ type, title }) => {
     navigate("/interests");
   };
 
+  const handleSaveApplication = () => {
+    // alert("Your application has been saved.");
+  };
+
   if (type === undefined) {
     throw new Error("type prop is necessary.");
   } else if (type === "Default") {
     return (
       <StyledHeader backgroundColor={(props) => props.theme.colors.background}>
-        <Text color={(props) => props.theme.colors.primary} fontSize="24px" fontWeight="700">
+        {/* <Text color={(props) => props.theme.colors.primary} fontSize="24px" fontWeight="700">
           PIKPET
-        </Text>
+        </Text> */}
+        <img src={Logo} alt="Logo" style={{ width: "125px" }} />
       </StyledHeader>
     );
   } else if (type === "Widget") {
@@ -55,7 +62,7 @@ const Header = ({ type, title }) => {
     return (
       <StyledHeader>
         <Icon src="IconBackward" onClick={goBackward} />
-        <Icon src="IconHeartMono" />
+        <Icon src="IconHeartMono" onClick={handleClickHeart} />
       </StyledHeader>
     );
   } else if (type === "Login") {
@@ -65,12 +72,12 @@ const Header = ({ type, title }) => {
         <Icon src="IconHomeMono" onClick={handleClickHome} />
       </StyledHeader>
     );
-  } else if (type === "Application") {
+  } else if (type === "Apply") {
     return (
       <StyledHeader>
         <Icon src="IconBackward" onClick={goBackward} />
         <Text fontWeight="700">{title}</Text>
-        <Icon src="IconSave" />
+        <Icon src="IconSave" onClick={handleSaveApplication} />
       </StyledHeader>
     );
   } else throw new Error("undefined type");

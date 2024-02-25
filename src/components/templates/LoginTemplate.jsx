@@ -3,9 +3,10 @@ import { useNavigate } from "react-router";
 import { useCurrentPageStore, useLoggedinStore } from "@store";
 
 import Header from "@components/organisms/Header";
+import Logo from "@assets/logo-1.svg";
 import LoginForm from "@components/organisms/LoginForm";
 
-import Layout, { Main, Contents } from "@styles/layout";
+import Layout, { Main, Contents } from "@styles/Layout";
 import Text from "@styles/Text";
 
 const LoginTemplate = () => {
@@ -28,9 +29,10 @@ const LoginTemplate = () => {
 
       <Main>
         <Contents alignItems="center" gap="32px">
-          <Text fontSize="32px" fontWeight="700" color={(props) => props.theme.colors.primary}>
+          {/* <Text fontSize="32px" fontWeight="700" color={(props) => props.theme.colors.primary}>
             PIKPET
-          </Text>
+          </Text> */}
+          <img src={Logo} alt="Logo" style={{ width: "125px" }} />
           <Text>Log in and enjoy PIKPET!</Text>
           <LoginForm />
         </Contents>

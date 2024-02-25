@@ -86,17 +86,14 @@ const StyledImg = styled.img`
   background-color: ${(props) => props.backgroundColor || props.theme.colors.extraLightGray};
 `;
 
-export const ImgGroup = ({ children }) => {
-  return <StyledImgGroup>{children}</StyledImgGroup>;
-};
-
-const StyledImgGroup = styled.div`
+const ImgGroup = styled.div`
   padding: 0 16px;
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   gap: 12px;
   overflow-x: scroll;
 `;
 
 export default Img;
+export { ImgGroup };

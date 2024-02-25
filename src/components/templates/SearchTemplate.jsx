@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import {
   useCurrentPageStore,
-  useLoggedinStore,
-  useSearchKeywordsStore,
   useSearchTagsStore,
   useSearchImgStore,
   usePetInfoStore,
@@ -16,13 +14,13 @@ import SearchFilter from "@components/organisms/SearchFilter";
 import CTAContainer from "@components/molecules/CTAContainer";
 
 // import styled from "styled-components";
-import Layout, { Main, Contents } from "@styles/layout";
+import Layout, { Main, Contents } from "@styles/Layout";
 
 const SearchTemplate = () => {
   const navigate = useNavigate();
   const { currentPage, setCurrentPage } = useCurrentPageStore();
-  const { isLoggedin, setIsLoggedin } = useLoggedinStore();
-  const { keywordsList, setKeywordsList } = useSearchKeywordsStore();
+  // const { isLoggedin, setIsLoggedin } = useLoggedinStore();
+  // const { keywordsList, setKeywordsList } = useSearchKeywordsStore();
   const {
     speciesTagsList,
     breedTagsList,

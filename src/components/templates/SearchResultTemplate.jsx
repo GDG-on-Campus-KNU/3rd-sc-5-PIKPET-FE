@@ -1,22 +1,23 @@
 import { useEffect } from "react";
 import { useParams } from "react-router";
-import { useCurrentPageStore, useLoggedinStore, usePetInfoStore } from "@store";
+import { useCurrentPageStore, usePetInfoStore } from "@store";
 
 import SearchBar from "@components/organisms/SearchBar";
 // import SearchFilterDropdown from "@components/organisms/SearchFilterDropdown";
+import NoResultNoti from "@components/organisms/NoResultNoti";
 import PetInfoList from "@components/organisms/PetInfoList";
 import Paginator from "@components/organisms/Paginator";
 import NavBar from "@components/organisms/NavBar";
 
-// import styled from "styled-components";
+import styled from "styled-components";
 import Text from "@styles/Text";
-import Layout, { Main, Contents } from "@styles/layout";
+import Layout, { Main, Contents } from "@styles/Layout";
 
 const SearchResultTemplate = () => {
   const params = useParams();
   const queryString = params.queryString; // useParams를 통해 URL에서 가져온 queryString
   const { currentPage, setCurrentPage } = useCurrentPageStore();
-  const { isLoggedin, setIsLoggedin } = useLoggedinStore();
+  // const { isLoggedin, setIsLoggedin } = useLoggedinStore();
   const { petInfoList, numberOfElements } = usePetInfoStore();
 
   // console.log("called");
@@ -44,8 +45,23 @@ const SearchResultTemplate = () => {
               <b>{NUM_OF_PETS}</b> in total
             </Text>
           </div>
-          <PetInfoList />
-          <Paginator />
+          {numberOfElements === 0 ? (
+            <NoResultNoti
+              content={
+                <>
+                  Sorry, no result. <br />
+                  Please retry with another keyword or image
+                  <br />
+                  or reset the filter tags.
+                </>
+              }
+            />
+          ) : (
+            <>
+              <PetInfoList />
+              <Paginator />
+            </>
+          )}
         </Contents>
         <NavBar />
       </Main>

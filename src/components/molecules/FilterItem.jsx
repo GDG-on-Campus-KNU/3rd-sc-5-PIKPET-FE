@@ -8,9 +8,10 @@ import Toggle from "@components/atoms/Toggle";
 import styled from "styled-components";
 import Text from "@styles/Text";
 
-// type (ButtonTag, Input, Toggle, ...) 필수 -> 스타일 설정 위함
+// type (ButtonTag, Input, Toggle, Name, BirthAndGender ...) 필수 -> 스타일 설정 위함
+// 그냥 알아서 정하면 됨
 const FilterItem = ({ type, title, children }) => {
-  if (type === undefined) throw new Error("Undefined type of FilterItem.");
+  if (type == undefined) throw new Error("Undefined type of FilterItem.");
   return (
     <StyledFilterItem type={type}>
       <Text fontSize="14px" fontWeight="700">
