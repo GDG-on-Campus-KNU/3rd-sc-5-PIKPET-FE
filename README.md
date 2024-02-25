@@ -12,9 +12,6 @@
 ## About PIKPET
 A website for unified adoption applications for stray dogs, allowing easy connection for applications across different institutions and facilitating bidirectional communication with various certified breeders.
 
-Our goal is to become an alternative to the unethical infrastructure of the pet industry, including pet factories.
-
-
 ### Our goal
 ![image](https://github.com/GDSC-KNU/3rd-sc-5-PIKPET-BE/assets/112597963/58a7eb89-8ccc-4af3-9e7e-782b5b65e8ee)
 
