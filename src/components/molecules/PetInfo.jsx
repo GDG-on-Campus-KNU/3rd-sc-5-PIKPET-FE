@@ -14,7 +14,7 @@ import {
 import Text from "@styles/Text";
 
 const PetInfo = ({ petId, img, interested, breed, age, gender, shelterName, onClick }) => {
-  const [isInterested, setIsInterested] = useState(interested);
+  const [isInterested, setIsInterested] = useState(interested); // prop으로 받은 초기값 interested
 
   // 관심 on/off 변경 ==============================================================
   const handleClickHeart = (event, id) => {
@@ -38,7 +38,7 @@ const PetInfo = ({ petId, img, interested, breed, age, gender, shelterName, onCl
           <ContainerNameAndIcon>
             <Text fontWeight="700">PETID-{petId}</Text>
             <Icon
-              src={interested ? "IconHeartSelected" : "IconHeartOff"}
+              src={isInterested ? "IconHeartSelected" : "IconHeartOff"}
               onClick={(event) => handleClickHeart(event, petId)}
             />
           </ContainerNameAndIcon>
