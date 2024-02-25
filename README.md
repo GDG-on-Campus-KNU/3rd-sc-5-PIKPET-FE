@@ -10,11 +10,10 @@
 - [Upcoming updates](#upcoming_updates)
 - [How to run](#How_to_run)
 
+### About PIKPET
+A website for unified adoption applications for stray dogs, allowing easy connection for applications across different institutions and facilitating bidirectional communication with various certified breeders.
 
-## Getting_Started
- - Why did we choose the topic
-### Problem: Not all countries have a perfect infrastructure related to pets.
-### Solution: new infrastructure and Simplified Search"
+Our goal is to become an alternative to the unethical infrastructure of the pet industry, including pet factories.
 
 ## Components
 ### Frontend
@@ -35,8 +34,10 @@
 
 ## upcoming_updates
 ### Implementation of notification service using Firebase
+Before visiting a shelter, we use Firebase to receive notifications from the shelter. This allows users to receive updates on animals they have expressed interest in.
 ### Addition of Breeder Certification System
-### Detection of malicious users through AI
+Especially for breeders, there is also an opinion that they cannot be trusted, as the operators of puppy mills can pretend to be professional breeders without requiring specific qualifications.
+we aim to manage the transaction records of breeders to determine if they are certified users.
 
 
 
@@ -44,12 +45,4 @@
 
 
 
-## 
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## How to Run
