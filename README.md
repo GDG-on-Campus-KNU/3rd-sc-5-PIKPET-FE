@@ -48,7 +48,7 @@ Google Cloud Platforms
 ### Login
 ![login](https://velog.velcdn.com/images/yooonwodyd/post/f8b40454-f090-46f8-9407-15b1ad76a269/image.gif)
 ### Recommend similar rescued animals by comparing breeds, colors, and sizes through images
-![](https://velog.velcdn.com/images/yooonwodyd/post/0c3dce86-1598-42fa-a099-4a795e75a08b/image.png)
+![](https://velog.velcdn.com/images/yooonwodyd/post/66e7b2f3-ce2b-457f-bdc4-36ae26f65d39/image.gif)
 ### Search popular categories
 ![](https://velog.velcdn.com/images/yooonwodyd/post/21489601-ebff-453e-b051-21f1a569e83c/image.gif)
 ### Application submission
