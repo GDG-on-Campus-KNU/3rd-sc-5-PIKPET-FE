@@ -69,3 +69,13 @@ we aim to manage the transaction records of breeders to determine if they are ce
 
 
 ## How to Run
+### Frontend
+node.js (버전 적어주세요)version install
+run git clone https://github.com/GDSC-KNU/3rd-sc-5-PIKPET-FE
+Create a file called .env on the path to 3rd-sc-5-PIKPET-FE
+run npm install
+run npm run dev
+Access localhost:5173
+Login test user (id: test@test, pw: test)
+### Backend
+It is currently on the server. When running a frontend project, it is connected to a backend server.
