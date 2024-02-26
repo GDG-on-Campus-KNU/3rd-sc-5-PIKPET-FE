@@ -1,6 +1,6 @@
-# PIKPET- "A communication website for saving lives and easing accessibility to animal shelters"
 <img width="200" alt="image" src="https://velog.velcdn.com/images/yooonwodyd/post/0c3dce86-1598-42fa-a099-4a795e75a08b/image.png">
 
+# PIKPET - "A communication website for saving abandoned pets and making easier to accessible to pet shelters"
 
 ## Table of Contents
 - [About PIKPET](#About_PIKPET)
@@ -11,7 +11,7 @@
 
 ## About PIKPET
 <img width="200" alt="image" src="https://velog.velcdn.com/images/yooonwodyd/post/f0cb98b8-69ec-4e84-879b-275e8ae7e675/image.png">
-A website for unified adoption applications for stray dogs, allowing easy connection for applications across different institutions and facilitating bidirectional communication with various certified breeders.
+A website for unified adoption applications for abandoned pets (dogs), allowing easy connection for applications across different institutions and facilitating bidirectional communication with various certified breeders.
 
 ### Our goal
 ![image](https://github.com/GDSC-KNU/3rd-sc-5-PIKPET-BE/assets/112597963/58a7eb89-8ccc-4af3-9e7e-782b5b65e8ee)
@@ -25,17 +25,18 @@ Puppies over 5 months old are considered to have no commodity value and are disp
 
 ## Components
 ### Frontend
-```
-(프론트엔드 기술 스택 넣어주세요)
-```
+![JavaScript](https://img.shields.io/badge/javascript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) 
+![React](https://img.shields.io/badge/React-18.2.0-61DAFB?style=flat-square&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-4.4.5-646CFF?style=flat-square&logo=vite&labelColor=white) 
+![npm](https://img.shields.io/badge/npm-10.2.3-CB3837?style=flat-square&logo=npm&labelColor=white) 
+![Zustand](https://img.shields.io/badge/Zustand-4.5.0-black?style=flat-square&labelColor=white) 
+![styled-components](https://img.shields.io/badge/styled_components-6.1.8-black?style=flat-square&logo=styled-components&logoColor=white&labelColor=DB7093) 
 
 ### Backend
-https://github.com/GDSC-KNU/3rd-sc-5-PIKPET-BE
-```
-Java 17
-Spring Boot 3.1.8
-MySQL 8.0
-```
+https://github.com/GDSC-KNU/3rd-sc-5-PIKPET-BE  
+![Java](https://img.shields.io/badge/java-17-007396?style=flat-square&logo=java&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.1.8-6DB33F?style=flat-square&logo=springboot&logoColor=6DB33F) 
+![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=flat-square&logo=MySQL&logoColor=white)
 
 ### DevOps
 ```
@@ -45,16 +46,16 @@ Google Cloud Platforms
 ```
 
 
-## Function
+## Functions
 ### Login
 ![login](https://velog.velcdn.com/images/yooonwodyd/post/f8b40454-f090-46f8-9407-15b1ad76a269/image.gif)
-### Recommend similar rescued animals by comparing breeds, colors, and sizes through images
+### Searching with an image: Recommendation of pets that look similar by comparing breeds, colors, sizes, etc.
 ![](https://velog.velcdn.com/images/yooonwodyd/post/66e7b2f3-ce2b-457f-bdc4-36ae26f65d39/image.gif)
-### Search popular categories
+### Searching by filters: Searching popular categories
 ![](https://velog.velcdn.com/images/yooonwodyd/post/21489601-ebff-453e-b051-21f1a569e83c/image.gif)
-### Application submission
+### Appling for adoption
 ![](https://velog.velcdn.com/images/yooonwodyd/post/570f01f5-10e3-4974-8769-4356ed22c739/image.gif)
-### View detailed information about dogs
+### Viewing details of the pet
 ![](https://velog.velcdn.com/images/yooonwodyd/post/df815d40-2583-4fc1-b85f-be4bb73ab5b6/image.gif)
 
 
@@ -66,19 +67,16 @@ Especially for breeders, there is also an opinion that they cannot be trusted, a
 we aim to manage the transaction records of breeders to determine if they are certified users.
 
 
-
-
-
 ## How to Run
 ### Frontend
-1. node.js (버전 적어주세요)version install
-2. run `git clone https://github.com/GDSC-KNU/3rd-sc-5-PIKPET-FE`
-3. Create a file called .env on the path to 3rd-sc-5-PIKPET-FE
-4. run `npm install`
-5. run `npm run dev`
-6. Access localhost:5173
-7. Login test user (id: test@test, pw: test)
+1. Install **node.js v.21.1.0**
+2. Run `git clone https://github.com/GDSC-KNU/3rd-sc-5-PIKPET-FE`  
+3. Create a **.env file** to set invironment variables on the path `/3rd-sc-5-PIKPET-FE`
+4. Run `npm install`
+5. Run `npm run dev`
+6. Access to **localhost:5173**
+7. Login with the test account (E-mail: **test@test**, Password: **test**)
 
    
 ### Backend
-It is currently on the server. When running a frontend project, it is connected to a backend server.
+It is currently on the server. You don't need to run the backend server seperately because the frontend server is connected to the backend server. 
