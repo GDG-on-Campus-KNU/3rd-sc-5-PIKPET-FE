@@ -46,6 +46,7 @@ Google Cloud Platforms
 
 ## Function
 ### Login
+![login](https://velog.velcdn.com/images/yooonwodyd/post/f8b40454-f090-46f8-9407-15b1ad76a269/image.gif)
 ### MainPage
 ### Recommend similar rescued animals by comparing breeds, colors, and sizes through images
 ### Location-Based Animal Search
