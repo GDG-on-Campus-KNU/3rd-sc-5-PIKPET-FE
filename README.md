@@ -10,6 +10,7 @@
 - [How to run](#How_to_run)
 
 ## About PIKPET
+![](https://velog.velcdn.com/images/yooonwodyd/post/f0cb98b8-69ec-4e84-879b-275e8ae7e675/image.png)
 A website for unified adoption applications for stray dogs, allowing easy connection for applications across different institutions and facilitating bidirectional communication with various certified breeders.
 
 ### Our goal
