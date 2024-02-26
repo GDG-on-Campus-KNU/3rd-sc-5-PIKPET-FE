@@ -47,13 +47,14 @@ Google Cloud Platforms
 ## Function
 ### Login
 ![login](https://velog.velcdn.com/images/yooonwodyd/post/f8b40454-f090-46f8-9407-15b1ad76a269/image.gif)
-### MainPage
 ### Recommend similar rescued animals by comparing breeds, colors, and sizes through images
-### Location-Based Animal Search
+![](https://velog.velcdn.com/images/yooonwodyd/post/0c3dce86-1598-42fa-a099-4a795e75a08b/image.png)
 ### Search popular categories
+![](https://velog.velcdn.com/images/yooonwodyd/post/21489601-ebff-453e-b051-21f1a569e83c/image.gif)
 ### Application submission
-### Locate shelters
+![](https://velog.velcdn.com/images/yooonwodyd/post/570f01f5-10e3-4974-8769-4356ed22c739/image.gif)
 ### View detailed information about dogs
+![](https://velog.velcdn.com/images/yooonwodyd/post/df815d40-2583-4fc1-b85f-be4bb73ab5b6/image.gif)
 
 
 ## upcoming_updates
